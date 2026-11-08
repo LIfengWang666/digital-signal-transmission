@@ -1,0 +1,29 @@
+\begingroup
+\normalsize
+\begin{flushleft}
+\bfseries\abstractname
+\end{flushleft}
+\noindent
+This study evaluates signal reconstruction through Gaussian noise and a
+binary symmetric channel using standard signal-processing methods. DFT analysis selects
+16 kHz sampling for the supplied two-second multitone, retaining all four
+components while reducing samples by two thirds. The baseline combines a
+385-tap Hann multiband FIR, 14-bit endpoint quantisation, Hamming(7,4) and
+periodic Fourier reconstruction. Purpose-seeded channels use separate
+random streams under a documented project mapping.
+
+Independent four-configuration comparisons give the lowest anchor-point
+mean NMSE, $\WPersonalBoth$, when filtering and coding are both enabled.
+Filtering becomes harmful in Gaussian-only 35/40 dB checks. Seven of 92
+R4 means miss the planned 5\% relative interval half-width target (maximum
+\WMaxRelativePercent\%); some high-SNR contrasts remain unresolved.
+
+Changing to 16 bits improves the declared main-domain objective but raises
+traffic from 392 to 448 kbit/s, with unresolved anchor-point benefit.
+Under a separate 320 kbit/s cap, Hamming(15,11) meets the fixed anchor-point
+mean-quality rule at 305.46 kbit/s, with reduced exact-payload reliability.
+These conclusions are conditional on the tested signal, severity weights
+and logical-rate model. Reproducible code, saved measurements and independent
+numerical-method checks support the results; the numerical assumptions and limitations are stated explicitly.
+\par
+\endgroup

@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "independent_path_records": 1760,
+  "independent_gaussian_inputs": 160,
+  "independent_unique_BSC_masks": 840,
+  "unique_paths": 1000,
+  "paired_mask_groups_verified": 880,
+  "full_decomposition_rows_verified": 1760,
+  "summary_means_verified": 88,
+  "deterministic_controls_verified": 4,
+  "unique_quantiser_banks_verified": 320,
+  "paired_effect_rows_verified": 440,
+  "bundle_objective_rows_verified": 80,
+  "planning_statistics_verified": 92,
+  "candidate_validation_records_verified": 1400,
+  "maximum_independent_MSE_difference": 2.842170943040401e-14,
+  "methods": [
+    "direct full convolution",
+    "midpoint search quantisation",
+    "XOR parity encoding",
+    "correction-sphere lookup decoding",
+    "SciPy Fourier resampling",
+    "independent bundle/SD calculations"
+  ],
+  "receiver_has_no_truth_or_mask_parameter": true,
+  "phase1_used": false
+}

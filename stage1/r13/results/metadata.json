@@ -1,0 +1,9 @@
+{
+  "input_npy_sha256": "2f62c84fb0e11586373b2dc0d92f180206d15d4a77098046c9c43de290657095",
+  "conditions": "Clean reference, direct index selection; no noise, quantisation or bit errors.",
+  "anti_alias_filter": "Intentionally bypassed to expose folding; not the recommendation for a general sampler.",
+  "reconstruction": "Same R1.2 periodic Fourier interpolation for both paths; only low-rate samples enter recovery.",
+  "evaluation": "All original grid positions; no trimming, fitted gain, time shift or original-tone-assisted recovery.",
+  "prediction_only": "Source parameters explain the expected folds and error power after sampling; they are never passed to the recovery function.",
+  "random_seed": null
+}

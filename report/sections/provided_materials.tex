@@ -1,0 +1,55 @@
+\section{Reference data and channel models}
+The bundled 48 kHz reference files contain 96000 mono samples. NPY is real
+ \texttt{float64}; WAV is signed 16 bit PCM, related exactly by
+\begin{equation}
+ x_{\mathrm{WAV}}[n]=\operatorname{round}\!\left(20000x_{\mathrm{NPY}}[n]\right).
+ \label{eq:provided-pcm}
+\end{equation}
+Writing $ u=x_{\rm NPY}$, all experiments use unmodified NPY units; WAV supports listening
+and content/metadata checking. Both hashes are in
+ \path{metadata/provided_files.csv}. R1 is deterministic. The simulation uses these channel models:
+\begin{align}
+ y[n]&=x[n]+e[n],\qquad e[n]\overset{\mathrm{iid}}\sim\mathcal N(0,\sigma^2),
+ &\sigma^2&=\frac{P_x}{10^{S_{\mathrm{dB}}/10}},
+ \quad P_x=\frac1N\sum_{n=0}^{N-1}x[n]^2, \label{eq:noise-contract}\\
+ b_r[n]&=b_t[n]\oplus E[n],\qquad
+ E[n]\overset{\mathrm{iid}}\sim\operatorname{Bernoulli}(p).
+ \label{eq:bsc-contract}
+\end{align}
+\path{degradation.py} draws standard deviation $\sqrt{\sigma^2}$ without
+subtracting the realised mean or rescaling. Severity ranges and the root seed are explicit project choices. The following
+convention separates design trials from held-out validation.
+
+\subsection{Random streams and independence convention}
+Root 2470964, NumPy 2.1.3 \texttt{SeedSequence(pool\_size=4)} and
+explicit \texttt{PCG64}/\texttt{Generator} fix replay. Purpose branches
+0, 1 and 2 separate the following draws:
+
+\begingroup
+\ExplSyntaxOn
+\cs_set_eq:NN \tabular \report_original_tabular:
+\ExplSyntaxOff
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{28mm}
+ >{\raggedright\arraybackslash}p{41mm}
+ >{\raggedright\arraybackslash}p{\dimexpr\linewidth-69mm-4\tabcolsep\relax}@{}}
+\textbf{Purpose} & \textbf{Seed path} & \textbf{Role and indices} \\[2pt]
+Parameter draws & $(0,0)$, $(0,1)$ &
+$S_{\rm ID}$ in R2.1; $p_{\rm ID}$ in R3.3. \\[3pt]
+Gaussian draws & $(1,s,\varphi,c,r)$ &
+Study $s$, design/validation phase $\varphi$, condition $c$ and repeat $r$. \\[3pt]
+BSC masks & $(2,s,\varphi,c,r,\ell)$ &
+The same study, phase, condition and repeat; code/bit layout $\ell$. \\
+\end{tabular}
+\par
+\endgroup
+
+Explicit \texttt{spawn\_key} paths identify
+the same tree as successive spawning without loop-order dependence
+ \citep{numpy21parallel,numpy21seedsequence}. Paired methods share
+contaminated records; distinct repeats use distinct leaves. Replaying
+a leaf creates no new observation. Full paths, call shapes, versions,
+states and input/output hashes are recorded in the run ledgers and
+ \path{metadata/randomness_design.json}; distribution replay depends
+on version and calls \citep{numpy21randomcompatibility}.
+Derivations are centralised in Appendix~\ref{app:derivations}.

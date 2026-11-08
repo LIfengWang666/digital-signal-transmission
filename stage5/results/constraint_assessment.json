@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-21",
+  "status": "complete; awaiting independent R5.2 derived audit",
+  "selected_variant": "h1511",
+  "maximum_bits_s": 320000,
+  "NMSE_threshold": 0.057666604564293136,
+  "threshold_origin": "Unchanged project R3.4 personal-point tolerance; not a external or all-SNR criterion",
+  "scope": "personal SNR/p only; fixed14bit,A18,FIR385,16kHz",
+  "records_reused_from_R5_confirmation": 350,
+  "additional_independent_records": 0,
+  "reused_subset_and_rule_prespecified": true,
+  "mean_interval_family": 19,
+  "message_interval_method": "pointwise95% Clopper-Pearson",
+  "bits11_worst_quantisation_component_ratio": 0.3547878721288013,
+  "bits11_new_whole_chain_quality_measured": false,
+  "perfect_payload_means_real_bits_not_padding": true,
+  "logical_rate_excludes_unmodelled_headers_modulation": true,
+  "stronger_protection_or_energy_saving_claim": false,
+  "source_sha256": {
+    "stage5/design.json": "d8d99085c9f1c4b407d91c150014ca4bbb36f4cd6c89ed4555a6e0cf383e412e",
+    "stage5/constraint.py": "b68b2999a1eb34b4f406eac1edcec977211644a0cd7a227e30f9fa66539cc171",
+    "metadata/r51_completion_review.json": "aeb64233ae44af5d7e91e1c50ffcc76f8fd6669860901788240a2c04f7f69196",
+    "stage5/results/phase1_freeze.json": "c63af2603903f10effc5a2d184df3d8b3b14d1c6eca84063f85f382dcd661243",
+    "stage5/results/phase1_independent_checks.json": "1260cf0c2f56027b31d9bba8240b1dc311c64a3dd76a2d4707d035343b323836",
+    "stage5/results/primary_summary.csv": "cefefa3de682f8f87e8b6f164ba6cfde0bc86ffd4f15eccb39870011fd789155",
+    "stage5/results/case_summary.csv": "5413548e8646c9e201578c6c6a8cae02690b1a05a129e10a70c8b69496cdfc3f",
+    "stage5/results/variants.csv": "9935d9963f5cb14d4a550d3db37979127aa57a63ce2a2e9aa8e8c126716e3882",
+    "stage3/r31/results/bit_selection.csv": "12487b5e80976cb21856238aca4cbba6ba4f6cff2ca8f24eaecb7d9031ff19fd",
+    "stage3/r32/codes.py": "6b82a04a210816034b80ef449ad1ea638461cb56d481aec06b0b41d0759e0208"
+  }
+}

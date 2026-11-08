@@ -1,0 +1,715 @@
+{
+  "date": "2026-10-21",
+  "status": "Frozen before R5 new phase draws",
+  "study_id": 5,
+  "phase_id": 0,
+  "records_per_condition": 20,
+  "design": {
+    "date": "2026-10-21",
+    "scope": "R5.1 one-decision counterfactuals; prespecified personal-point R5.2 constraint subset",
+    "study_id": 5,
+    "pilot_phase": 0,
+    "validation_phase": 1,
+    "pilot_bundles": 20,
+    "conditions": [
+      {
+        "joint_condition_id": 1,
+        "snr_condition_id": 5,
+        "snr_db": 2.6612673327971192,
+        "probability": 0.0001,
+        "slice_membership": [
+          "bsc_at_personal_snr"
+        ],
+        "role": "primary BSC slice",
+        "primary": true,
+        "main_weight_numerator": 1,
+        "main_weight_denominator": 12,
+        "main_weight": 0.08333333333333333,
+        "bsc_rng_required": true
+      },
+      {
+        "joint_condition_id": 2,
+        "snr_condition_id": 5,
+        "snr_db": 2.6612673327971192,
+        "probability": 0.001,
+        "slice_membership": [
+          "bsc_at_personal_snr"
+        ],
+        "role": "primary BSC slice",
+        "primary": true,
+        "main_weight_numerator": 1,
+        "main_weight_denominator": 12,
+        "main_weight": 0.08333333333333333,
+        "bsc_rng_required": true
+      },
+      {
+        "joint_condition_id": 3,
+        "snr_condition_id": 5,
+        "snr_db": 2.6612673327971192,
+        "probability": 0.003,
+        "slice_membership": [
+          "bsc_at_personal_snr"
+        ],
+        "role": "primary BSC slice",
+        "primary": true,
+        "main_weight_numerator": 1,
+        "main_weight_denominator": 12,
+        "main_weight": 0.08333333333333333,
+        "bsc_rng_required": true
+      },
+      {
+        "joint_condition_id": 4,
+        "snr_condition_id": 5,
+        "snr_db": 2.6612673327971192,
+        "probability": 0.01,
+        "slice_membership": [
+          "bsc_at_personal_snr"
+        ],
+        "role": "primary BSC slice",
+        "primary": true,
+        "main_weight_numerator": 1,
+        "main_weight_denominator": 12,
+        "main_weight": 0.08333333333333333,
+        "bsc_rng_required": true
+      },
+      {
+        "joint_condition_id": 5,
+        "snr_condition_id": 5,
+        "snr_db": 2.6612673327971192,
+        "probability": 0.03,
+        "slice_membership": [
+          "bsc_at_personal_snr"
+        ],
+        "role": "primary BSC slice",
+        "primary": true,
+        "main_weight_numerator": 1,
+        "main_weight_denominator": 12,
+        "main_weight": 0.08333333333333333,
+        "bsc_rng_required": true
+      },
+      {
+        "joint_condition_id": 6,
+        "snr_condition_id": 5,
+        "snr_db": 2.6612673327971192,
+        "probability": 0.1,
+        "slice_membership": [
+          "bsc_at_personal_snr"
+        ],
+        "role": "primary BSC slice",
+        "primary": true,
+        "main_weight_numerator": 1,
+        "main_weight_denominator": 12,
+        "main_weight": 0.08333333333333333,
+        "bsc_rng_required": true
+      },
+      {
+        "joint_condition_id": 7,
+        "snr_condition_id": 5,
+        "snr_db": 2.6612673327971192,
+        "probability": 0.3,
+        "slice_membership": [
+          "bsc_at_personal_snr"
+        ],
+        "role": "BSC stress diagnostic",
+        "primary": false,
+        "main_weight_numerator": 0,
+        "main_weight_denominator": 12,
+        "main_weight": 0.0,
+        "bsc_rng_required": true
+      },
+      {
+        "joint_condition_id": 8,
+        "snr_condition_id": 5,
+        "snr_db": 2.6612673327971192,
+        "probability": 0.0003,
+        "slice_membership": [
+          "bsc_at_personal_snr"
+        ],
+        "role": "primary BSC slice",
+        "primary": true,
+        "main_weight_numerator": 1,
+        "main_weight_denominator": 12,
+        "main_weight": 0.08333333333333333,
+        "bsc_rng_required": true
+      },
+      {
+        "joint_condition_id": 10,
+        "snr_condition_id": 5,
+        "snr_db": 2.6612673327971192,
+        "probability": 0.5,
+        "slice_membership": [
+          "bsc_at_personal_snr"
+        ],
+        "role": "BSC stress diagnostic",
+        "primary": false,
+        "main_weight_numerator": 0,
+        "main_weight_denominator": 12,
+        "main_weight": 0.0,
+        "bsc_rng_required": true
+      },
+      {
+        "joint_condition_id": 11,
+        "snr_condition_id": 5,
+        "snr_db": 2.6612673327971192,
+        "probability": 0.00021099569319078592,
+        "slice_membership": [
+          "bsc_at_personal_snr",
+          "gaussian_at_personal_p"
+        ],
+        "role": "personal overlap; one condition and one main weight",
+        "primary": true,
+        "main_weight_numerator": 1,
+        "main_weight_denominator": 12,
+        "main_weight": 0.08333333333333333,
+        "bsc_rng_required": true
+      },
+      {
+        "joint_condition_id": 16,
+        "snr_condition_id": 1,
+        "snr_db": 0.0,
+        "probability": 0.00021099569319078592,
+        "slice_membership": [
+          "gaussian_at_personal_p"
+        ],
+        "role": "primary Gaussian slice",
+        "primary": true,
+        "main_weight_numerator": 1,
+        "main_weight_denominator": 12,
+        "main_weight": 0.08333333333333333,
+        "bsc_rng_required": true
+      },
+      {
+        "joint_condition_id": 17,
+        "snr_condition_id": 2,
+        "snr_db": 10.0,
+        "probability": 0.00021099569319078592,
+        "slice_membership": [
+          "gaussian_at_personal_p"
+        ],
+        "role": "primary Gaussian slice",
+        "primary": true,
+        "main_weight_numerator": 1,
+        "main_weight_denominator": 12,
+        "main_weight": 0.08333333333333333,
+        "bsc_rng_required": true
+      },
+      {
+        "joint_condition_id": 18,
+        "snr_condition_id": 3,
+        "snr_db": 20.0,
+        "probability": 0.00021099569319078592,
+        "slice_membership": [
+          "gaussian_at_personal_p"
+        ],
+        "role": "primary Gaussian slice",
+        "primary": true,
+        "main_weight_numerator": 1,
+        "main_weight_denominator": 12,
+        "main_weight": 0.08333333333333333,
+        "bsc_rng_required": true
+      },
+      {
+        "joint_condition_id": 19,
+        "snr_condition_id": 4,
+        "snr_db": 30.0,
+        "probability": 0.00021099569319078592,
+        "slice_membership": [
+          "gaussian_at_personal_p"
+        ],
+        "role": "primary Gaussian slice",
+        "primary": true,
+        "main_weight_numerator": 1,
+        "main_weight_denominator": 12,
+        "main_weight": 0.08333333333333333,
+        "bsc_rng_required": true
+      },
+      {
+        "joint_condition_id": 21,
+        "snr_condition_id": 7,
+        "snr_db": 40.0,
+        "probability": 0.00021099569319078592,
+        "slice_membership": [
+          "gaussian_at_personal_p"
+        ],
+        "role": "Gaussian severity/high-SNR diagnostic",
+        "primary": false,
+        "main_weight_numerator": 0,
+        "main_weight_denominator": 12,
+        "main_weight": 0.0,
+        "bsc_rng_required": true
+      }
+    ],
+    "snr_conditions": [
+      {
+        "snr_condition_id": 1,
+        "snr_db": 0.0
+      },
+      {
+        "snr_condition_id": 2,
+        "snr_db": 10.0
+      },
+      {
+        "snr_condition_id": 3,
+        "snr_db": 20.0
+      },
+      {
+        "snr_condition_id": 4,
+        "snr_db": 30.0
+      },
+      {
+        "snr_condition_id": 5,
+        "snr_db": 2.6612673327971192
+      },
+      {
+        "snr_condition_id": 7,
+        "snr_db": 40.0
+      }
+    ],
+    "main_ids": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      11,
+      16,
+      17,
+      18,
+      19
+    ],
+    "variants": [
+      {
+        "id": "base",
+        "filter_id": "base",
+        "bits": 14,
+        "code": "hamming74",
+        "layout": 0,
+        "role": "frozen R4 both baseline"
+      },
+      {
+        "id": "band60",
+        "filter_id": "band60",
+        "bits": 14,
+        "code": "hamming74",
+        "layout": 0,
+        "role": "single half-width change"
+      },
+      {
+        "id": "band80",
+        "filter_id": "band80",
+        "bits": 14,
+        "code": "hamming74",
+        "layout": 0,
+        "role": "single half-width change"
+      },
+      {
+        "id": "taps257",
+        "filter_id": "taps257",
+        "bits": 14,
+        "code": "hamming74",
+        "layout": 0,
+        "role": "single length change"
+      },
+      {
+        "id": "taps513",
+        "filter_id": "taps513",
+        "bits": 14,
+        "code": "hamming74",
+        "layout": 0,
+        "role": "single length change"
+      },
+      {
+        "id": "bits16",
+        "filter_id": "base",
+        "bits": 16,
+        "code": "hamming74",
+        "layout": 1,
+        "role": "single bit-depth change; higher absolute bit cost"
+      },
+      {
+        "id": "h1511",
+        "filter_id": "base",
+        "bits": 14,
+        "code": "hamming1511",
+        "layout": 2,
+        "role": "single code change; higher rate, same correction radius"
+      },
+      {
+        "id": "repeat5",
+        "filter_id": "base",
+        "bits": 14,
+        "code": "repetition51",
+        "layout": 3,
+        "role": "stronger code diagnostic; violates original expansion<=2"
+      },
+      {
+        "id": "uncoded",
+        "filter_id": "base",
+        "bits": 14,
+        "code": "uncoded",
+        "layout": 4,
+        "role": "code removal control; also predeclared R5.2 rate control"
+      }
+    ],
+    "kernels": [
+      {
+        "id": "base",
+        "taps": 385,
+        "half_width_hz": 70
+      },
+      {
+        "id": "band60",
+        "taps": 385,
+        "half_width_hz": 60
+      },
+      {
+        "id": "band80",
+        "taps": 385,
+        "half_width_hz": 80
+      },
+      {
+        "id": "taps257",
+        "taps": 257,
+        "half_width_hz": 70
+      },
+      {
+        "id": "taps513",
+        "taps": 513,
+        "half_width_hz": 70
+      }
+    ],
+    "centres_hz": [
+      440,
+      1320,
+      2200,
+      6000
+    ],
+    "window": "hann",
+    "kernel_construction": "Same R2 finite-grid even template,32000-pointIDFT,centred crop and Hann; no gain renormalisation",
+    "guard_offsets_hz": [
+      -2,
+      -1.5,
+      -1,
+      -0.5,
+      0,
+      0.5,
+      1,
+      1.5,
+      2
+    ],
+    "guard_max_deviation": 0.01,
+    "original_expansion_preference": 2,
+    "half_range": 18,
+    "epsilon": 1e-09,
+    "primary_metric": "frozen R4 whole-record NMSE",
+    "main_objective": "same12 equally weighted R4 main conditions",
+    "primary_family": {
+      "size": 19,
+      "alpha": 0.05,
+      "paired_main_objective_gains": 8,
+      "paired_personal_gains": 8,
+      "personal_constraint_means": [
+        "base",
+        "h1511",
+        "uncoded"
+      ]
+    },
+    "precision_planning": {
+      "minimum": 200,
+      "multiple": 50,
+      "absolute_half_width": 0.01,
+      "relative_half_width": 0.05,
+      "rule": "all19 pilot-based adjusted t predicted half-widths <=max(.01,.05*abs(pilot_mean))",
+      "limitation": "pilot variance is imperfect; fixed count before validation, no optional stopping"
+    },
+    "pairing": "Shared Gaussian per SNR/record; exact same-leaf mask for identical code/bit-width/framing layout; different lengths use different leaves",
+    "gaussian_path": [
+      1,
+      5,
+      "phase",
+      "snr_id",
+      "record_id"
+    ],
+    "bsc_path": [
+      2,
+      5,
+      "phase",
+      "joint_id",
+      "record_id",
+      "layout_id"
+    ],
+    "receiver_truth_or_mask_input": false,
+    "limiting_decision_selected_before_new_measurement": null,
+    "R52_prespecified_constraint": {
+      "kind": "logical sent rate",
+      "maximum_bits_s": 320000,
+      "duration_s": 2,
+      "scope": "original personal SNR/p only",
+      "eligible_changes": "ECC only; sampler,14bit/A18,filter and quality rule retained",
+      "codes": [
+        "hamming74",
+        "hamming1511",
+        "uncoded"
+      ],
+      "primary_NMSE_threshold": 0.057666604564293136,
+      "threshold_origin": "Unchanged project R3.4 personal-point tolerance; not a external or all-SNR criterion",
+      "assessment_after_R51_completed": true
+    },
+    "fixed_sources": [
+      "stage4/r43/results/validation_freeze.json",
+      "stage4/r43/results/summary.csv",
+      "stage4/r43/results/component_summary.csv",
+      "stage4/r43/results/objective_summary.csv",
+      "metadata/r4_strict_review.json",
+      "stage2/r22/results/selected_coefficients.npy",
+      "stage3/r31/results/quantiser_freeze.json",
+      "stage3/r32/results/code_freeze.json",
+      "stage3/r34/results/validation_freeze.json"
+    ]
+  },
+  "variants": [
+    {
+      "id": "base",
+      "filter_id": "base",
+      "bits": 14,
+      "code": "hamming74",
+      "layout": 0,
+      "role": "frozen R4 both baseline",
+      "gain_max_deviation": 0.0010881875559320964,
+      "gain_guard_feasible": true,
+      "payload_bits": 448000,
+      "padding_bits": 0,
+      "transmitted_bits": 784000,
+      "logical_rate_bits_s": 392000.0,
+      "n": 7,
+      "k": 4,
+      "correction_radius": 1,
+      "filter_taps": 385,
+      "group_delay_ms": 12.0,
+      "expansion": 1.75,
+      "expansion_feasible": true,
+      "original_constraints_feasible": true,
+      "rate320_feasible": false
+    },
+    {
+      "id": "band60",
+      "filter_id": "band60",
+      "bits": 14,
+      "code": "hamming74",
+      "layout": 0,
+      "role": "single half-width change",
+      "gain_max_deviation": 0.03284804276294817,
+      "gain_guard_feasible": false,
+      "payload_bits": 448000,
+      "padding_bits": 0,
+      "transmitted_bits": 784000,
+      "logical_rate_bits_s": 392000.0,
+      "n": 7,
+      "k": 4,
+      "correction_radius": 1,
+      "filter_taps": 385,
+      "group_delay_ms": 12.0,
+      "expansion": 1.75,
+      "expansion_feasible": true,
+      "original_constraints_feasible": false,
+      "rate320_feasible": false
+    },
+    {
+      "id": "band80",
+      "filter_id": "band80",
+      "bits": 14,
+      "code": "hamming74",
+      "layout": 0,
+      "role": "single half-width change",
+      "gain_max_deviation": 0.01221002127670312,
+      "gain_guard_feasible": false,
+      "payload_bits": 448000,
+      "padding_bits": 0,
+      "transmitted_bits": 784000,
+      "logical_rate_bits_s": 392000.0,
+      "n": 7,
+      "k": 4,
+      "correction_radius": 1,
+      "filter_taps": 385,
+      "group_delay_ms": 12.0,
+      "expansion": 1.75,
+      "expansion_feasible": true,
+      "original_constraints_feasible": false,
+      "rate320_feasible": false
+    },
+    {
+      "id": "taps257",
+      "filter_id": "taps257",
+      "bits": 14,
+      "code": "hamming74",
+      "layout": 0,
+      "role": "single length change",
+      "gain_max_deviation": 0.12888836509419632,
+      "gain_guard_feasible": false,
+      "payload_bits": 448000,
+      "padding_bits": 0,
+      "transmitted_bits": 784000,
+      "logical_rate_bits_s": 392000.0,
+      "n": 7,
+      "k": 4,
+      "correction_radius": 1,
+      "filter_taps": 257,
+      "group_delay_ms": 8.0,
+      "expansion": 1.75,
+      "expansion_feasible": true,
+      "original_constraints_feasible": false,
+      "rate320_feasible": false
+    },
+    {
+      "id": "taps513",
+      "filter_id": "taps513",
+      "bits": 14,
+      "code": "hamming74",
+      "layout": 0,
+      "role": "single length change",
+      "gain_max_deviation": 0.009009582717856013,
+      "gain_guard_feasible": true,
+      "payload_bits": 448000,
+      "padding_bits": 0,
+      "transmitted_bits": 784000,
+      "logical_rate_bits_s": 392000.0,
+      "n": 7,
+      "k": 4,
+      "correction_radius": 1,
+      "filter_taps": 513,
+      "group_delay_ms": 16.0,
+      "expansion": 1.75,
+      "expansion_feasible": true,
+      "original_constraints_feasible": true,
+      "rate320_feasible": false
+    },
+    {
+      "id": "bits16",
+      "filter_id": "base",
+      "bits": 16,
+      "code": "hamming74",
+      "layout": 1,
+      "role": "single bit-depth change; higher absolute bit cost",
+      "gain_max_deviation": 0.0010881875559320964,
+      "gain_guard_feasible": true,
+      "payload_bits": 512000,
+      "padding_bits": 0,
+      "transmitted_bits": 896000,
+      "logical_rate_bits_s": 448000.0,
+      "n": 7,
+      "k": 4,
+      "correction_radius": 1,
+      "filter_taps": 385,
+      "group_delay_ms": 12.0,
+      "expansion": 1.75,
+      "expansion_feasible": true,
+      "original_constraints_feasible": true,
+      "rate320_feasible": false
+    },
+    {
+      "id": "h1511",
+      "filter_id": "base",
+      "bits": 14,
+      "code": "hamming1511",
+      "layout": 2,
+      "role": "single code change; higher rate, same correction radius",
+      "gain_max_deviation": 0.0010881875559320964,
+      "gain_guard_feasible": true,
+      "payload_bits": 448000,
+      "padding_bits": 8,
+      "transmitted_bits": 610920,
+      "logical_rate_bits_s": 305460.0,
+      "n": 15,
+      "k": 11,
+      "correction_radius": 1,
+      "filter_taps": 385,
+      "group_delay_ms": 12.0,
+      "expansion": 1.3636607142857142,
+      "expansion_feasible": true,
+      "original_constraints_feasible": true,
+      "rate320_feasible": true
+    },
+    {
+      "id": "repeat5",
+      "filter_id": "base",
+      "bits": 14,
+      "code": "repetition51",
+      "layout": 3,
+      "role": "stronger code diagnostic; violates original expansion<=2",
+      "gain_max_deviation": 0.0010881875559320964,
+      "gain_guard_feasible": true,
+      "payload_bits": 448000,
+      "padding_bits": 0,
+      "transmitted_bits": 2240000,
+      "logical_rate_bits_s": 1120000.0,
+      "n": 5,
+      "k": 1,
+      "correction_radius": 2,
+      "filter_taps": 385,
+      "group_delay_ms": 12.0,
+      "expansion": 5.0,
+      "expansion_feasible": false,
+      "original_constraints_feasible": false,
+      "rate320_feasible": false
+    },
+    {
+      "id": "uncoded",
+      "filter_id": "base",
+      "bits": 14,
+      "code": "uncoded",
+      "layout": 4,
+      "role": "code removal control; also predeclared R5.2 rate control",
+      "gain_max_deviation": 0.0010881875559320964,
+      "gain_guard_feasible": true,
+      "payload_bits": 448000,
+      "padding_bits": 0,
+      "transmitted_bits": 448000,
+      "logical_rate_bits_s": 224000.0,
+      "n": 1,
+      "k": 1,
+      "correction_radius": 0,
+      "filter_taps": 385,
+      "group_delay_ms": 12.0,
+      "expansion": 1.0,
+      "expansion_feasible": true,
+      "original_constraints_feasible": true,
+      "rate320_feasible": true
+    }
+  ],
+  "planning": null,
+  "source_sha256": {
+    "stage5/design.json": "d8d99085c9f1c4b407d91c150014ca4bbb36f4cd6c89ed4555a6e0cf383e412e",
+    "stage5/protocol.py": "20783d8d201f87a1b54f5f87ee7bc1414285d2598acf61cffab9d5c32b887a8c",
+    "stage5/pipeline.py": "5ddba80623b2f87a13d842489006f8cd54f267d896f7edc7f99b3e70f83b0f14",
+    "stage5/counterfactual.py": "111e39262e954528d1fbdac4550b3f3dcf0fc17057ebcc803fda47a7163da0d8",
+    "stage5/assessment.py": "71aae64fe0167ac66260ee9c1af413aec85472ec3787fe687588974d203f713a",
+    "stage2/r22/filter_parameters.py": "75b1ca6e370f900c765079b8cd1c43ad0b598c79bf2e7b4b65aa0399e0fa85ab",
+    "stage4/r41/metrics.py": "c8784767b3e803758006814ca8d0a8bb5619066982a0eb8f4a8ef81aa8105110",
+    "stage4/r43/assessment.py": "b12bfd95ebbf89214ad58af19afc91f778f1eb22bb124a52e6a3c7b408286808",
+    "stage3/r32/codes.py": "6b82a04a210816034b80ef449ad1ea638461cb56d481aec06b0b41d0759e0208",
+    "stage3/r31/quantisation.py": "49cce25f461d0043a6f19de4baed638a6e90d501ddcf0a06a60f8b5c48c8c49f",
+    "stage1/r12/sampling_rate.py": "9f87beaf817a386d771e956162b6e1f1468e34e13658053aba74d898c41db11b",
+    "degradation.py": "beb4a6abeba009fc5d04415e22bc666de34ac09bc6170e70218dd2629b3abdaa",
+    "stage4/r43/results/validation_freeze.json": "6ba361ee37af19c4fa1e10b41076d2d7b98e805de68f8e2a0b3e0354723241c6",
+    "stage4/r43/results/summary.csv": "867fb2c5d9e8acd9a0a0c34a7d0cd45d092102e11a1d2d28296e4ba9e6f8a167",
+    "stage4/r43/results/component_summary.csv": "597e7dc27723d5b20b02798468d079d8292a48bda5696ad2b521c4b1ba23e09a",
+    "stage4/r43/results/objective_summary.csv": "81104fa06f290a9419895888a137d6a086edae8801ba50b8f944448102b0dce1",
+    "metadata/r4_strict_review.json": "bf9eb6aa834d94b34dc20f27b7e96dee232ca9492c5b0788d8a56daabce63e6f",
+    "stage2/r22/results/selected_coefficients.npy": "aa155baf5455d627aa4df47373cad6c6d254fa1359020dc10895fcc28e89dec8",
+    "stage3/r31/results/quantiser_freeze.json": "8fefa577802f4b458f82c919e874779e96b0008b9b5efbbefe343a2f78f49cec",
+    "stage3/r32/results/code_freeze.json": "cf39ad92e530827918bdb642ac6e2184cb041fcd033f91672964b12e1aeb4e33",
+    "stage3/r34/results/validation_freeze.json": "7a6a707e2396a9745e8a0b8177a534329806debb1940ea57460fceb12104f96e",
+    "stage5/results/kernel_base.npy": "aa155baf5455d627aa4df47373cad6c6d254fa1359020dc10895fcc28e89dec8",
+    "stage5/results/kernel_band60.npy": "47c8ef9dd80e14c7306f55afeed52a7440281dff98a5ece49ccfefe403120ad8",
+    "stage5/results/kernel_band80.npy": "1b84cc71e0f602c81409e95e5daa71583b13572f3e055dca4d53388e2ad5ad12",
+    "stage5/results/kernel_taps257.npy": "1a749cc7c3c5208ae102be17740f0faa9c1d261ced9cc7de7277ca8d16695439",
+    "stage5/results/kernel_taps513.npy": "28e3ed7af27e0a52b837c0584c9fe3da3aac1195cd5edf7b3eb104ad74467c5c",
+    "stage5/results/variants.csv": "9935d9963f5cb14d4a550d3db37979127aa57a63ce2a2e9aa8e8c126716e3882",
+    "stage5/results/kernel_coefficients.csv": "ddd23f114766d9b5901808dc2853af8ae7ca48cf359a435867dcd1f851cfbf7d"
+  },
+  "phase0_imported_into_confirmation": false,
+  "R52_personal_subset_prespecified": true,
+  "R52_subset_is_reused_R5_data_not_extra_independent_records": true
+}

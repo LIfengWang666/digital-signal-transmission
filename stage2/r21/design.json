@@ -1,0 +1,17 @@
+{
+  "status": "R2.1 method-selection design experiment; prototype parameters are not final R2.2 parameters",
+  "sample_rate_hz": 16000,
+  "pilot_snr_db": [-10, 0, 10, 20, 30],
+  "pilot_condition_ids": [0, 1, 2, 3, 4],
+  "personal_condition_id": 5,
+  "personal_snr_range_db": [0, 30],
+  "personal_snr_mapping": "S = S_min + (S_max - S_min) * U; U from parameter path (0, 0)",
+  "design_repeats": 3,
+  "phase_id": 0,
+  "peak_search_half_width_hz": 10,
+  "prototype_kernel_length": 513,
+  "prototype_band_half_width_hz": 80,
+  "prototype_lowpass_edge_hz": 6600,
+  "boundary": "zero extension, full linear convolution, fixed centred crop",
+  "scope": "Choose frequency-selective design and FFT implementation; final bandwidth/length selection and held-out validation remain R2.2/R2.3"
+}

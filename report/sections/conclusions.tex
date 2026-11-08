@@ -1,0 +1,24 @@
+\FloatBarrier
+\begin{samepage}
+\section*{Conclusions and limitations}
+\phantomsection
+\addcontentsline{toc}{section}{Conclusions and limitations}
+\label{sec:conclusions}
+For the supplied periodic multitone, the selected 16 kHz sampler retains
+all identified components. The frozen 385-tap FIR, 14-bit quantiser and
+Hamming(7,4) jointly give the lowest anchor-point mean NMSE,
+$\WPersonalBoth$, and the lowest declared main-domain objective among
+the four configurations. These are conditional results for the tested
+signal, degradation models and severity weights. Increasing to 16 bits
+improves the new R5 objective at greater traffic cost, while the separate
+320 kbit/s anchor-point constraint favours Hamming(15,11) with reduced
+perfect-payload reliability.
+
+Statistical precision remains a limitation: seven of the 92 R4 means
+miss the planned 5\% relative half-width, reaching \WMaxRelativePercent\%.
+The 40 dB coded filter contrast includes zero and does not establish a
+local ordering. Computational agreement does not remove this sampling
+uncertainty. The reported intervals, high-SNR FIR distortion and finite
+resource budgets delimit the conclusions; neither universal improvement
+nor exact recovery of every payload is claimed.
+\end{samepage}

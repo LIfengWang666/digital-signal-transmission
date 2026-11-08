@@ -1,0 +1,130 @@
+{
+  "date": "2026-10-21",
+  "status": "Frozen before validation",
+  "reference_power": 0.7299999999999999,
+  "design_baseline_nmse": 0.028833302282146568,
+  "design_baseline_mse": 0.02104831066596699,
+  "primary_nmse_threshold": 0.057666604564293136,
+  "primary_mse_threshold": 0.04209662133193398,
+  "primary_budget_factor": 2.0,
+  "budget_db": 3.010299956639812,
+  "threshold_sensitivity_factors": [
+    1.5,
+    2.0,
+    4.0
+  ],
+  "records_per_condition": 300,
+  "conditions": [
+    {
+      "condition_id": 0,
+      "probability": 0.0,
+      "role": "identity"
+    },
+    {
+      "condition_id": 1,
+      "probability": 0.0001,
+      "role": "main_grid"
+    },
+    {
+      "condition_id": 11,
+      "probability": 0.00021099569319078592,
+      "role": "personal"
+    },
+    {
+      "condition_id": 8,
+      "probability": 0.0003,
+      "role": "main_grid"
+    },
+    {
+      "condition_id": 2,
+      "probability": 0.001,
+      "role": "main_grid"
+    },
+    {
+      "condition_id": 12,
+      "probability": 0.002,
+      "role": "predeclared transition refinement below the p=0.003 pilot"
+    },
+    {
+      "condition_id": 3,
+      "probability": 0.003,
+      "role": "main_grid"
+    },
+    {
+      "condition_id": 13,
+      "probability": 0.004,
+      "role": "predeclared transition refinement above the p=0.003 pilot"
+    },
+    {
+      "condition_id": 14,
+      "probability": 0.005,
+      "role": "predeclared upper transition check"
+    },
+    {
+      "condition_id": 4,
+      "probability": 0.01,
+      "role": "main_grid"
+    },
+    {
+      "condition_id": 5,
+      "probability": 0.03,
+      "role": "main_grid"
+    },
+    {
+      "condition_id": 6,
+      "probability": 0.1,
+      "role": "main_grid"
+    },
+    {
+      "condition_id": 9,
+      "probability": 0.2,
+      "role": "stress"
+    },
+    {
+      "condition_id": 7,
+      "probability": 0.3,
+      "role": "stress"
+    },
+    {
+      "condition_id": 10,
+      "probability": 0.5,
+      "role": "stress"
+    }
+  ],
+  "confidence_family_size": 30,
+  "familywise_alpha": 0.05,
+  "adjusted_t_critical": 3.172832672357709,
+  "interval_scope": "Bonferroni-adjusted approximate simultaneous 95% mean intervals; t/CLT approximation for independent records, not exact finite-sample normality or a continuous-p band",
+  "planning_uses_phase0_only": true,
+  "validation_used_to_choose_threshold_or_budget": false,
+  "gaussian_snr_db": 2.6612673327971192,
+  "personal_probability": 0.00021099569319078592,
+  "filter_taps": 385,
+  "bits": 14,
+  "half_range": 18,
+  "code": "hamming74",
+  "sample_rate_hz": 16000,
+  "source_sha256": {
+    "stage3/r34/design.json": "873ada741a72457f81154e1b8b97656fd622a98d61a3b4580bfa03c6b76b6af6",
+    "stage3/r34/coding_gain.py": "469ea5a5ded4045f2d4efb9b2e5bf04b45801215a5915841b054b6a3172920f3",
+    "stage3/r34/assessment.py": "ca395c7f0b9d07ada53ba4fdfd27c2d10b5e1810102e6b8fa58a3c2ab6573fda",
+    "stage3/r33/results/range_freeze.json": "f12e51c54ceee3bf7e4ed0a4ac1cff614672b4919b1ad41e3429baced965e75f",
+    "stage3/r33/results/summary.csv": "87575da63fc6770b76c2aa198b8e64ac0ba434cdcb85d5a454efbe47579a18e1",
+    "stage3/r33/results/trials.csv": "252d6febb5f4d3b64276ae1ed4fb1843ed271c175545b96f89b86b506fbaeb92",
+    "stage3/r33/results/personal_parameter.json": "b3aa3c971517bacb31a797f6e77d9578cc3980cc101475027db3deda65c46e03",
+    "stage3/r31/results/quantiser_freeze.json": "8fefa577802f4b458f82c919e874779e96b0008b9b5efbbefe343a2f78f49cec",
+    "stage3/r32/results/code_freeze.json": "cf39ad92e530827918bdb642ac6e2184cb041fcd033f91672964b12e1aeb4e33",
+    "stage3/r31/quantisation.py": "49cce25f461d0043a6f19de4baed638a6e90d501ddcf0a06a60f8b5c48c8c49f",
+    "stage3/r32/codes.py": "6b82a04a210816034b80ef449ad1ea638461cb56d481aec06b0b41d0759e0208",
+    "stage3/r33/error_range.py": "2c2e94059173f5d2f754b3536f8f9d3f60ea9e547fd093d42a9f847b6ae53c8b",
+    "stage3/bitstream.py": "8af75b175d1873f271f1dca36f7b6648d87d7a76794ca1cbd73bdb6fd166af83",
+    "degradation.py": "beb4a6abeba009fc5d04415e22bc666de34ac09bc6170e70218dd2629b3abdaa",
+    "stage1/r12/sampling_rate.py": "9f87beaf817a386d771e956162b6e1f1468e34e13658053aba74d898c41db11b",
+    "stage2/r21/filtering_approach.py": "90c7e544a95fecfc8e51f8d134f843aed3263702d923bccc61a99dbaea53e9db",
+    "reference_signal.npy": "2f62c84fb0e11586373b2dc0d92f180206d15d4a77098046c9c43de290657095",
+    "reference_signal.wav": "0ffec41d7773f8a5fda064aecfec3affe956b6955227ab0c5774e4a4349c9454",
+    "stage2/r22/results/selected_coefficients.npy": "aa155baf5455d627aa4df47373cad6c6d254fa1359020dc10895fcc28e89dec8",
+    "stage1/r12/results/selected_samples.npy": "31d4e66e1e7e928aa0d6cc3db99a4a76098c97d71ee7d8ba9487f28ac0a5d409"
+  },
+  "r4_streams_used": false
+}

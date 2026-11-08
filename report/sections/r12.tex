@@ -1,0 +1,65 @@
+\subsection{Choose 16 kHz with a measured cost comparison}
+The target is the complete supplied multitone, including its weak highest
+component. The reference sampling condition and replica geometry are
+ \citep{shannon1949noise}
+\begin{equation}
+ T_s=1/f_s,\quad x_s[m]=x(mT_s),\quad
+ f_s>2f_B=12000\,\mathrm{Hz},\quad f_N=f_s/2.
+ \label{eq:rate-condition}
+\end{equation}
+\begin{equation}
+ g=f_s/2-f_B=\SamplingGuard\,\mathrm{Hz},\qquad
+ d=f_s-2f_B=2g=\ReplicaGap\,\mathrm{Hz}.
+ \label{eq:rate-guard}
+\end{equation}
+The signal's Nyquist rate is 12 kHz; the selected sampler's Nyquist
+frequency is 8 kHz. The 2 kHz guard is a sampling margin, not a measured
+filter specification. Following a predict--sample--compare method,
+I take actual reference values, not newly generated ideal tones:
+\begin{equation}
+ x_M[m]=x_{\mathrm{ref}}[Mm],\quad
+ f_s=F_0/M,\quad N=L/M,\quad
+ t_m=\frac m{f_s}=\frac{Mm}{F_0}.
+ \label{eq:integer-sampling}
+\end{equation}
+$ M=4,3,2,1 $ tests 12, 16, 24, 48 kHz. All records span 2 s and have 0.5 Hz native
+spacing. The implementation is \texttt{reference[::factor].copy()}.
+The phase-aware folding identity is Eq.~\eqref{eq:decimation-folding};
+an independent full-complex-FFT comparison of every bin at five measured
+rates differs by at most $\FoldingError $ NPY units.
+
+\begin{table}[H]
+ \centering
+ \caption{Same 2 s record, common periodic recovery and all 96000 evaluation positions. Raw payload compares equal bits/sample against 16 kHz; 12 kHz is phase-sensitive critical sampling.}
+ \label{tab:rates}
+ \input{generated/sampling_table}
+\end{table}
+
+Reconstruction uses only low-rate samples and output length, with the
+periodic Fourier interpolator of Eq.~\eqref{eq:periodic-interpolation}.
+Its $ L/N $ scale and split old-Nyquist term are derived in
+Appendix~\ref{app:sampling}. Coherent 2 s periodicity supports this boundary
+model. DC/phased-cosine/Nyquist calibrations and SciPy resampling check it
+ \citep{scipy1153resample}. Every metric uses all 96000 positions
+(Eq.~\eqref{eq:sampling-errors}); no trimming, fitted shift/gain or
+reference-assisted recovery is used. At 16 kHz, MSE/NMSE are
+$\SamplingMse/\SamplingNmse $, peak error $\SamplingMaxError $.
+
+The 12 kHz boundary loses the 6 kHz sine through its measured phase near
+$-\pi/2 $ (Eq.~\eqref{eq:critical-phase}): endpoint amplitude
+$\CriticalToneAmplitude $, MSE $\CriticalMse $, agreeing with the missing
+tone power 0.005. Higher 24/48 kHz rates have numerical-residual errors too,
+but require more payload. Since $48000/M>12000 $ implies $ M<4 $,
+16 kHz is the lowest sufficient tested integer-decimation choice;
+it saves one third/two thirds of 24/48 kHz raw bits at fixed $ B $
+(Eq.~\eqref{eq:sampling-payload}). The theoretically valid 14.4 kHz
+alternative would save 10 \% relative to 16 kHz with 1.2 kHz guard, but needs
+noninteger resampling, which I have not measured. I accept 11.11 \% extra
+payload relative to it for direct indexing and a larger guard.
+This is not a global optimum under later noise.
+
+No appreciable source components lie beyond 6 kHz, so no extra prefilter
+is inserted in this clean index-selection study. An arbitrary broadband
+input would require anti-alias filtering. The specified noise is added
+after downsampling and cannot alias through that earlier operation.
+Twelve calibration/grid/phase/error checks pass; R1 is deterministic.

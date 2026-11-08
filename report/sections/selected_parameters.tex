@@ -1,0 +1,62 @@
+\FloatBarrier
+\Needspace{12\baselineskip}
+\section{Selected parameters and evidence}
+\label{sec:selected-parameters}
+The frozen validation baseline is collected below; R5 alternatives retain
+their own constraints (Sections~\ref{sec:r51}--\ref{sec:r52}). Full RNG
+trial paths are in \path{metadata/randomness_design.json}.
+\begingroup
+\normalsize
+\setlength{\tabcolsep}{4.5pt}
+\setlength{\extrarowheight}{2pt}
+\renewcommand{\arraystretch}{1.22}
+\setlength{\LTcapwidth}{0.94\linewidth}
+\begin{longtable}{p{0.22\linewidth}p{0.46\linewidth}p{0.25\linewidth}}
+\caption{Frozen baseline and selection evidence. SNR/$p$ mappings are
+declared project choices, not a supplied external conversion.}
+\label{tab:selected-parameters}\\
+\toprule
+Parameter & Selected value & Evidence\\\midrule
+\endfirsthead
+\multicolumn{3}{c}{Table~\thetable\ continued}\\\toprule
+Parameter & Selected value & Evidence\\\midrule
+\endhead
+\bottomrule\endfoot
+Source / sampling & 48 kHz, 96000 samples $\to$ $\TransmissionRate$ Hz,
+ $\TransmissionCount$ samples; 2 s; unmodified NPY units
+ & Section~\ref{sec:r11}; Tables~\ref{tab:components}, \ref{tab:rates}\\
+RNG / purpose streams & Root 2470964; PCG64; SeedSequence pool size 4;
+ parameters 0, Gaussian 1, BSC 2
+ & Anchor-seed convention; Sections~\ref{sec:r21}, \ref{sec:r33}, \ref{sec:r42}\\
+Personal degradation & SNR $\RtwoPersonalSnr$ dB from $[0,30]$ dB;
+ $p_{\rm ID}=\PPersonal$ from $[10^{-4},0.1)$
+ & Eq.~\eqref{eq:r21-personal-snr}; Table~\ref{tab:r33-range}\\
+FIR centres & 440, 1320, 2200, 6000 Hz
+ & Tables~\ref{tab:components}, \ref{tab:r22-spectrum}\\
+FIR design & $\RttLength$ symmetric \RttWindow{} taps;
+ centre $\pm\RttHalfWidth$ Hz and conjugate negative bands
+ & Table~\ref{tab:r22-windows}; Figures~\ref{fig:r22-search}, \ref{fig:r22-response-boundary}\\
+FIR implementation / delay & Zero-extended linear FFT convolution,
+ $K=\RttFFT$, fixed centre crop; $\RttDelay$ samples,
+ $\RttDelayMs$ ms causal delay
+ & Eq.~\eqref{eq:r21-padded-convolution}; Sections~\ref{sec:r22}--\ref{sec:r23}\\
+Quantiser / rounding & $B=\QBits$, $A=\QHalfRange$, $\QLevels$ endpoint
+ levels; $\Delta=\QStep$; shifted round-to-even, $\epsilon=10^{-9}$,
+ saturation
+ & Eq.~\eqref{eq:r31mapping}; Table~\ref{tab:r31bits}; exhaustive label checks\\
+Bit budget / packing & Quantisation component at most 1\% of upstream
+ error power; unsigned natural binary, sample-major, MSB first
+ & Eq.~\eqref{eq:r31budget}; Section~\ref{sec:r31}; label round trips\\
+ECC / payload / rate & Systematic Hamming(7,4), $d_{\min}=3$, $t=1$;
+ 448000 information / 784000 sent bits; no padding; 392 kbit/s
+ & Eq.~\eqref{eq:r32-matrices}; Table~\ref{tab:r32-selection}; Eq.~\eqref{eq:r32-framing}\\
+Reconstruction & Periodic Fourier interpolation to all 96000 original
+ positions
+ & Eq.~\eqref{eq:periodic-interpolation}; R1 and cross-grid checks\\
+Primary metric & Whole-record NMSE; reference power $\MReferencePower$
+ & Section~\ref{sec:r41}; Figure~\ref{fig:r41-ranking}\\
+Quality threshold & $\tau=\CTau$; fixed before validation
+ & Eq.~\eqref{eq:r34-budget}; Table~\ref{tab:r34-quality}\\
+\end{longtable}
+\endgroup
+\FloatBarrier

@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-21",
+  "scope": "R4.1 metric selection only",
+  "primary_metric": "full-record NMSE = mean((reconstructed-reference)**2)/mean(reference**2)",
+  "alternative_metric": "full-record MAE; compare actual legacy examples and declared deterministic loss-ranking cases",
+  "reference_samples": 96000,
+  "reference_rate_hz": 48000,
+  "reference_duration_s": 2,
+  "amplitude_units": "original NPY units; no gain fitting, alignment, trimming or per-record rescaling",
+  "error_sign": "reconstructed minus reference",
+  "mean_square_divisor": "L, retaining error bias; not sample variance",
+  "secondary_metrics": [
+    "raw MSE",
+    "MAE",
+    "RMSE",
+    "mean error",
+    "ddof0 centred error variance",
+    "peak absolute error",
+    "reconstruction reference/error power ratio in dB",
+    "diagnostic Pearson correlation"
+  ],
+  "dB_convention": "-10log10(mean record NMSE); retain individual-record dB separately, not averaged as a substitute",
+  "zero_error": "NMSE=0 and reconstruction error ratio=+infinity without an epsilon floor",
+  "undefined_correlation": "NaN when either centred input has zero power; never replace by a good correlation score",
+  "semantic_cases": [
+    "exact",
+    "double_gain",
+    "offset_0.1",
+    "diffuse_0.1",
+    "sparse_2_at_1percent",
+    "zero_output",
+    "circular_delay_1sample"
+  ],
+  "semantic_case_status": "deterministic mathematical examples only, not Gaussian/BSC data or validation records",
+  "legacy_evidence": [
+    {
+      "file": "stage3/r34/results/example_personal_48000hz.csv",
+      "condition_id": 11,
+      "record_id": 0,
+      "columns": [
+        "prechannel",
+        "uncoded",
+        "hamming74"
+      ]
+    },
+    {
+      "file": "stage3/r34/results/example_high_error_48000hz.csv",
+      "condition_id": 5,
+      "record_id": 0,
+      "columns": [
+        "uncoded",
+        "hamming74"
+      ]
+    }
+  ],
+  "legacy_evidence_scope": "5 complete waveforms; shared prechannel counted once; real examples do not estimate population means or four-configuration R4 effects",
+  "metric_choice_precedes_this_evaluation": "stage4/r41/metric_definition_freeze.json",
+  "new_R4_Gaussian_or_BSC_records": false,
+  "new_R4_RNG_draws": false,
+  "R4_2_or_R4_3_completed": false,
+  "input_sha256": {
+    "reference_signal.npy": "2f62c84fb0e11586373b2dc0d92f180206d15d4a77098046c9c43de290657095",
+    "stage3/r34/results/example_personal_48000hz.csv": "acd9ee0513788cd8504bcb8e81be7a26750f54a9c290655c85213c31f5a6f92c",
+    "stage3/r34/results/example_high_error_48000hz.csv": "de015c44485c331e72bf030014cc03211dbca4f5ac17a271f05ecd65cfb3dde7",
+    "stage3/r34/results/trials.csv": "b915d540837f8353406e6ef7e2786cbb8f0e61a6ff7df7d225b72ff147e0712e",
+    "stage3/r34/results/validation_freeze.json": "89a0402bd7d8df832d2e96c89768b896659f01a46d8dc4e460d4bbb9f042eba9"
+  }
+}

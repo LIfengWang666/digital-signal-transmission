@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "noise_records": 40,
+  "branch_records": 80,
+  "bit_depth_measurements": 1040,
+  "boundary_checks": 65,
+  "all_labels_checked_count": 131056,
+  "maximum_bit_roundtrip_error": 0.0,
+  "maximum_fourier_energy_residual": 3.289915142409513e-16,
+  "maximum_mse_decomposition_residual": 2.964195187048213e-15,
+  "maximum_granular_bound_excess": 0,
+  "unique_noise_paths": true,
+  "all_paths_phase_0_study_3": true,
+  "selected_bits": 14,
+  "selected_half_range": 18.0,
+  "selected_overload_count": 0,
+  "selected_epsilon_changed_labels": 24,
+  "coefficient_sha256": "aa155baf5455d627aa4df47373cad6c6d254fa1359020dc10895fcc28e89dec8",
+  "parameter_p_still_null": true
+}

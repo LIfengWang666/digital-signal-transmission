@@ -1,0 +1,55 @@
+\subsection{End-to-end system and evaluation boundary}
+\label{sec:system-overview}
+Figure~\ref{fig:system-flow} separates sample processing from transmission
+and recovery. Gaussian noise enters before the FIR; bit flips enter after
+ECC encoding. The receiver uses the received bits and public parameters.
+The original reference is retained only for evaluation.
+Table~\ref{tab:selected-parameters} collects the frozen baseline and evidence.
+
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+ node distance=4mm and 4mm,
+ block/.style={draw=black!60,rounded corners=1.5pt,fill=blue!4,
+  align=center,text width=25mm,inner xsep=1mm,
+  minimum height=16mm,font=\small},
+ channel/.style={block,fill=orange!10},
+ reference/.style={block,fill=green!7},
+ arrow/.style={-{Stealth[length=2mm]},thick},
+ diagnostic/.style={-{Stealth[length=2mm]},dashed,black!60},
+ lane/.style={font=\small\bfseries,anchor=west},
+ reference/.style={font=\scriptsize,align=center}
+]
+\node[reference] (source) {Reference\\48 kHz};
+\node[block,right=of source] (sample) {Sample\\16 kHz};
+\node[channel,right=of sample] (gauss) {Add Gaussian\\noise};
+\node[block,right=of gauss] (filter) {FIR filter\\or bypass};
+\node[block,right=of filter] (quant) {Quantise\\14 bit, $A=18$};
+\node[lane] at ($(source.north west)+(0,5mm)$) {1. Sample processing};
+\node[block,below=23mm of source] (encode) {Pack bits\\and ECC encode};
+\node[channel,right=of encode] (bsc) {Bit-flip\\channel};
+\node[block,right=of bsc] (decode) {ECC decode\\Unpack labels\\Dequantise};
+\node[block,right=of decode] (recover) {Reconstruct\\48 kHz};
+\node[reference,right=of recover] (metric) {Evaluate\\NMSE / MAE};
+\node[lane] at ($(encode.north west)+(0,5mm)$) {2. Transmission and recovery};
+\foreach \a/\b in {source/sample,sample/gauss,gauss/filter,filter/quant,
+ encode/bsc,bsc/decode,decode/recover,recover/metric}
+ \draw[arrow] (\a)--(\b);
+\draw[arrow] (quant.south)--++(0,-9mm)-|
+ ($(encode.west)+(-3mm,0)$)--(encode.west);
+\node[reference,above] at ($(gauss.south)+(0,-9mm)$) {Quantised labels};
+\draw[diagnostic] (source.north)--++(0,10mm)-|
+ ($(metric.east)+(4mm,0)$)--(metric.east);
+\node[reference,fill=white,inner sep=1pt] at ($(gauss.north)+(0,10mm)$)
+ {Reference for evaluation only};
+\end{tikzpicture}
+\caption{Read each row left to right; the solid return carries quantised
+labels into the second row. ECC is the fixed Hamming(7,4) code or bypass;
+FIR/ECC switches give the four R4 configurations. Sampling, quantisation,
+degradation and reconstruction stay common. The dashed path is measurement
+only. Formula details are in Appendix~\ref{app:derivations}.}
+\label{fig:system-flow}
+\end{figure}
+
+\FloatBarrier

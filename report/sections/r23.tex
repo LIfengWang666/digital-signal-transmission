@@ -1,0 +1,71 @@
+\subsection{Independent recovery assessment and failure boundary}
+\label{sec:r23}
+The frozen 385-tap FIR $ F $ and bypass receive the identical $ y=x+e $.
+With the unchanged periodic recovery $ R $,
+\begin{equation}
+ z_0=y,\quad z_F=F(y),\qquad
+ \widehat x_0=R(y),\quad \widehat x_F=R(F(y)).
+ \label{eq:r23-branches}
+\end{equation}
+All 96000 reconstructed positions enter MSE/NMSE; no fitted gain, shift
+or trimmed endpoint is allowed. Eq.~\eqref{eq:r23-metrics} gives units;
+Eq.~\eqref{eq:r23-paired} gives paired reduction and error-SNR gain.
+The mean gain averages individual logarithmic gains, not the logarithm
+of mean MSEs. Error SNR includes deterministic distortion and differs
+from target Gaussian SNR. The signal/error-power approach supports
+this metric; correlation alone would
+give one for $\widehat u=2u $ despite MSE $ P_u $.
+
+Before drawing phase-1 noise I fix 50 complete records at each of
+$-10,0,S_0,10,20,30,35,40 $ dB: 400 records, paths $(1,2,1,c,r)$.
+The 35/40 dB diagnostics probe the predicted crossover without changing
+the declared personal range. Whole records are independent; filtered
+positions are not extra replicates. Mean intervals use the common
+approximate t/CLT rule with $ R=50,m=1 $
+(Appendix~\ref{app:statistics}; \citealp{scipy1153t,scipy1153sem}).
+These pointwise mean intervals are neither simultaneous nor predictions
+for a new record; count 50 makes no predeclared precision guarantee.
+
+\begin{table}[!htbp]
+ \centering
+ \caption{Independent validation, 50 paired records per condition on all 96000 positions. Pointwise approximate 95 \% intervals describe mean gain; the dagger marks the personal baseline.}
+ \label{tab:r23-quality}
+ \footnotesize\setlength{\tabcolsep}{4pt}
+ \input{generated/r23_quality_table}
+\end{table}
+
+
+\begin{figure}[!htbp]
+ \centering
+ \includegraphics[width=.82\linewidth]{supporting/publication_r23_recovery_quality.pdf}
+ \caption{Held-out mean MSE versus prediction (top) and paired gains with pointwise intervals (bottom). Shading: design range; line: prevalidation crossover.}
+ \label{fig:r23-quality}
+\end{figure}
+
+\begin{samepage}
+At the anchor point mean MSE falls from $\RtvPersonalBefore $ to
+$\RtvPersonalAfter $ ($\RtvPersonalReduction $\%); mean paired gain is
+$\RtvPersonalGain $ dB, interval $[\RtvPersonalLow,\RtvPersonalHigh]$.
+All 50 improve at every tested level through 30 dB, including $-10 $ dB;
+all 50 worsen at 35 and 40 dB. This is evidence at tested conditions,
+not every realisation or every intermediate SNR. Fixed FIR distortion
+persists after the input noise diminishes.
+\end{samepage}
+
+Prediction on the 48 kHz grid includes the old-Nyquist splitting correction
+(Eq.~\eqref{eq:r23-reconstruction-energy}); sample-grid and recovered
+powers are not silently equated. The no-filter gain is 0.999984375;
+filtered gain $\RtvNoiseGainHigh $ and distortion $\RtvCleanHigh $ give
+the plotted $ D_{48}+\sigma^2G_{48}$ prediction. At 40 dB, the first/last
+768 positions, only 1.6 \% of duration, contribute
+$\RtvHighEdgePercent $\% of filtered squared error. Edge shares use
+aggregated sums, not averaged per-record ratios
+(Eq.~\eqref{eq:r23-boundary-metrics}); they remain in every primary MSE.
+
+Twelve checks cover inputs, freezing, disjoint seeds, grids and identities.
+Twenty further audit checks use the separate cosine-series kernel
+(Eq.~\eqref{eq:r23-audit-kernel}) and $K=64000$ real FFT to reproduce
+372 scores/6696 design MSEs; the alternative-method replay in
+Section~\ref{sec:r61} also checks all 400 validation inputs.
+Records are in \path{metadata/r2_strict_checks.csv} and
+\path{stage2/r23/results/}; these are replays, not extra data or retuning.

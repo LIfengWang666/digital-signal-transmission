@@ -1,0 +1,53 @@
+{
+  "status": "R3.4 independent validation complete",
+  "success_definition": "Mean waveform NMSE with adjusted interval",
+  "primary_threshold": 0.057666604564293136,
+  "gain_at_tested_probabilities": [
+    0.0001,
+    0.00021099569319078592,
+    0.0003,
+    0.001,
+    0.002
+  ],
+  "threshold_brackets": {
+    "uncoded": {
+      "largest_tested_pass": 0.0,
+      "next_tested_fail_above": 0.0001,
+      "inconclusive_tested_points": [],
+      "continuous_crossing_claimed": false
+    },
+    "hamming74": {
+      "largest_tested_pass": 0.002,
+      "next_tested_fail_above": 0.003,
+      "inconclusive_tested_points": [],
+      "continuous_crossing_claimed": false
+    }
+  },
+  "uncertainty": "Bonferroni-adjusted approximate simultaneous 95% mean intervals; t/CLT approximation for independent records, not exact finite-sample normality or a continuous-p band",
+  "threshold_sensitivity": {
+    "1.5": [
+      0.0001,
+      0.00021099569319078592,
+      0.0003,
+      0.001
+    ],
+    "2.0": [
+      0.0001,
+      0.00021099569319078592,
+      0.0003,
+      0.001,
+      0.002
+    ],
+    "4.0": [
+      0.00021099569319078592,
+      0.0003,
+      0.001,
+      0.002,
+      0.003,
+      0.004
+    ]
+  },
+  "not_a_bit_perfect_or_every_record_success_claim": true,
+  "not_an_Eb_N0_gain": true,
+  "r4_complete": false
+}

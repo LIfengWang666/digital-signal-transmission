@@ -1,0 +1,27 @@
+{
+  "status": "Protocol written before this diagnostic is evaluated",
+  "scope": "Post-review mechanism diagnostic; outside R5 19-statistic family",
+  "input": "Original clean reference decimated to16kHz and frozen FIR; Gaussian absent",
+  "fixed": "14bit, A18, reference epsilon, Hamming74,784000sent bits,392kbit/s",
+  "changed": "Sample-major versus MSB-first bit-plane permutation only",
+  "probabilities": [
+    0.0,
+    0.00021099569319078592,
+    0.01,
+    0.1
+  ],
+  "method": "Exact block probability moments and full48kHz Parseval identity",
+  "illustration_only": {
+    "p": 0.01,
+    "root_seed": 2470964,
+    "spawn_key": [
+      2,
+      51,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "no_optional_stopping_or_new_main_cohort_claim": true
+}

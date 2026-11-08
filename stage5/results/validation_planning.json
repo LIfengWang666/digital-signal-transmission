@@ -1,0 +1,9 @@
+{
+  "records_per_condition": 350,
+  "primary_family": 19,
+  "planning_uses_phase0_only": true,
+  "optional_stopping": false,
+  "target": "max(.01,.05*abs(pilot mean)); a project precision target or precision guarantee",
+  "previous_multiple_fails": true,
+  "source_scope": "20 complete pilot bundles; no R4 observations imported"
+}

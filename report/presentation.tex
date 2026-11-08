@@ -1,0 +1,72 @@
+% Presentation only: generated measurement tables remain byte-identical.
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\usepackage{caption}
+\captionsetup[table]{justification=centering,singlelinecheck=false}
+\setlength{\textfloatsep}{12pt plus 2pt minus 2pt}
+\setlength{\floatsep}{10pt plus 2pt minus 2pt}
+\setlength{\intextsep}{10pt plus 2pt minus 2pt}
+\setcounter{topnumber}{3}
+\setcounter{totalnumber}{5}
+\setlength{\tabcolsep}{4pt}
+\setlength{\arrayrulewidth}{0.35pt}
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\renewcommand{\arraystretch}{1.12}
+\setlength{\LTleft}{\fill}
+\setlength{\LTright}{\fill}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\makeatletter
+\newcommand{\ReportEquationAlias}[2]{%
+ \AtEndDocument{%
+  \@ifundefined{r@#2}{}{%
+   \begingroup
+   \protected@edef\report@aliasdata{\csname r@#2\endcsname}%
+   \immediate\write\@auxout{\string\newlabel{#1}{\report@aliasdata}}%
+   \endgroup}}}
+\makeatother
+\ExplSyntaxOn
+\tl_new:N \l_report_columns_tl
+\tl_new:N \l_report_column_string_tl
+\tl_new:N \l_report_column_item_tl
+\seq_new:N \l_report_column_seq
+\cs_generate_variant:Nn \regex_extract_all:nnN {nVN}
+\cs_generate_variant:Nn \tl_set_rescan:Nnn {NnV}
+\cs_new_protected:Npn \report_columns:n #1
+ {
+  \tl_set:Nx \l_report_column_string_tl {\tl_to_str:n {#1}}
+  \regex_replace_all:nnN { > \{ [^{}]* \} } {}
+   \l_report_column_string_tl
+  \regex_extract_all:nVN { [lrc] | p \{ [^{}]* \} }
+   \l_report_column_string_tl \l_report_column_seq
+  \tl_clear:N \l_report_column_string_tl
+  \seq_map_inline:Nn \l_report_column_seq
+   {
+    \tl_set:Nn \l_report_column_item_tl {##1}
+    \regex_match:nnTF {\A p} {##1}
+     {\regex_replace_once:nnN {\A p} {P} \l_report_column_item_tl}
+     {\tl_set:Nn \l_report_column_item_tl {c}}
+    \tl_if_empty:NF \l_report_column_string_tl
+     % Keep the former rule width as blank space; preserve all column geometry.
+     {\tl_put_right:Nn \l_report_column_string_tl {!{\kern\arrayrulewidth}}}
+    \tl_put_right:NV \l_report_column_string_tl \l_report_column_item_tl
+   }
+  \tl_set_rescan:NnV \l_report_columns_tl {} \l_report_column_string_tl
+ }
+\cs_new_eq:NN \report_original_tabular: \tabular
+\cs_new_eq:NN \report_original_longtable: \longtable
+\cs_new_protected:Npn \report_tabular_start:nn #1#2
+ {\report_original_tabular:[#1]{#2}}
+\cs_new_protected:Npn \report_longtable_start:nn #1#2
+ {\report_original_longtable:[#1]{#2}}
+\RenewDocumentCommand \tabular {O{c}m}
+ {
+  \report_columns:n {#2}
+  \exp_args:NnV \report_tabular_start:nn {#1} \l_report_columns_tl
+ }
+\RenewDocumentCommand \longtable {O{c}m}
+ {
+  \report_columns:n {#2}
+  \exp_args:NnV \report_longtable_start:nn {#1} \l_report_columns_tl
+ }
+\ExplSyntaxOff

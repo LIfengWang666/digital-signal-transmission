@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-21",
+  "status": "passed",
+  "all_decoder_received_words_checked": 32930,
+  "correction_spheres_cover_once": true,
+  "pilot_rows_replayed": 1140,
+  "bsc_masks_replayed": 1120,
+  "gaussian_input_banks_replayed": 5,
+  "independent_decoder": "Nearest correction-sphere table, no syndrome",
+  "independent_encoder": "Per-parity XOR, no G matrix multiplication",
+  "independent_quantiser": "Threshold search, no scaled round",
+  "independent_filter_and_reconstruction": "np.convolve and scipy.signal.resample",
+  "all_decoded_payload_hashes_match": true,
+  "maximum_full_grid_mse_difference": 4.263256414560601e-14,
+  "decision_independently_confirmed": "hamming74",
+  "phase_1_used": false
+}

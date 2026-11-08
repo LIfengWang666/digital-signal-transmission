@@ -1,0 +1,4 @@
+component_budget,smallest_passing_bits,status
+0.001,16,pass
+0.01,14,pass
+0.05,13,pass

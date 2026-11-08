@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.work/
+.build-cache/
+.venv/
+.env
+.env.*
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.synctex.gz
+.DS_Store
+Thumbs.db

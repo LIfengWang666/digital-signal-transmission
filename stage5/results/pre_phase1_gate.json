@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-21",
+  "status": "passed before phase1 registration/draws",
+  "pilot_independently_replayed_paths": 2700,
+  "records_frozen": 350,
+  "source_sha256": {
+    "phase0_independent_checks.json": "312defb3d0fb73033d0dbd42d08b240e01214b5e64cba2d0f808acbb11db12be",
+    "validation_planning.json": "1bc72908a667d5b2fc232385679961e23a76b72c2a11e978999e8dd699c31338",
+    "phase1_freeze.json": "c63af2603903f10effc5a2d184df3d8b3b14d1c6eca84063f85f382dcd661243"
+  },
+  "phase1_outcomes_used_to_choose_rules": false
+}

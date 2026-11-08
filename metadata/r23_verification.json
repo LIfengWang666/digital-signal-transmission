@@ -1,0 +1,39 @@
+{
+  "status": "R2.3 validation checks passed",
+  "checks": {
+    "original_sample_identity": true,
+    "frozen_coefficients_unchanged": true,
+    "400_unique_validation_paths": true,
+    "disjoint_from_design_paths": true,
+    "eight_conditions_two_full_grids": true,
+    "clean_reference_reconstruction": true,
+    "direct_vs_fft_eight_first_repeats": true,
+    "filter_linearity_eight_first_repeats": true,
+    "parseval_nyquist_identity_all_records": true,
+    "error_decomposition_all_records": true,
+    "finite_gain_matches_freeze": true,
+    "clean_distortion_matches_freeze": true
+  },
+  "coefficient_sha256": "aa155baf5455d627aa4df47373cad6c6d254fa1359020dc10895fcc28e89dec8",
+  "records": 400,
+  "grid_measurements": 800,
+  "max_direct_fft_error": 2.220446049250313e-15,
+  "max_linearity_error": 1.4432899320127035e-15,
+  "max_parseval_energy_error": 1.6653345369377348e-16,
+  "max_decomposition_error": 1.448494102440634e-16,
+  "prediction_base": {
+    "16000": [
+      0.00022950758078883963,
+      0.0532242709446543,
+      1.0
+    ],
+    "48000": [
+      0.00022950758016140326,
+      0.053224270928192326,
+      0.999984375
+    ]
+  },
+  "sample_crossover_db": 34.78772941073843,
+  "phase_1_used_for_parameter_selection": false,
+  "confidence_intervals": "Mean +/- t.ppf(0.975,49)*sample_std(ddof=1)/sqrt(50); pointwise approximate Monte Carlo mean intervals, not simultaneous intervals or sample-wise error bars"
+}

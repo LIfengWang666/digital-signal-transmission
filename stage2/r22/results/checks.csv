@@ -1,0 +1,11 @@
+check,error,tolerance,passed
+Windowed PSD integrates to the weighted mean square,0.0,1e-12,True
+Finite-noise decomposition includes the single-record cross term,4.987058942890199e-16,1e-11,True
+Selected kernel is symmetric,1.3877787807814457e-17,1e-13,True
+Selected full FFT and direct linear convolution agree,1.5543122344752192e-15,1e-11,True
+Three coefficients match the explicit IDFT sum,7.795404644573767e-18,1e-12,True
+Finite-boundary noise gain matches an impulse-basis trace,5.551115123125783e-17,1e-14,True
+hann agrees with the written symmetric formula,4.440892098500626e-16,1e-14,True
+hamming agrees with the written symmetric formula,3.885780586188048e-16,1e-14,True
+Selected gain constraint also holds on a denser guard grid,0.0010881875559325405,0.01,True
+Selected score obeys the declared one-percent allowance,0,0.01,True

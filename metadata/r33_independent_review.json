@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-21",
+  "status": "passed",
+  "all_cases_replayed": 890,
+  "imported_r32_cases_checked": 570,
+  "new_masks_replayed": 320,
+  "all_unique_masks_replayed": 880,
+  "independent_decoder": "Correction-sphere lookup, no syndrome",
+  "independent_encoder": "Parity-bit XOR, no G multiplication",
+  "independent_upstream": "Direct convolution, threshold quantiser, resample",
+  "parameter_scalar_and_state_match": true,
+  "personal_probability": 0.00021099569319078592,
+  "maximum_mse_difference": 4.263256414560601e-14,
+  "maximum_interval_difference_vs_binomtest": 5.027089855502709e-13,
+  "exact_ber_bler_independently_enumerated": true,
+  "no_phase1_or_study4_paths": true
+}

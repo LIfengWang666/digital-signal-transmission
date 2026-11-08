@@ -1,0 +1,22 @@
+scope,term,mean_power_48k,divided_by_reference_power,cohort,unique_conditions,source
+main12,sampling,1.7503771175125543e-25,2.3977768733048693e-25,R4 study4 phase1;1400 bundles per condition,12,stage4/r43/results/component_summary.csv
+main12,filter,0.000229507580161428,0.0003143939454266138,R4 study4 phase1;1400 bundles per condition,12,stage4/r43/results/component_summary.csv
+main12,gaussian,0.017636853271293867,0.024160072974375165,R4 study4 phase1;1400 bundles per condition,12,stage4/r43/results/component_summary.csv
+main12,quantisation,4.0241003062863177e-07,5.512466172994956e-07,R4 study4 phase1;1400 bundles per condition,12,stage4/r43/results/component_summary.csv
+main12,channel,1.8719525110010078,2.564318508220559,R4 study4 phase1;1400 bundles per condition,12,stage4/r43/results/component_summary.csv
+main12,cross_sum,-0.0005390475774595357,-0.0007384213389856654,R4 study4 phase1;1400 bundles per condition,12,stage4/r43/results/component_summary.csv
+main12,total,1.8892802266850337,2.588055105047992,R4 study4 phase1;1400 bundles per condition,12,stage4/r43/results/component_summary.csv
+personal,sampling,1.7503771175125546e-25,2.39777687330487e-25,R4 study4 phase1;1400 bundles per condition,1,stage4/r43/results/component_summary.csv
+personal,filter,0.00022950758016142804,0.0003143939454266138,R4 study4 phase1;1400 bundles per condition,1,stage4/r43/results/component_summary.csv
+personal,gaussian,0.021061392311660737,0.028851222344740742,R4 study4 phase1;1400 bundles per condition,1,stage4/r43/results/component_summary.csv
+personal,quantisation,4.02421155207625e-07,5.512618564488015e-07,R4 study4 phase1;1400 bundles per condition,1,stage4/r43/results/component_summary.csv
+personal,channel,0.00012600329512990935,0.00017260725360261557,R4 study4 phase1;1400 bundles per condition,1,stage4/r43/results/component_summary.csv
+personal,cross_sum,2.2130890900764347e-07,3.0316288905156643e-07,R4 study4 phase1;1400 bundles per condition,1,stage4/r43/results/component_summary.csv
+personal,total,0.021417526917016292,0.029339077968515474,R4 study4 phase1;1400 bundles per condition,1,stage4/r43/results/component_summary.csv
+SNR40,sampling,1.7503771175125546e-25,2.39777687330487e-25,R4 study4 phase1;1400 bundles per condition,1,stage4/r43/results/component_summary.csv
+SNR40,filter,0.00022950758016142804,0.0003143939454266138,R4 study4 phase1;1400 bundles per condition,1,stage4/r43/results/component_summary.csv
+SNR40,gaussian,3.8852346097782346e-06,5.322239191477035e-06,R4 study4 phase1;1400 bundles per condition,1,stage4/r43/results/component_summary.csv
+SNR40,quantisation,4.023981905912355e-07,5.512303980701857e-07,R4 study4 phase1;1400 bundles per condition,1,stage4/r43/results/component_summary.csv
+SNR40,channel,0.00011830053035943732,0.00016205552104032512,R4 study4 phase1;1400 bundles per condition,1,stage4/r43/results/component_summary.csv
+SNR40,cross_sum,-2.0211901028050145e-08,-2.7687535654863218e-08,R4 study4 phase1;1400 bundles per condition,1,stage4/r43/results/component_summary.csv
+SNR40,total,0.0003520755314202068,0.00048229524852083134,R4 study4 phase1;1400 bundles per condition,1,stage4/r43/results/component_summary.csv

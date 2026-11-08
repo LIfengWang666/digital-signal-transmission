@@ -1,0 +1,2 @@
+source,record_count,mean_nmse,db_from_mean_nmse,mean_of_record_db
+"two deterministic ranking examples, equal weight",2,0.034246575342465765,14.653828514484182,15.622928644564745

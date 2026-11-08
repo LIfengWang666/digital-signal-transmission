@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "independent_assertions": 221,
+  "semantic_rows": 7,
+  "existing_full_record_rows": 5,
+  "oracle": "scalar math.fsum with separate sample construction/loading",
+  "legacy_four_received_examples_match_R3_4": true,
+  "single_bit_amplitude_relation_checks": 28,
+  "no_new_random_records": true
+}

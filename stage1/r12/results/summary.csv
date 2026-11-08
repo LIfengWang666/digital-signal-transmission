@@ -1,0 +1,17 @@
+metric,value
+reference_sample_rate_hz,48000.0
+reference_sample_count,96000
+duration_s,2.0
+measured_band_edge_hz,6000.0
+nyquist_rate_hz,12000.0
+selected_sample_rate_hz,16000.0
+selected_factor,3
+selected_sample_count,32000
+selected_nyquist_frequency_hz,8000.0
+selected_guard_hz,2000.0
+selected_replica_gap_hz,4000.0
+selected_mse,1.7503771175125548e-25
+selected_nmse,2.39777687330487e-25
+selected_maximum_absolute_error,4.389905106094716e-12
+payload_reduction_vs_reference_percent,66.66666666666667
+deterministic_check_count,12

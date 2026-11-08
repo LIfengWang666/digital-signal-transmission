@@ -1,0 +1,62 @@
+\FloatBarrier
+\subsection{Choose the error range before the personal draw}
+\label{sec:r33}
+The positive main range spans three decades:
+\begin{equation}
+ \mathcal P_{\rm main}=
+ \{10^{-4},\,3\times10^{-4},\,10^{-3},\,3\times10^{-3},
+       \,10^{-2},\,3\times10^{-2},\,10^{-1}\}.
+ \label{eq:r33-grid}
+\end{equation}
+I add an identity control $ p=0 $, the anchor-seed point, and stress
+points $0.2,0.3,0.5 $, giving 12 distinct conditions.
+Table~\ref{tab:r33-range} links this range to the taught BSC and actual
+code, rather than assuming a physical link's error distribution.
+
+\begin{table}[htbp]
+ \centering\small
+ \caption{Frozen range and stress conditions. Each positive condition exposes 4480000 Hamming blocks; the identity control has 560000. Capacity and finite-code failure are different quantities.}
+ \label{tab:r33-range}
+ \input{generated/r33_range_table}
+ 
+ 
+\end{table}
+
+At $10^{-4}$ the exposure predicts 1792 uncoded and 3136 coded raw flips,
+but only 0.94049 failed Hamming blocks; observing none has probability
+about 0.3904. Three failures occurred, versus 94 at $10^{-3}$
+(expectation 93.76687). Exact pointwise binomial intervals and theoretical
+BER accompany these rare counts; zero counts would not prove zero risk
+(Appendix~\ref{app:statistics}). Even 4480000 blocks do not provide
+a precise low-end decoded-BER estimate.
+
+At $ p=0.1 $, the actual decoder's block failure probability is 0.1496944:
+multiple errors are substantial. The rate--capacity crossing is
+$ p=\PCapacityRoot $, while decoded BER loses its advantage at
+$ p=\PBerRoot $ (Appendix~\ref{app:ecc}). They are different boundaries;
+capacity does not guarantee short-code performance or waveform success \citep{shannon1948communication}.
+Points 0.2/0.3 straddle the latter. At 0.5, capacity is zero, received bits
+are independent of the payload and decoded BER is 0.5, providing a severe
+sanity check. Stress points do not enter the personal mapping.
+
+\paragraph{Reproducible anchor-seed convention.}
+After freezing the range and observation budget, parameter leaf $(0,1)$
+uses NumPy 2.1.3 SeedSequence(pool size 4)/PCG64 with root 2470964:
+\begin{equation}
+ U_p\sim U[0,1),\qquad
+ \log_{10}p_{\rm ID}=-4+3U_p,\qquad
+ p_{\rm ID}=10^{-4+3U_p}.
+ \label{eq:r33-mapping}
+\end{equation}
+\begin{equation}
+ U_p=\PUniform,\qquad p_{\rm ID}=\PPersonal.
+ \label{eq:r33-personal}
+\end{equation}
+Equal logarithmic intervals have equal weight; the induced density is
+derived in Appendix~\ref{app:random}. This is a declared project mapping,
+not an externally specified algorithm or a physical distribution of channels.
+Each experiment holds $ p $ fixed. Code and grid were not changed after
+seeing the draw. The study marks 570 reused and 320 additional cases
+explicitly, so its 890 cases/880 positive masks do not double-count
+observations. Independent replay verifies every payload and error profile;
+range, parameter state and protocol are frozen before R3.4 validation.

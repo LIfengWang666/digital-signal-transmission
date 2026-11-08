@@ -1,0 +1,10 @@
+id,filter_id,bits,code,layout,role,gain_max_deviation,gain_guard_feasible,payload_bits,padding_bits,transmitted_bits,logical_rate_bits_s,n,k,correction_radius,filter_taps,group_delay_ms,expansion,expansion_feasible,original_constraints_feasible,rate320_feasible
+base,base,14,hamming74,0,frozen R4 both baseline,0.0010881875559320964,True,448000,0,784000,392000.0,7,4,1,385,12.0,1.75,True,True,False
+band60,band60,14,hamming74,0,single half-width change,0.03284804276294817,False,448000,0,784000,392000.0,7,4,1,385,12.0,1.75,True,False,False
+band80,band80,14,hamming74,0,single half-width change,0.01221002127670312,False,448000,0,784000,392000.0,7,4,1,385,12.0,1.75,True,False,False
+taps257,taps257,14,hamming74,0,single length change,0.12888836509419632,False,448000,0,784000,392000.0,7,4,1,257,8.0,1.75,True,False,False
+taps513,taps513,14,hamming74,0,single length change,0.009009582717856013,True,448000,0,784000,392000.0,7,4,1,513,16.0,1.75,True,True,False
+bits16,base,16,hamming74,1,single bit-depth change; higher absolute bit cost,0.0010881875559320964,True,512000,0,896000,448000.0,7,4,1,385,12.0,1.75,True,True,False
+h1511,base,14,hamming1511,2,"single code change; higher rate, same correction radius",0.0010881875559320964,True,448000,8,610920,305460.0,15,11,1,385,12.0,1.3636607142857142,True,True,True
+repeat5,base,14,repetition51,3,stronger code diagnostic; violates original expansion<=2,0.0010881875559320964,True,448000,0,2240000,1120000.0,5,1,2,385,12.0,5.0,False,False,False
+uncoded,base,14,uncoded,4,code removal control; also predeclared R5.2 rate control,0.0010881875559320964,True,448000,0,448000,224000.0,1,1,0,385,12.0,1.0,True,True,True

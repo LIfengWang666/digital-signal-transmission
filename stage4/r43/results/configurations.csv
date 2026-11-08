@@ -1,0 +1,5 @@
+configuration_id,name,filter_enabled,ecc_enabled,bsc_layout_id,quantisation_bits,transmitted_bits,logical_rate_bits_s,gaussian_enabled_in_random_conditions,quantisation_enabled,bsc_enabled
+00,neither,False,False,0,14,448000,224000,True,True,True
+10,filter-only,True,False,0,14,448000,224000,True,True,True
+01,code-only,False,True,1,14,784000,392000,True,True,True
+11,both,True,True,1,14,784000,392000,True,True,True

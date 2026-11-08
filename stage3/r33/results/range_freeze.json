@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-21",
+  "status": "R3.3 range frozen",
+  "primary_positive_range": [
+    0.0001,
+    0.1
+  ],
+  "primary_grid": [
+    0.0001,
+    0.0003,
+    0.001,
+    0.003,
+    0.01,
+    0.03,
+    0.1
+  ],
+  "identity_probability": 0.0,
+  "stress_probabilities": [
+    0.2,
+    0.3,
+    0.5
+  ],
+  "personal_probability": 0.00021099569319078592,
+  "personal_uniform_draw": 0.10809119688032798,
+  "parameter_path": [
+    0,
+    1
+  ],
+  "mapping": "p_ID = 10**(log10(0.0001) + U_p*(log10(0.1)-log10(0.0001))) = 10**(-4+3*U_p)",
+  "capacity_equals_code_rate_at": 0.08764841174895356,
+  "exact_data_ber_equals_uncoded_at": 0.2113248654047524,
+  "code": "hamming74",
+  "code_changed": false,
+  "bits": 14,
+  "half_range": 18.0,
+  "source_sha256": {
+    "stage3/r33/design.json": "f502b0a15de4f3c9e5b92daa2bdbfff56a822d8ca245149f48c59a3048408440",
+    "stage3/r33/error_range.py": "2c2e94059173f5d2f754b3536f8f9d3f60ea9e547fd093d42a9f847b6ae53c8b",
+    "stage3/r32/results/code_freeze.json": "cf39ad92e530827918bdb642ac6e2184cb041fcd033f91672964b12e1aeb4e33",
+    "stage3/r32/results/seed_manifest.json": "6c3ec32a410914cecf9ebef0174e2cee7651c9d66b55b039668c4b238f23096d",
+    "stage3/r32/results/trials.csv": "8e80e08656f9a9c984ddc12a7bc224c7bfc06f6ffe465dd143b91a775e61abfa",
+    "stage3/r32/results/block_weights.csv": "dbb10dc38fe5dc85476fa02460d5a42dea336fa46625165be01a7580eb4496a4",
+    "stage3/r31/results/quantiser_freeze.json": "8fefa577802f4b458f82c919e874779e96b0008b9b5efbbefe343a2f78f49cec",
+    "stage3/r32/codes.py": "6b82a04a210816034b80ef449ad1ea638461cb56d481aec06b0b41d0759e0208",
+    "stage3/bitstream.py": "8af75b175d1873f271f1dca36f7b6648d87d7a76794ca1cbd73bdb6fd166af83",
+    "degradation.py": "beb4a6abeba009fc5d04415e22bc666de34ac09bc6170e70218dd2629b3abdaa",
+    "stage1/r12/sampling_rate.py": "9f87beaf817a386d771e956162b6e1f1468e34e13658053aba74d898c41db11b",
+    "stage2/r21/filtering_approach.py": "90c7e544a95fecfc8e51f8d134f843aed3263702d923bccc61a99dbaea53e9db",
+    "reference_signal.npy": "2f62c84fb0e11586373b2dc0d92f180206d15d4a77098046c9c43de290657095",
+    "stage2/r22/results/selected_coefficients.npy": "aa155baf5455d627aa4df47373cad6c6d254fa1359020dc10895fcc28e89dec8"
+  },
+  "r34_success_threshold_frozen": false,
+  "phase_1_or_study_4_used": false,
+  "range_is_not_a_quality_success_interval": true
+}

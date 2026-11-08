@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-21",
+  "status": "passed",
+  "independent_gaussian_inputs_replayed": 300,
+  "independent_bsc_masks_replayed": 8400,
+  "all_validation_rows_replayed": 9000,
+  "all_payload_hashes_and_integer_counts_match": true,
+  "decoder": "Independent correction-sphere lookup, no syndrome",
+  "encoder": "Independent parity XOR, no G multiplication",
+  "upstream": "Direct convolution, threshold quantiser, scipy resample",
+  "maximum_mse_difference": 4.263256414560601e-14,
+  "maximum_summary_statistic_difference": 2.842170943040401e-14,
+  "primary_gain_set_confirmed": [
+    0.0001,
+    0.00021099569319078592,
+    0.0003,
+    0.001,
+    0.002
+  ],
+  "no_design_observations_in_validation": true,
+  "r4_streams_used": false
+}

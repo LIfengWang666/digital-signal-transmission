@@ -1,0 +1,797 @@
+\section{Formula derivations and implementation conventions}
+\label{app:derivations}
+Shared formulas are derived once, with explicit assumptions and published technical references.
+Finite-array consequences are derived here; statistical methods and design
+preferences are supplementary. Symbols are local: $N$ is a sampled record
+length, $L$ the reference/reconstruction length, $K$ a transform length and
+$L_q=2^B$ the number of quantiser levels. Powers specify their grid.
+Receiver algorithms use no reference waveform or true channel errors.
+
+\subsection{Finite-record Fourier, windows and power}
+\label{app:dft}
+\paragraph{DFT pair and one-sided scaling.}
+Use the unscaled forward transform and $1/L$ inverse:
+\begin{align}
+ X[k]&=\sum_{n=0}^{L-1}x[n]e^{-j2\pi kn/L},\quad
+ f_k=\frac{kF_0}{L},\quad\Delta f=\frac{F_0}{L}=\BinSpacing\,\mathrm{Hz},
+ \label{eq:r11-dft}\\
+ x[n]&=\frac1L\sum_{k=0}^{L-1}X[k]e^{j2\pi kn/L}.
+ \label{eq:inverse}
+\end{align}
+Euler's cosine pair, $A\cos\theta=(A/2)(e^{j\theta}+e^{-j\theta})$,
+gives, for an isolated coherent interior component,
+\begin{equation}
+ x[n]=A\cos(2\pi k_0n/L+\phi)
+ \quad\Longrightarrow\quad X[k_0]=\tfrac{LA}{2}e^{j\phi}.
+ \label{eq:cosine-amplitude}
+\end{equation}
+For $N$ actual samples and even $K\ge N$, the general windowed scales are
+
+\begin{align}
+ Y_{a,K}[k]&=\sum_{n=0}^{N-1}y[n]a[n]e^{-j2\pi kn/K},\quad
+ f_k=\frac{kf_s}{K},\nonumber\\
+ A_{a,K}[k]&=\frac{c_k|Y_{a,K}[k]|}{\sum_na[n]},\quad
+ \widehat S_{a,K}[k]=\frac{c_k|Y_{a,K}[k]|^2}{f_s\sum_na[n]^2}.
+ \label{eq:r22-spectrum-scales}
+\end{align}
+Here $c_k=1$ at DC/Nyquist and 2 at other positive bins. For $N=K=L$,
+write $X_w=Y_{w,L}$ and $CG=L^{-1}\sum_nw[n]$; thus
+$\widehat A_w=c_k|X_w|/(L\,CG)$. With $W=\operatorname{DFT}_L(w)$,
+substitution of the cosine pair yields
+\begin{equation}
+ X_w[k_0]=\tfrac A2e^{j\phi}W[0]+\tfrac A2e^{-j\phi}W[2k_0],
+ \qquad W[0]=L\,CG.
+ \label{eq:window-gain-derivation}
+\end{equation}
+Normalising the first term does not remove mirror, off-bin or overlapping
+components. Padding changes $\Delta f_K=f_s/K$, not the window-sum denominators.
+
+\paragraph{Orthogonality, Parseval and PSD.}
+For DFT indices $k,\ell\in\{0,\ldots,L-1\}$, the geometric ratio
+$r=e^{j2\pi(k-\ell)/L}$ gives $(1-r^L)/(1-r)=0$ when $k\ne\ell$.
+Insert the IDFT, cancel unequal-index terms, then pair conjugate bins:
+\begin{align}
+ \sum_{n=0}^{L-1}e^{j2\pi(k-\ell)n/L}&=L\delta_{k\ell},
+ \label{eq:finite-orthogonality}\\
+ \sum_n|x[n]|^2
+ &=\frac1{L^2}\sum_{k,\ell}X[k]X^*[\ell]L\delta_{k\ell}
+ =\frac1L\sum_k|X[k]|^2,\label{eq:parseval-steps}\\
+ P_k&=c_k\frac{|X[k]|^2}{L^2},\qquad
+ \widehat P=L^{-1}\sum_nx[n]^2=\sum_{k=0}^{L/2}P_k.
+ \label{eq:parseval}
+\end{align}
+Applying the same identity to the padded windowed record gives
+\begin{equation}
+ \sum_{k=0}^{K/2}\widehat S_{a,K}[k]\frac{f_s}{K}
+ =\frac{\sum_{k=0}^{K-1}|Y_{a,K}[k]|^2}{K\sum_na[n]^2}
+ =\frac{\sum_ny[n]^2a[n]^2}{\sum_na[n]^2}.
+ \label{eq:r22-psd-integral}
+\end{equation}
+PSD has squared NPY-amplitude/Hz units. Its weighted integral need not equal
+the raw signal power used for noise generation.
+
+\paragraph{Shared symmetric windows.}
+For length $M$, $0\le n<M$, the tested windows are
+\citep{numpy21hanning,numpy21hamming}
+\begin{equation}
+ \theta_n=\frac{2\pi n}{M-1},\quad w_{\rm rect}=1,\quad
+ w_{\rm Hann}=\tfrac12(1-\cos\theta_n),\quad
+ w_{\rm Hamming}=0.54-0.46\cos\theta_n.
+ \label{eq:r22-windows}
+\end{equation}
+The spectral Hann $w_H$ uses $M=L$; kernel tapers use the FIR length.
+
+\subsection{Sampling, interpolation and aliasing}
+\label{app:sampling}
+\paragraph{Folding and periodic recovery.}
+For decimation $L=MN$, substitute $x_{\rm ref}[Mm]$ from the IDFT.
+Orthogonality retains only $r=k+qN$, including phase:
+\begin{equation}
+ \frac{Y[k]}N=\frac1{LN}\sum_{r=0}^{L-1}X[r]
+ \sum_{m=0}^{N-1}e^{j2\pi(r-k)m/N}
+ =\sum_{q=0}^{M-1}\frac{X[k+qN]}L,\quad0\le k<N.
+ \label{eq:decimation-folding}
+\end{equation}
+For real even-$N$ data, $Y=\operatorname{DFT}_N(x_M)$. Pairing the reference
+IDFT and evaluating at $t/T=n/L$ gives the periodic interpolator:
+\begin{equation}
+ \widehat x[n]=\frac1N\left[Y[0]
+ +2\operatorname{Re}\sum_{k=1}^{N/2-1}Y[k]e^{j2\pi kn/L}
+ +Y[N/2]\cos\!\left(\frac{\pi Nn}{L}\right)\right].
+ \label{eq:periodic-interpolation}
+\end{equation}
+For \texttt{irfft(Z,L)}, $L>N$, the old Nyquist coefficient splits into
+an interior conjugate pair, requiring
+\begin{equation}
+ Z[k]=\frac LN Y[k]\ (k<N/2),\quad
+ Z[N/2]=\frac L{2N}Y[N/2],\quad Z[k]=0\ (k>N/2).
+ \label{eq:interpolation-scaling}
+\end{equation}
+For $L=N$ it is not split. DC/phased/Nyquist tests and independent SciPy
+resampling check the convention \citep{numpy21irfft,scipy1153resample}.
+The measured two-second periodicity supports this ideal-baseband recovery. Its inputs are only the samples and
+target length; it does not recover arbitrary nonperiodic records.
+
+\paragraph{Boundary phase and signed aliases.}
+At $f_0=f_s/2$, the unknown sine component is lost:
+\begin{equation}
+ A\cos(\pi m+\phi)=A(-1)^m\cos\phi.
+ \label{eq:critical-phase}
+\end{equation}
+For nonboundary $f_d=f_0-qf_s\in(-f_s/2,f_s/2)$, $f_d\ne0$, and $f_a=|f_d|$,
+\begin{equation}
+ A\cos(2\pi f_0m/f_s+\phi)=A\cos(2\pi f_am/f_s+\phi_a),\qquad
+ \phi_a=\operatorname{sgn}(f_d)\phi.
+ \label{eq:alias-phase}
+\end{equation}
+In the 8~kHz diagnostic, the retained low-frequency terms cancel, leaving
+\begin{equation}
+ e_8(t)\simeq-0.1\sin(2\pi\,2000t)-0.1\sin(2\pi\,6000t).
+ \label{eq:alias-error-model}
+\end{equation}
+These distinct integer-bin tones are orthogonal on the common grid, so
+\begin{equation}
+ \mathrm{MSE}_{8,\rm pred}=0.1^2/2+0.1^2/2=0.01.
+ \label{eq:alias-error-power}
+\end{equation}
+This explains measured phases after the experiment; no source tones enter
+the recovery algorithm.
+
+\subsection{Linear filtering, finite boundaries and reconstruction energy}
+\label{app:filter}
+\paragraph{Convolution and padding.}
+The reference impulse expansion $y[n]=\sum_my[m]\delta[n-m]$, linearity
+and time invariance give 
+\begin{equation}
+ z[n]=\mathcal T\{y\}[n]=\sum_my[m]\mathcal T\{\delta[\cdot-m]\}[n]
+ =\sum_my[m]h[n-m].
+ \label{eq:r21-lti-convolution}
+\end{equation}
+For circular convolution, $r=(n-m)\bmod K$ separates the DFT sum:
+\begin{equation}
+ Z_c[k]=\sum_mh[m]e^{-j2\pi km/K}\sum_ry[r]e^{-j2\pi kr/K}
+ =H_K[k]Y_K[k].
+ \label{eq:r21-convolution-theorem}
+\end{equation}
+Zero extension gives $N+M-1$ full outputs. Linear convolution is therefore
+\begin{equation}
+ z_K[n]=\frac1K\sum_{k=0}^{K-1}H_K[k]Y_K[k]e^{j2\pi kn/K},
+ \qquad K\ge N+M-1.
+ \label{eq:r21-padded-convolution}
+\end{equation}
+retaining the first $N+M-1$ values, with zero padding.
+The 513-tap prototype has 32512 full outputs; $K=32768$ is convenient,
+not a NumPy requirement. An insufficient-padding counterexample is
+
+\begin{equation}
+ [1,2,1]*[2,0,2]=[2,4,4,4,2],
+ \qquad
+ \operatorname{IDFT}_4(Y_4H_4)=[4,4,4,4].
+ \label{eq:r21-wrap-example}
+\end{equation}
+A centred three-point mean has aligned response
+\begin{equation}
+ h=[1,1,1]/3,\quad d=1,\qquad
+ G_3(\omega)=e^{j\omega d}\sum_{m=0}^2h[m]e^{-j\omega m}
+ =\frac{1+2\cos\omega}{3}.
+ \label{eq:r21-ma-response}
+\end{equation}
+
+\paragraph{One finite-IDFT filter family.}
+For signed frequencies $f_k$, measured corrupted-spectrum centres $f_i$,
+half-width $b$, odd $M$ and $d=(M-1)/2$,
+
+\begin{align}
+ B_b[k]&=\mathbf1\!\left\{\min_i\bigl||f_k|-f_i\bigr|\le b\right\},\\
+ h_{M,b,w}[m]&=w[m]\frac1N\sum_{k=0}^{N-1}
+ B_b[k]e^{j2\pi k(m-d)/N},\qquad d=(M-1)/2.
+ \label{eq:r22-family}
+\end{align}
+Use the symmetric windows in Eq.~\eqref{eq:r22-windows} on the kernel,
+$0\le m<M$. The Hann prototypes use 513 taps and 80~Hz half-width in R2.1,
+then 385 taps and 70~Hz in R2.2. The low-pass comparator uses
+$B_b=\mathbf1_{\{|f_k|\le6600\,\mathrm{Hz}\}}$.
+This project construction uses the declared R1 priors, not true noise.
+The realised response is $\operatorname{DFT}_K(h)$, not the binary template.
+
+With zero extension, the reference-independent crop is
+\begin{equation}
+ \widehat x[n]=z_{\rm full}[n+d],\quad 0\le n<N.
+ \label{eq:r21-centred-crop}
+\end{equation}
+The offline crop uses future samples; causal FIR delay is $d/f_s$
+(16~ms for the prototype), distinct from whole-record FFT buffering.
+
+\paragraph{Finite-boundary noise gain, distortion and crossover.}
+For a fixed filter, write $d_x=F(x)-x$, $v=F(e)$ and $y=x+e$:
+\begin{equation}
+ F(y)-x=d_x+v,\qquad
+ \mathrm{MSE}=(\|d_x\|^2+\|v\|^2+2d_x^{\mathsf T}v)/N.
+ \label{eq:r22-distortion-decomposition}
+\end{equation}
+For new independent zero-mean noise, $g[\ell]=h[\ell+d]$, $d<N$,
+each lag overlaps $N-|\ell|$ positions. Thus
+\begin{align}
+ G_{\rm finite}&=\sum_{\ell=-d}^dg[\ell]^2(1-|\ell|/N),\nonumber\\
+ \mathbb E[\mathrm{MSE}]&=D+\sigma^2G_{\rm finite},\qquad D=\|d_x\|^2/N.
+ \label{eq:r22-finite-noise-gain}
+\end{align}
+The cross term vanishes in expectation, not in each trial. For $D>0,G<1$,
+$D+\sigma^2G=\sigma^2$ gives $\sigma^2=D/(1-G)$ and
+\begin{equation}
+ S_* =10\log_{10}\frac{P_x(1-G_{\rm finite})}{D}
+       \approx\RttCrossover\ {\rm dB}.
+ \label{eq:r22-crossover}
+\end{equation}
+
+\paragraph{Reconstruction-grid energy and expected noise.}
+For the frozen filter, $D=\RttCleanMse$ and $G=\RttNoiseGain$ in
+Eq.~\eqref{eq:r22-finite-noise-gain}. Let $V=\operatorname{DFT}_N(v)$ for
+a real even-$N$ error vector and $A_\pi=V[N/2]/N=N^{-1}\sum_n(-1)^nv[n]$.
+For interpolation $R$ to $L=3N$, ordinary pairs retain their mean-square
+contribution; splitting the old Nyquist coefficient halves its power:
+\begin{align}
+ \frac1N\|v\|^2
+ &=\frac{|V[0]|^2+
+ 2\sum_{k=1}^{N/2-1}|V[k]|^2+|V[N/2]|^2}{N^2},\nonumber\\
+ \frac1L\|R(v)\|^2
+ &=\frac{|V[0]|^2+
+ 2\sum_{k=1}^{N/2-1}|V[k]|^2+\tfrac12|V[N/2]|^2}{N^2}\nonumber\\
+ &=\frac1N\|v\|^2-\frac12 A_\pi^2.
+ \label{eq:r23-reconstruction-energy}
+\end{align}
+With $a_n=(-1)^n/N$, independence gives
+$\mathbb E[(a^{\mathsf T}Fe)^2]=\sigma^2\|F^{\mathsf T}a\|^2$, so
+\begin{equation}
+ G_{48}=G-\frac12\|F^\mathsf{T}a\|^2
+       =\RtvNoiseGainHigh,\qquad
+ G_{0,48}=1-\frac1{2N}=0.999984375.
+ \label{eq:r23-high-gain}
+\end{equation}
+The 48~kHz predictions are $D_{48}+\sigma^2G_{48}$ and
+$\sigma^2G_{0,48}$, with measured clean distortion $D_{48}=\RtvCleanHigh$;
+negligible clean interpolation residuals are omitted. Actual errors use
+the original reference, rather than assuming the two grids are equivalent.
+
+\paragraph{Independent finite cosine-series kernel.}
+For disjoint interior bands centred on DFT bins, integer $J_b=bN/f_s$
+and $C_b=2J_b+1$, the finite geometric series gives an independent check:
+\begin{align}
+ S_{C_b}(\ell)
+ &=\sum_{q=-J_b}^{J_b}e^{j2\pi q\ell/N}
+ =\begin{cases}
+ C_b,&\ell=0,\\
+ \dfrac{\sin(C_b\pi\ell/N)}{\sin(\pi\ell/N)},&\ell\ne0,
+ \end{cases}\nonumber\\
+ h[m]&=\frac{2w[m]}{N}S_{C_b}(m-d)
+       \sum_i\cos\!\left(\frac{2\pi f_i(m-d)}{f_s}\right).
+ \label{eq:r23-audit-kernel}
+\end{align}
+
+\subsection{Quantisation, binary labels and amplitude errors}
+\label{app:quant}
+\paragraph{Endpoint codebook and shifted rounding.}
+The endpoint mapping, Eq.~\eqref{eq:r31mapping}, has spacing
+$\Delta=2A/(L_q-1)$ versus the ideal-model $2A/L_q$. The normalised epsilon
+shifts rounding by $A\epsilon$, giving $|z_q-z_c|\le\Delta/2+A\epsilon$
+apart from floating-point effects. The even endpoint codebook omits zero;
+the retained shift maps zero to $-\Delta/2$. With clipping,
+$e_q=(z_c-z)+(z_q-z_c)$, whose power includes their cross term.
+Actual errors need not be white, independent or zero-mean
+\citep{widrow1996quantization}.
+
+\paragraph{Common headroom and an overload bound.}
+Both branches share a range fixed before noise generation for the
+$-10$ to 40~dB stress envelope. Let $M_b=\max_n|F_b(x)[n]|$,
+$g_0=1$, $g_F=\|h\|_2$ and
+$\sigma_{\max}=\sqrt{P_x10^{-S_{\min}/10}}=2.701851$ at $S_{\min}=-10$~dB.
+Independence gives $\operatorname{Var}[(F\eta)[n]]
+\le\sigma^2\|h\|_2^2$, including boundaries. Six-sigma headroom yields
+\begin{equation}
+ A=\left\lceil\max_b(M_b+6\sigma_{\max}g_b)\right\rceil
+ =\left\lceil\max(\QRawHeadroom,\QFilterHeadroom)\right\rceil=\QHalfRange.
+ \label{eq:r31range}
+\end{equation}
+For unbounded Gaussian noise this is not a zero-overload guarantee:
+$\Pr(\text{any overload})\le2N\operatorname{erfc}(6/\sqrt2)=\QUnionBound$
+for the two $N=32000$ branches by the union bound, without branch
+independence. Overloads are counted before clipping; the stress envelope
+does not expand R2's design claims.
+
+\paragraph{Uniform-error integral and SQNR conventions.}
+The reference's unoverloaded model has $p_e(e)=1/\Delta$ on
+$[-\Delta/2,\Delta/2)$ and $\mathbb E[e]=0$ by symmetry. Its model variance is
+\citep{bennett1948spectra}
+\begin{equation}
+ \mathbb E[e^2]=\frac1\Delta\int_{-\Delta/2}^{\Delta/2}e^2\,de
+ =\frac1\Delta\left[\frac{e^3}3\right]_{-\Delta/2}^{\Delta/2}
+ =\frac{\Delta^2}{12}.
+ \label{eq:r31variance}
+\end{equation}
+For endpoint spacing and $R_a=2A$, this gives the model
+\begin{equation}
+ {\rm SQNR}_{\rm model}
+ =10\log_{10}\!\left(\frac{12P_z}{\Delta^2}\right)
+ =10\log_{10}\!\left(\frac{12P_z(2^B-1)^2}{R_a^2}\right).
+ \label{eq:r31model}
+\end{equation}
+A full-range sine has $P_z=R_a^2/8$, so the ideal uniform spacing gives
+$10\log_{10}(1.5\,4^B)=10\log_{10}1.5+20B\log_{10}2
+\simeq1.76+6.02B$~dB. Endpoint spacing adds $20\log_{10}(1-2^{-B})$.
+Neither sine formula is the actual multitone/noisy-input SQNR.
+
+\paragraph{Random-label power and the p=0.5 full-grid check.}
+At $p=0.5$, received bits are independent fair bits, independent of the
+payload. Hamming(7,4)'s 16 equal eight-word correction spheres give uniform
+decoded messages, hence independent fair information bits and uniform
+disjoint 14-bit labels. For uniform $j\in\{0,\ldots,L_q-1\}$,
+$\mathbb E[j]=(L_q-1)/2$ and $\operatorname{Var}(j)=(L_q^2-1)/12$, giving
+\begin{equation}
+ V_q=\left(\frac{2A}{L_q-1}\right)^2\operatorname{Var}(j)
+ =\frac{A^2(L_q+1)}{3(L_q-1)}.
+ \label{eq:r43-uniform-label}
+\end{equation}
+Here $A=18,L_q=2^{14}$. This is decoded-level power, not $\Delta^2/12$.
+The reference cross term has zero expectation; Nyquist correction gives
+\begin{equation}
+ \mathbb E[d\mid p=0.5]
+ =1+\frac{V_q}{P_{\rm ref}}\left(1-\frac1{2N}\right)
+ =\WHalfTheory,\qquad N=32000.
+ \label{eq:r43-half-theory}
+\end{equation}
+
+\paragraph{Bit depth, label significance and code-block coupling.}
+The endpoint model predicts only the quantisation-component ratio
+\begin{equation}
+ \frac{P_{q,16}}{P_{q,14}}
+ =\left(\frac{2^{14}-1}{2^{16}-1}\right)^2\simeq\frac1{16},
+ \label{eq:r51-quant-ratio}
+\end{equation}
+For true MSB-first bits $b_{n,u}$ and error indicators $w_{n,u}$, XOR is
+$\widehat b_{n,u}=b_{n,u}+(1-2b_{n,u})w_{n,u}$. Therefore
+\begin{equation}
+ \begin{aligned}
+ \ell[n]&=\sum_{u=0}^{B-1}2^{B-1-u}b_{n,u},\quad z_q[n]=-A+\Delta_B\ell[n],\\
+ \delta z[n]&=\Delta_B(\widehat\ell[n]-\ell[n])
+ =\Delta_B\sum_{u=0}^{B-1}(1-2b_{n,u})2^{B-1-u}w_{n,u}.
+ \end{aligned}
+ \label{eq:r51-bit-coupling}
+\end{equation}
+At $B=14$, one MSB error has $2^{13}$ times an LSB error's amplitude
+magnitude and $2^{26}$ times its squared magnitude. Squaring retains joint
+$w_{n,u}w_{n,v}$ terms. Label starts $(Bn)\bmod4$ alternate 0/2 for 14 bits
+but stay 0 for 16; dependent within-codeword errors therefore interact
+differently with significant bits. Component/cross-term measurements capture
+the combined change, not an isolated alignment effect or resolution-only gain.
+
+\paragraph{Fixed-resolution packing diagnostic.}
+With fixed 14-bit labels, $\alpha_{n,u}=\Delta 2^{13-u}(1-2b_{n,u})$.
+Let $A_b$ place codeword $b$'s four slopes in their sample positions:
+$\delta z=\sum_bA_bw_b$. The 128 BSC patterns give residual-bit mean $q$
+and covariance $C$. Independent blocks give
+$m=\mathbb E[\delta z]=\sum_bA_bq$ and
+$\Sigma=\operatorname{Cov}(\delta z)=\sum_bA_bCA_b^T$.
+Apply Eq.~\eqref{eq:r23-reconstruction-energy} to the zero-mean fluctuation:
+\begin{equation}
+ \mathbb E[d]=\frac{1}{P_{\rm ref}}\left\{
+ \frac{\|\mathcal R(z_q+m)-x_{\rm ref}\|^2}{L}
+ +\frac{\operatorname{tr}\Sigma}{N}
+ -\frac{a^T\Sigma a}{2N^2}\right\},\quad a_n=(-1)^n.
+ \label{eq:packing-expectation}
+\end{equation}
+The final term corrects split Nyquist energy. Packing changes $A_b$,
+with $q,C,z_q$ fixed; Gaussian is absent. The code accumulates block
+moments without storing $\Sigma$.
+
+\subsection{Systematic ECC, channel error laws and payload counting}
+\label{app:ecc}
+Counting fixed-width samples gives
+\begin{equation}
+ R_{\mathrm{raw}}=Bf_s,\qquad N_{\mathrm{bits}}=BN,\qquad
+ \frac{R_{\mathrm{raw},i}}{R_{\mathrm{raw},16k}}=\frac{f_{s,i}}{16000}.
+ \label{eq:sampling-payload}
+\end{equation}
+
+\paragraph{Fixed matrices, syndrome, distance and miscorrection.}
+The reference distance and correction radius are
+
+\begin{align}
+ d_H(\mathbf u,\mathbf v)&=\sum_{i=0}^{n-1}
+       \mathbb{1}\{u_i\ne v_i\},&
+ d_{\min}&=\min_{\mathbf u\ne\mathbf v\in C}d_H(\mathbf u,\mathbf v),
+ \label{eq:r32-distance}\\
+ R&=\frac{k}{n},&
+ t&=\left\lfloor\frac{d_{\min}-1}{2}\right\rfloor.
+ \label{eq:r32-rate}
+\end{align}
+A validity check detects up to $d_{\min}-1$ errors; correction guarantees
+only $t$. All arithmetic is in $\mathrm{GF}(2)$, using integer NumPy
+matrix multiplication modulo two over GF(2). The actual row-message matrices are
+
+\begin{equation}
+ G_7=\left[\begin{array}{rrrr|rrr}
+ 1&0&0&0&1&1&0\\0&1&0&0&1&0&1\\
+ 0&0&1&0&0&1&1\\0&0&0&1&1&1&1
+ \end{array}\right],\qquad
+ H_7=\left[\begin{array}{rrrr|rrr}
+ 1&1&0&1&1&0&0\\1&0&1&1&0&1&0\\0&1&1&1&0&0&1
+ \end{array}\right].
+ \label{eq:r32-matrices}
+\end{equation}
+For $G=[I_k\mid P]$ and $H=[P^T\mid I_{n-k}]$,
+\begin{equation}
+ GH^T=P+P=0,\quad \mathbf c=\mathbf mG,\quad
+ \mathbf r=\mathbf c+\mathbf e,\quad
+ \mathbf s=\mathbf rH^T=\mathbf eH^T.
+ \label{eq:r32-syndrome}
+\end{equation}
+A single-error syndrome equals the corresponding column of $H$.
+Its columns, in order, are 110, 101, 011, 111, 100, 010, 001.
+Use column matching rather than binary-syndrome indexing;
+zero syndrome leaves the word unchanged. Extract the first $k$ bits
+after correction.
+The reference example $1100\mapsto1100011$ becomes $1110011$ after flipping
+zero-based position 2; syndrome $011$ restores it. Enumeration of all 16
+messages gives minimum nonzero weight 3. Linearity,
+$d_H(c_1,c_2)=w_H(c_1+c_2)$, proves $d_{\min}=3$.
+The disjoint radius-one spheres contain $2^4(1+7)=2^7$ words, a perfect
+partition; sphere size alone is not proof of correction.
+
+Two flips $0000000\to1100000$ also give syndrome $011$: correction produces
+the wrong valid word $1110000$, message $1110$, with final syndrome zero.
+This decoder is not SECDED; validity does not prove message recovery.
+
+\paragraph{Alternative codes and majority decoding.}
+For the $(15,11)$ reference code, define $G_{15}=[I_{11}\mid P_{15}]$ and
+$H_{15}=[P_{15}^T\mid I_4]$ by these ordered four-bit parity rows:
+\begin{equation}
+ \begin{aligned}
+ \operatorname{rows}(P_{15})={}&(1100,1010,1001,0110,0101,0011,\\
+ &1110,1101,1011,0111,1111).
+ \end{aligned}
+ \label{eq:r32-p15}
+\end{equation}
+Each string is one binary row. Distinct nonzero columns of $H_{15}$ exclude
+weight-one/two codewords; the first generator row has weight three.
+Thus $d_{\min}=3,t=1,R=11/15$. The five-repetition reference alternative has
+$G_5=[1\ 1\ 1\ 1\ 1]$, $H_5=[\mathbf1_4\mid I_4]$,
+$d_{\min}=5,t=2,R=1/5$. Majority fails on three or more flips:
+\begin{equation}
+ P_{b,5}=10p^3(1-p)^2+5p^4(1-p)+p^5.
+ \label{eq:r32-repeat}
+\end{equation}
+The ideal-model three-repetition example instead gives $3p^2-2p^3$. Uncoded $(1,1)$ has
+$d_{\min}=1,t=0,R=1,P_b=p$.
+
+\paragraph{Exact framing, padding and effective rate.}
+For $N$ labels of $B$ bits, duration $T$ and an $(n,k)$ code,
+\begin{align}
+ M_b&=NB,\qquad a=(-M_b)\bmod k,\qquad
+ N_c=\left\lceil M_b/k\right\rceil,\nonumber\\
+ M_t&=nN_c,\qquad R_{\mathrm{eff}}=M_b/M_t,\qquad r_t=M_t/T.
+ \label{eq:r32-framing}
+\end{align}
+Here $N=32000,B=14,T=2$~s, so $M_b=448000$. R3.2 also uses $M=M_b,v_t=r_t$.
+The last word has $b=M_b-k(N_c-1)$ real bits. Padding is encoded and counted
+in the logical sending rate but excluded from real-payload BER; headers
+and physical energy lie outside this rate definition.
+
+Independent BSC flips imply
+\begin{equation}
+ E_i\overset{\mathrm{iid}}{\sim}\operatorname{Bernoulli}(p),\quad
+ J_b=\sum_{i=1}^n E_i\sim\operatorname{Binomial}(n,p),\quad
+ \Pr(J_b=j)=\binom njp^j(1-p)^{n-j}.
+ \label{eq:r32-binomial}
+\end{equation}
+
+\paragraph{Exact complete-block failure and decoded BER.}
+For the verified perfect Hamming and odd-repetition decoders, complete
+padded-message failure occurs exactly when error weight exceeds $t$:
+\begin{equation}
+ q_{n,t}(p)=1-\sum_{j=0}^t\binom njp^j(1-p)^{n-j}
+ =\sum_{j=t+1}^n\binom njp^j(1-p)^{n-j}.
+ \label{eq:r32-bler}
+\end{equation}
+The positive tail is numerically stable. This law is not assumed for
+arbitrary ECC; real-payload BER excludes Hamming(15,11)'s eight padding bits.
+Translation invariance, Eq.~\eqref{eq:r42-pair-invariant}, permits all-zero
+message enumeration. Grouping patterns by weight gives
+\begin{equation}
+ \begin{aligned}
+ A_{c,j}&=\sum_{\mathbf e:\,w_H(\mathbf e)=j}w_H(\mathcal D_c(\mathbf e)),\\
+ P_{b,c}(p)&=\frac1k\sum_{j=0}^n A_{c,j}p^j(1-p)^{n-j}.
+ \end{aligned}
+ \label{eq:r32-exactber}
+\end{equation}
+Multiplicity is included in $A_{c,j}$. The (7,4) coefficients
+$(0,0,36,76,64,48,28,4)$ give $P_b=9p^2+O(p^3)$; (15,11) gives
+$21p^2+O(p^3)$. Also $q_{7,1}=1-(1-p)^7-7p(1-p)^6=21p^2+O(p^3)$.
+
+\paragraph{Capacity and rate are distinct from finite-code error.}
+The memoryless BSC capacity is
+\begin{equation}
+ H_2(p)=-p\log_2p-(1-p)\log_2(1-p),\qquad C(p)=1-H_2(p),
+ \label{eq:r33-capacity}
+\end{equation}
+Use $0\log_20=0$; $C(p)=4/7$ gives $p=\PCapacityRoot$.
+Capacity does not predict this finite decoder's BER.
+
+\paragraph{Exact finite-code BER crossover.}
+Expanding the (7,4) enumerator and factoring gives the nontrivial
+crossover in $(0,1/2)$:
+\begin{align}
+ P_{b,7}(p)&=9p^2-26p^3+30p^4-12p^5,\nonumber\\
+ P_{b,7}(p)-p&=-p(2p-1)(p-1)(6p^2-6p+1),\label{eq:r33-bercross}\\
+ p_{\rm BER}&=(3-\sqrt3)/6=\PBerRoot.\label{eq:r33-berroot}
+\end{align}
+
+\paragraph{Decoder invariance under a shared mask.}
+Adding a valid codeword leaves syndrome and correction vector
+$\kappa(\mathbf s)$ unchanged. For information projection $\pi_4$,
+\begin{equation}
+ \mathbf s=(\mathbf c\oplus\mathbf e)H^T=\mathbf eH^T,\qquad
+ D_1(E_1(\mathbf b)\oplus\mathbf e)
+ =\mathbf b\oplus\pi_4[\mathbf e\oplus\kappa(\mathbf eH^T)].
+ \label{eq:r42-pair-invariant}
+\end{equation}
+Hence $\mathcal D(c\oplus e)=m\oplus\mathcal D(e)$; odd-repetition majority
+has the same translation property. The same mask gives identical decoded
+error patterns across messages.
+
+\paragraph{Exact real-payload probability with a partial final word.}
+Let $b=M_b-(N_c-1)k$ and let $a_{b,w}$ count weight-$w$ patterns whose
+decoded first $b$ bits remain correct. Translation invariance and independent
+disjoint BSC words give
+\begin{align}
+ s_b(p)&=\sum_{w=0}^n a_{b,w}p^w(1-p)^{n-w},\label{eq:r52-prefix}\\
+ P_{\rm exact\ payload}
+ &=(1-q_{n,t}(p))^{N_c-1}s_b(p).\label{eq:r52-payload}
+\end{align}
+For (15,11), $b=3$ and eight bits are padding, so
+$(1-q_{15,1})^{40728}$ is not exact real-payload recovery.
+For unpadded (7,4), $b=4$, $s_b=1-q_{7,1}$, yielding
+$(1-q_{7,1})^{112000}$; uncoded transmission gives $(1-p)^{448000}$.
+
+\subsection{Reconstruction metrics and error accounting}
+\label{app:metrics}
+\paragraph{Common finite-record metrics and units.}
+For reference $u$, recovery $\widehat u$, $Q$ grid positions and $P_u>0$,
+\begin{equation}
+ \begin{aligned}
+ a[j]&=\widehat u[j]-u[j],\quad P_u=Q^{-1}\sum_ju[j]^2,\quad
+ E=\operatorname{MSE}=Q^{-1}\sum_ja[j]^2,\\
+ \operatorname{RMSE}&=\sqrt E,\qquad \operatorname{NMSE}=E/P_u,\qquad
+ S_{\rm error}=10\log_{10}(P_u/E).
+ \end{aligned}
+ \label{eq:r23-metrics}
+\end{equation}
+
+Cauchy--Schwarz gives
+\begin{equation}
+ \operatorname{MAE}=Q^{-1}\sum_j|a[j]|\leq
+ \sqrt{Q^{-1}\sum_ja[j]^2}=\operatorname{RMSE}.
+ \label{eq:r41-mae}
+\end{equation}
+MAE is not a monotone transform of MSE.
+
+For paired repeat $r$,
+\begin{equation}
+ \delta_r=E_{0,r}-E_{F,r},\qquad
+ g_r=S_{{\rm error},F,r}-S_{{\rm error},0,r}
+     =10\log_{10}\frac{E_{0,r}}{E_{F,r}}.
+ \label{eq:r23-paired}
+\end{equation}
+
+\paragraph{Boundary diagnostics and the aggregate denominator.}
+For edge set $B$ of size $2q$ and complement $I$,
+\begin{align}
+ E_B&=\frac1{2q}\sum_{j\in B}a[j]^2,&
+ E_I&=\frac1{Q-2q}\sum_{j\in I}a[j]^2,\nonumber\\
+ E&=\frac{2q}{Q}E_B+\frac{Q-2q}{Q}E_I,&
+ \eta_B&=\frac{(2q/Q)\overline E_B}{\overline E}.
+ \label{eq:r23-boundary-metrics}
+\end{align}
+The aggregate ratio is not the mean of individual edge/total ratios.
+
+\paragraph{Component budget and total error.}
+The squared-sum identity in Eq.~\eqref{eq:r42-component-power} applies
+also to upstream error $a$ and extra quantisation $q$. Define
+$\rho_q=\operatorname{mean}(q^2)/\operatorname{mean}(a^2)$ for nonzero
+upstream power. Cauchy--Schwarz bounds their cross term, giving
+\begin{equation}
+ \left|\frac{\operatorname{mean}[(a+q)^2]}
+                  {\operatorname{mean}(a^2)}-1\right|
+ \le \rho_q+2\sqrt{\rho_q}.
+ \label{eq:r31-total-bound}
+\end{equation}
+A 1\% component budget permits a conservative 21\% total-MSE change;
+the observed largest increase is \QMaxTotalPercent\%.
+
+Expanding centred squares with $\bar e=L^{-1}\sum_\ell e[\ell]$ gives
+\begin{equation}
+ V_e=L^{-1}\sum_\ell(e[\ell]-\bar e)^2=D-\bar e^2,
+ \qquad D=V_e+\bar e^2.
+ \label{eq:r41-bias}
+\end{equation}
+Variance alone omits bias. Waveform MSE uses $L$, not the $L-1$ sample-variance divisor.
+
+For centred reference/recovery arrays $x_c,y_c$,
+\begin{equation}
+ \rho=\frac{\sum_\ell x_c[\ell]y_c[\ell]}
+ {\sqrt{\sum_\ell x_c[\ell]^2\sum_\ell y_c[\ell]^2}}.
+ \label{eq:r41-correlation}
+\end{equation}
+
+\paragraph{Five components and ten signed cross terms.}
+The five full-grid errors are
+\begin{align}
+ e_s&=\mathcal R x-x_{\rm ref},&
+ e_f&=\mathcal R F_fx-\mathcal R x,&
+ e_g&=\mathcal R F_f\eta,\nonumber\\
+ e_q&=\mathcal R z_q-\mathcal R z_f,&
+ e_b&=\widehat x-\mathcal R z_q,
+ \label{eq:r42-components}
+\end{align}
+Expanding their squared sum without independence assumptions gives
+\begin{equation}
+ \widehat x-x_{\rm ref}=\sum_i e_i,\qquad
+ D=\sum_i\frac{\|e_i\|^2}{L}
+   +2\sum_{i<j}\frac{\langle e_i,e_j\rangle}{L}.
+ \label{eq:r42-component-power}
+\end{equation}
+All five powers and ten signed cross terms are saved; they are not
+normalised into a 100\% responsibility chart.
+
+For repeated complete-record NMSE values,
+\begin{equation}
+ \bar d=R^{-1}\sum_rd_r,\qquad
+ S_{\rm err,from\ mean}=-10\log_{10}\bar d.
+ \label{eq:r41-average}
+\end{equation}
+Generally this differs from averaging per-record dB values. Exact zero
+error gives $+\infty$; no epsilon floor is inserted.
+
+\subsection{Uncertainty, planning and decision rules}
+\label{app:statistics}
+\paragraph{One mean/variance/interval convention.}
+For $R$ independent complete-record/bundle values $v_r$,
+\begin{align}
+ \bar v&=R^{-1}\sum_{r=0}^{R-1}v_r,&
+ s_v^2&=(R-1)^{-1}\sum_r(v_r-\bar v)^2,\\
+ [L_v,U_v]&=\bar v\pm t_{1-\alpha/(2m),R-1}\frac{s_v}{\sqrt R}.
+ \label{eq:app-mean-interval}
+\end{align}
+Here $\alpha=0.05$. Independence gives
+$\operatorname{Var}(\bar v)=\operatorname{Var}(v_r)/R$.
+These are approximate t/CLT mean intervals for potentially nonnormal
+records. Bonferroni's union bound
+$\Pr(\bigcap_{j=1}^mA_j)\ge1-\sum_j\Pr(A_j^c)$ needs no independence
+between statistics, but does not make marginal coverage exact
+\citep{nistmeaninterval,nistbonferroni,dunn1961comparisons,scipy1153t,scipy1153sem}.
+Applications use $(R,m)=(50,1)$ in R2.3, $(5,1)$ in R3.2,
+$(300,30)$ in R3.4, $(1400,92)$ in R4.3 and $(350,19)$ in R5.
+Pilot mean/SD estimates use 20 bundles and never enter confirmation means.
+Paired differences and objectives are formed within bundles first;
+correlated time positions and bits do not increase $R$.
+These statistical methods supplement the DSP reference.
+
+For $M_c$ independent disjoint codewords with failure probability $q(p)$,
+\begin{equation}
+ F\sim\operatorname{Binomial}(M_c,q(p)),\qquad
+ \mathbb E[F]=M_cq(p),\qquad
+ \Pr(F=0)=(1-q(p))^{M_c}.
+ \label{eq:r33-exposure}
+\end{equation}
+
+\paragraph{Exact proportion intervals and the zero-event bound.}
+With beta quantile $B^{-1}$, inversion of the binomial tails
+$\Pr_L(F\ge f)=0.025$, $\Pr_U(F\le f)=0.025$ gives the pointwise 95\%
+Clopper--Pearson interval \citep{clopper1934limits}, including endpoint cases:
+\begin{align}
+ L&=\begin{cases}0,&f=0,\\
+ B^{-1}(0.025;f,M_c-f+1),&f>0,\end{cases}\\
+ U&=\begin{cases}1,&f=M_c,\\
+ B^{-1}(0.975;f+1,M_c-f),&f<M_c.\end{cases}
+ \label{eq:r33-cp}
+\end{align}
+For $c$ perfect payloads among $R$ records, substitute $f=c,M_c=R$;
+the event and independent unit change. SciPy beta quantiles are checked
+against its exact binomial-test interval \citep{scipy1153binomialci}.
+These exact intervals can be conservative \citep{thulin2014cost}.
+For zero observed failures, $(1-q)^{M_c}=0.05$ gives the
+\emph{one-sided} 95\% bound
+\begin{equation}
+ q_U=1-0.05^{1/M_c};
+ \qquad M_c=4480000\ \Longrightarrow\
+ q_U\simeq6.6869\times10^{-7}.
+ \label{eq:r33-zero}
+\end{equation}
+Zero observations do not establish a zero underlying rate.
+
+\paragraph{Planning a new record from a nested design bank.}
+R3.4 uses five earlier Gaussian banks with eight BSC masks each.
+Conditional on Gaussian input $Z$, write $\mu(Z)=\mathbb E[d\mid Z]$ and
+$v(Z)=\operatorname{Var}(d\mid Z)$. Total variance gives
+$\operatorname{Var}(d)=\mathbb E[v(Z)]+\operatorname{Var}[\mu(Z)]$;
+bank-mean variance estimates the second term plus $\mathbb E[v(Z)]/8$.
+With within-bank sample variance $s_g^2$ and mean $\overline d_g$, subtract
+that reduced contribution (truncate at zero) and add the full within-bank variance:
+\begin{equation}
+ \widehat V=
+ \overline{s_g^2}+
+ \max\!\left(s_{\overline d_g}^2-\frac{\overline{s_g^2}}8,0\right).
+ \label{eq:r34-planning}
+\end{equation}
+
+\paragraph{Contrasts and interaction bounds on a joint event.}
+On the joint primary-interval event, conservative contrasts satisfy
+\begin{equation}
+ \mu_a-\mu_b\ \in\ [L_a-U_b,\ U_a-L_b].
+ \label{eq:r43-contrast}
+\end{equation}
+For $I=\mu_{00}-\mu_{10}-\mu_{01}+\mu_{11}$,
+\begin{align}
+ L_I&=L_{00}-U_{10}-U_{01}+L_{11},\nonumber\\
+ U_I&=U_{00}-L_{10}-L_{01}+U_{11}.
+ \label{eq:r43-interaction-ci}
+\end{align}
+
+For paired $\delta_r=d_{a,r}-d_{b,r}$, expanding centred squares gives
+\begin{equation}
+ s_\delta^2=s_a^2+s_b^2-2s_{ab},\qquad
+ s_{ab}=\frac1{R-1}\sum_r(d_{a,r}-\bar d_a)(d_{b,r}-\bar d_b).
+ \label{eq:r43-paired-ci}
+\end{equation}
+Apply Eq.~\eqref{eq:app-mean-interval} to $\delta$ with $R=1400,m=1$
+for pointwise paired intervals, distinct from the joint primary bounds.
+
+\paragraph{Bundle-level paired objectives.}
+The 12 unique main conditions have equal design weights, not inferred
+channel occurrence probabilities. Define the objective and paired gain once:
+\begin{align}
+ J_{fc,r}&=\frac1{12}\sum_{s\in\mathcal S_{\rm main}}d_{fc,s,r},\quad
+ \bar J_{fc}=R_v^{-1}\sum_rJ_{fc,r},\label{eq:r42-objective}\\
+ g_{v,r}&=J_{{\rm base},r}-J_{v,r}
+ =\frac1{12}\sum_{s\in\mathcal S_{\rm main}}(d_{{\rm base},s,r}-d_{v,s,r}).
+ \label{eq:r51-gain}
+\end{align}
+
+\paragraph{The R5.2 joint constraint.}
+At the prespecified anchor-point scenario, the upper mean bound from
+Eq.~\eqref{eq:app-mean-interval}, with $R=350,m=19$, must satisfy
+\begin{equation}
+ U_v\leq\tau,\qquad r_{t,v}\leq320000\ {\rm bit/s}.
+ \label{eq:r52-quality}
+\end{equation}
+The quality threshold is unchanged; this is a population-mean decision,
+not a per-record guarantee.
+
+
+\paragraph{One pilot precision-planning relation.}
+Using phase-0 standard deviations $\widetilde s_j$, choose the smallest
+allowed count meeting every prespecified half-width target:
+\begin{equation}
+ t_{1-0.05/(2m),R-1}\frac{\widetilde s_j}{\sqrt R}\leq\epsilon_j
+ \quad\text{for all }j,\qquad R\geq200,\quad R\in50\mathbb N.
+ \label{eq:app-pilot-planning}
+\end{equation}
+R4 uses $m=92$, $\epsilon_j=0.05\widetilde\mu_j$ and selects 1400.
+R5 uses $m=19$, $\epsilon_j=\max(0.01,0.05|\widetilde\mu_j|)$ and selects
+350; 300 fails some pilot targets. R3.4 uses $m=30$, $\epsilon=0.1\tau$,
+$\widetilde s_j=\sqrt{\widehat V_j}$ for uncoded $p=0.0001$ and coded
+$p=0.003$, selecting 300. Planning does not guarantee realised precision:
+7/92 R4 means miss the 5\% relative half-width target, with maximum 42.43\%.
+This is uncertainty in estimated means, not reconstruction error.
+No confirmation data enter planning or trigger extra repeats.
+
+\subsection{Parameter-mapping convention}
+\label{app:random}
+The declared project mapping $p_{\rm ID}=10^{-4+3u}$, uniform $u\in[0,1)$,
+gives CDF $(\log_{10}p+4)/3$. Differentiation yields
+\begin{equation}
+ f_{p_{\rm ID}}(p)=\frac{1}{3\ln(10)\,p},
+ \qquad 10^{-4}\le p<0.1.
+ \label{eq:r33-density}
+\end{equation}
+Equal logarithmic intervals receive equal weight; this is a documented
+project choice, not a supplied external rule.

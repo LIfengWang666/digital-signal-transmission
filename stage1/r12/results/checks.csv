@@ -1,0 +1,13 @@
+check,error,tolerance,passed
+DC amplitude,0.0,2e-14,True
+interior cosine amplitude and phase,2.400857290751901e-15,2e-14,True
+input Nyquist coefficient split,5.2735593669694936e-15,2e-14,True
+same-grid reconstruction,2.220446049250313e-16,2e-14,True
+independent SciPy Fourier resampling cross-check,6.661338147750939e-16,2e-14,True
+selected low-rate sample coordinates match reference stride,0.0,5e-16,True
+selected full-record duration,0.0,1e-15,True
+selected component complex coefficients retained,1.3577185086614675e-15,1e-12,True
+selected reconstruction maximum error,4.389905106094716e-12,1e-10,True
+selected reconstruction at its input samples,1.3322676295501878e-15,1e-12,True
+critical Nyquist endpoint agrees with cosine-phase prediction,4.0210124098852213e-16,1e-11,True
+critical-rate error equals missing highest-tone power,0.0,1e-12,True

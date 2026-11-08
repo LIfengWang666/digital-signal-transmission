@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "date": "2026-11-08",
+  "report_source_sha256": "c3986af337ea152ab381eda3ee7e3695f77960321344658577477bb39386dd05",
+  "reference_pdf_sha256": "2aa5a3b7da1aac0f2e0f35bb4f069f626a06fd841061960f46b6572f42bdb5a4",
+  "independent_pdf_sha256": "2aa5a3b7da1aac0f2e0f35bb4f069f626a06fd841061960f46b6572f42bdb5a4",
+  "exact_pdf_bytes_match": true,
+  "comparison_directory_began_without_PDF_or_auxiliaries": true,
+  "both_compilations_used_new_temporary_source_only_workspaces": true,
+  "SOURCE_DATE_EPOCH": 1792627200,
+  "compiler": "Tectonic 0.17.0",
+  "checker_sha256": "2f0eaa850c5dd5e9b7fbb6aefe6f3077635c8321e188c476c206ed407ec68f8a"
+}

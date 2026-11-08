@@ -1,0 +1,13 @@
+metric,value
+input_power,0.7300000000000006
+sample_count,32000
+sample_rate_hz,16000
+parameter_uniform_draw,0.08870891109323731
+personal_snr_db,2.6612673327971192
+prototype_length,513
+prototype_half_width_hz,80
+full_length,32512
+fft_length,32768
+max_direct_fft_error,8.881784197001252e-15
+design_noise_records,18
+check_count,16

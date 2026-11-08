@@ -1,0 +1,54 @@
+\subsection{Change the code under a 320 kbit/s cap}
+\label{sec:r52}
+Under a declared logical cap 320 kbit/s, I choose Hamming(15,11),
+retaining 16 kHz, 14 bit, $ A=18 $, the 385-tap FIR and both anchor parameters.
+The scenario and its three means were frozen before the R5 pilot;
+the same 350 confirmation records are reused, not new observations.
+The cap is a project scenario for transmitting 2 s in 2 s, with rates measured as transmitted bits rather than physical energy. The threshold stays
+$\tau=\SfiveThreshold $ from R3.4; neither applies to all stress conditions.
+
+\begin{table}[htbp]
+ \centering\small
+ \caption{Exact 2 s costs under the new personal 320 kbit/s cap. Q fit retains the R3 quantisation budget; 11 bit is an analytic cost alternative, without new waveform measurements.}
+ \label{tab:r52-cost}
+ \input{generated/r52_constraint_table}
+ 
+ 
+\end{table}
+
+Exact framing (Eq.~\eqref{eq:r52-cost}) gives 40728 H15 codewords,
+eight pad bits and 610920 transmitted bits, 305460 bit/s:
+$\SfiveRateSaving $\% less traffic. Repetition exceeds the cap;
+11 bit/H74 would fit at 308 kbit/s but its existing quantisation-budget
+ratio $\SfiveBitElevenRatio>0.01 $ fails the retained requirement.
+This is an analytic cost alternative, with no invented personal NMSE.
+
+The unchanged acceptance rule requires both rate $\le320000 $ bit/s and
+the 19-family approximate mean upper bound $\le\tau $
+(Eq.~\eqref{eq:r52-quality}). An interval crossing $\tau $ is unresolved;
+this rule is not a guarantee for each record.
+
+\begin{table}[H]
+ \centering\small
+ \caption{Same 350 new R5 records at the anchor point. Intervals use the 19-statistic family; perfect payloads require all real information bits, excluding padding.}
+ \label{tab:r52-quality}
+ \input{generated/r52_quality_table}
+ 
+ 
+\end{table}
+
+H15 mean $\SfiveNewMean $, upper bound $\SfiveNewUpper<\tau $, meets both.
+H74 meets quality but exceeds the cap; uncoded fits rate but its mean
+$\SfiveRawMean $ has lower bound above $\tau $. Both Hamming codes have
+$ d_{\min}=3,t=1 $.
+The gain in feasibility costs exact-payload reliability: perfect records
+fall $\SfivePerfectBase/350\to\SfivePerfectNew/350 $ despite acceptable
+mean waveform quality. Eq.~\eqref{eq:r52-payload} includes the H15 last
+word's three real/eight padding bits; requiring correct padding would
+test the wrong event. Unpadded H74 reduces to $(1-q_{7,1})^{112000}$;
+uncoded to $(1-p)^{448000}$.
+Pointwise Clopper--Pearson perfect-record intervals are separate from
+the 19-family mean intervals (Eq.~\eqref{eq:r52-proportion-ci}).
+Independent checks cover 1050 reused paths, 32898 error patterns and
+exact costs. H15's worse main objective $\RfiveCodeOtherJ $ means this
+personal cap-driven decision does not replace H74 for the original domain.

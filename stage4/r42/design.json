@@ -1,0 +1,521 @@
+{
+  "date": "2026-10-21",
+  "scope": "R4.2 configurations and phase0 implementation/precision pilot only",
+  "external_requirement": "Project p10: filter-only,code-only,both,neither; explain what comparisons isolate",
+  "external_source": "../../../DST-Project1.pdf",
+  "reference_rate_hz": 48000,
+  "reference_samples": 96000,
+  "transmission_rate_hz": 16000,
+  "sample_count": 32000,
+  "bits": 14,
+  "half_range": 18,
+  "epsilon": 1e-09,
+  "code": "hamming74",
+  "filter_taps": 385,
+  "filter_crop": [
+    192,
+    32192
+  ],
+  "fft_length": 32768,
+  "configurations": [
+    {
+      "configuration_id": "00",
+      "name": "neither",
+      "filter_enabled": false,
+      "ecc_enabled": false,
+      "bsc_layout_id": 0,
+      "quantisation_bits": 14,
+      "transmitted_bits": 448000,
+      "logical_rate_bits_s": 224000,
+      "gaussian_enabled_in_random_conditions": true,
+      "quantisation_enabled": true,
+      "bsc_enabled": true
+    },
+    {
+      "configuration_id": "10",
+      "name": "filter-only",
+      "filter_enabled": true,
+      "ecc_enabled": false,
+      "bsc_layout_id": 0,
+      "quantisation_bits": 14,
+      "transmitted_bits": 448000,
+      "logical_rate_bits_s": 224000,
+      "gaussian_enabled_in_random_conditions": true,
+      "quantisation_enabled": true,
+      "bsc_enabled": true
+    },
+    {
+      "configuration_id": "01",
+      "name": "code-only",
+      "filter_enabled": false,
+      "ecc_enabled": true,
+      "bsc_layout_id": 1,
+      "quantisation_bits": 14,
+      "transmitted_bits": 784000,
+      "logical_rate_bits_s": 392000,
+      "gaussian_enabled_in_random_conditions": true,
+      "quantisation_enabled": true,
+      "bsc_enabled": true
+    },
+    {
+      "configuration_id": "11",
+      "name": "both",
+      "filter_enabled": true,
+      "ecc_enabled": true,
+      "bsc_layout_id": 1,
+      "quantisation_bits": 14,
+      "transmitted_bits": 784000,
+      "logical_rate_bits_s": 392000,
+      "gaussian_enabled_in_random_conditions": true,
+      "quantisation_enabled": true,
+      "bsc_enabled": true
+    }
+  ],
+  "snr_conditions": [
+    {
+      "snr_condition_id": 0,
+      "snr_db": -10.0
+    },
+    {
+      "snr_condition_id": 1,
+      "snr_db": 0.0
+    },
+    {
+      "snr_condition_id": 2,
+      "snr_db": 10.0
+    },
+    {
+      "snr_condition_id": 3,
+      "snr_db": 20.0
+    },
+    {
+      "snr_condition_id": 4,
+      "snr_db": 30.0
+    },
+    {
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192
+    },
+    {
+      "snr_condition_id": 6,
+      "snr_db": 35.0
+    },
+    {
+      "snr_condition_id": 7,
+      "snr_db": 40.0
+    }
+  ],
+  "conditions": [
+    {
+      "joint_condition_id": 0,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.0,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "identity BSC control; Gaussian still random",
+      "primary": false,
+      "main_weight_numerator": 0,
+      "main_weight_denominator": 12,
+      "main_weight": 0.0,
+      "bsc_rng_required": false
+    },
+    {
+      "joint_condition_id": 1,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.0001,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "primary BSC slice",
+      "primary": true,
+      "main_weight_numerator": 1,
+      "main_weight_denominator": 12,
+      "main_weight": 0.08333333333333333,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 2,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.001,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "primary BSC slice",
+      "primary": true,
+      "main_weight_numerator": 1,
+      "main_weight_denominator": 12,
+      "main_weight": 0.08333333333333333,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 3,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.003,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "primary BSC slice",
+      "primary": true,
+      "main_weight_numerator": 1,
+      "main_weight_denominator": 12,
+      "main_weight": 0.08333333333333333,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 4,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.01,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "primary BSC slice",
+      "primary": true,
+      "main_weight_numerator": 1,
+      "main_weight_denominator": 12,
+      "main_weight": 0.08333333333333333,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 5,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.03,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "primary BSC slice",
+      "primary": true,
+      "main_weight_numerator": 1,
+      "main_weight_denominator": 12,
+      "main_weight": 0.08333333333333333,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 6,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.1,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "primary BSC slice",
+      "primary": true,
+      "main_weight_numerator": 1,
+      "main_weight_denominator": 12,
+      "main_weight": 0.08333333333333333,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 7,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.3,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "BSC stress diagnostic",
+      "primary": false,
+      "main_weight_numerator": 0,
+      "main_weight_denominator": 12,
+      "main_weight": 0.0,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 8,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.0003,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "primary BSC slice",
+      "primary": true,
+      "main_weight_numerator": 1,
+      "main_weight_denominator": 12,
+      "main_weight": 0.08333333333333333,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 9,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.2,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "BSC stress diagnostic",
+      "primary": false,
+      "main_weight_numerator": 0,
+      "main_weight_denominator": 12,
+      "main_weight": 0.0,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 10,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.5,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "BSC stress diagnostic",
+      "primary": false,
+      "main_weight_numerator": 0,
+      "main_weight_denominator": 12,
+      "main_weight": 0.0,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 11,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.00021099569319078592,
+      "slice_membership": [
+        "bsc_at_personal_snr",
+        "gaussian_at_personal_p"
+      ],
+      "role": "personal overlap; one condition and one main weight",
+      "primary": true,
+      "main_weight_numerator": 1,
+      "main_weight_denominator": 12,
+      "main_weight": 0.08333333333333333,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 12,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.002,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "transition refinement diagnostic",
+      "primary": false,
+      "main_weight_numerator": 0,
+      "main_weight_denominator": 12,
+      "main_weight": 0.0,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 13,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.004,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "transition refinement diagnostic",
+      "primary": false,
+      "main_weight_numerator": 0,
+      "main_weight_denominator": 12,
+      "main_weight": 0.0,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 14,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.005,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "transition refinement diagnostic",
+      "primary": false,
+      "main_weight_numerator": 0,
+      "main_weight_denominator": 12,
+      "main_weight": 0.0,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 15,
+      "snr_condition_id": 0,
+      "snr_db": -10.0,
+      "probability": 0.00021099569319078592,
+      "slice_membership": [
+        "gaussian_at_personal_p"
+      ],
+      "role": "Gaussian severity/high-SNR diagnostic",
+      "primary": false,
+      "main_weight_numerator": 0,
+      "main_weight_denominator": 12,
+      "main_weight": 0.0,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 16,
+      "snr_condition_id": 1,
+      "snr_db": 0.0,
+      "probability": 0.00021099569319078592,
+      "slice_membership": [
+        "gaussian_at_personal_p"
+      ],
+      "role": "primary Gaussian slice",
+      "primary": true,
+      "main_weight_numerator": 1,
+      "main_weight_denominator": 12,
+      "main_weight": 0.08333333333333333,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 17,
+      "snr_condition_id": 2,
+      "snr_db": 10.0,
+      "probability": 0.00021099569319078592,
+      "slice_membership": [
+        "gaussian_at_personal_p"
+      ],
+      "role": "primary Gaussian slice",
+      "primary": true,
+      "main_weight_numerator": 1,
+      "main_weight_denominator": 12,
+      "main_weight": 0.08333333333333333,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 18,
+      "snr_condition_id": 3,
+      "snr_db": 20.0,
+      "probability": 0.00021099569319078592,
+      "slice_membership": [
+        "gaussian_at_personal_p"
+      ],
+      "role": "primary Gaussian slice",
+      "primary": true,
+      "main_weight_numerator": 1,
+      "main_weight_denominator": 12,
+      "main_weight": 0.08333333333333333,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 19,
+      "snr_condition_id": 4,
+      "snr_db": 30.0,
+      "probability": 0.00021099569319078592,
+      "slice_membership": [
+        "gaussian_at_personal_p"
+      ],
+      "role": "primary Gaussian slice",
+      "primary": true,
+      "main_weight_numerator": 1,
+      "main_weight_denominator": 12,
+      "main_weight": 0.08333333333333333,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 20,
+      "snr_condition_id": 6,
+      "snr_db": 35.0,
+      "probability": 0.00021099569319078592,
+      "slice_membership": [
+        "gaussian_at_personal_p"
+      ],
+      "role": "Gaussian severity/high-SNR diagnostic",
+      "primary": false,
+      "main_weight_numerator": 0,
+      "main_weight_denominator": 12,
+      "main_weight": 0.0,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 21,
+      "snr_condition_id": 7,
+      "snr_db": 40.0,
+      "probability": 0.00021099569319078592,
+      "slice_membership": [
+        "gaussian_at_personal_p"
+      ],
+      "role": "Gaussian severity/high-SNR diagnostic",
+      "primary": false,
+      "main_weight_numerator": 0,
+      "main_weight_denominator": 12,
+      "main_weight": 0.0,
+      "bsc_rng_required": true
+    }
+  ],
+  "pilot_complete_bundles": 20,
+  "pilot_phase": 0,
+  "validation_phase": 1,
+  "primary_metric": "frozen R4.1 full-record NMSE; same reference/scale/endpoints",
+  "pairing": "one Gaussian perSNR/r across all four configurations and p; one BSC mask perjoint/r/layout across filter switches",
+  "bsc_replay": "fresh same-leaf same-shape Generator for each filter setting, two forward calls but one unique mask",
+  "receiver_inputs": [
+    "received bits",
+    "public code/layout, payload length, bit width, half range, reconstruction length"
+  ],
+  "never_receiver_inputs": [
+    "true mask",
+    "reference",
+    "clean samples",
+    "noise vector",
+    "true payload"
+  ],
+  "gaussian_path": [
+    1,
+    4,
+    0,
+    "snr_condition_id",
+    "record_id"
+  ],
+  "bsc_path": [
+    2,
+    4,
+    0,
+    "joint_condition_id",
+    "record_id",
+    "layout_id"
+  ],
+  "p_zero": "identity BSC; no RNG call; Gaussian remains random",
+  "clean_control": "one zero-Gaussian/p0 run perconfiguration; excluded from22 stochastic cases and CIs",
+  "primary_main_conditions": 12,
+  "primary_objective": "equal weight for12 unique main cases; personal overlap counted once; independent unit=complete record bundle",
+  "precision_proposal": {
+    "pilot_complete_bundles": 20,
+    "validation_complete_bundles": null,
+    "validation_minimum": 200,
+    "validation_multiple": 50,
+    "pilot_based_relative_half_width_target": 0.05,
+    "planning_statistics": 92,
+    "rule": "minimum multiple of 50 >=200 such that adjusted-t predicted half-width <=5% of each of the 92 pilot means",
+    "limitation": "pilot variance can underestimate rare-event uncertainty; planning heuristic, not precision guarantee",
+    "freeze_timing": "after phase0 pilot and before phase1 outcomes; changes to resources/precision must be recorded before validation",
+    "optional_stopping_after_validation": false
+  },
+  "confidence_family_proposal": {
+    "family_size": 92,
+    "condition_configuration_means": 88,
+    "objective_means": 4,
+    "familywise_alpha": 0.05,
+    "formula": "mean +/- t.ppf(1-0.05/(2*92),R-1)*sample_sd/sqrt(R)",
+    "scope": "Bonferroni-adjusted approximate simultaneous intervals for finite-family means; not exact finite-sample or continuous-parameter coverage",
+    "contrast_intervals": "derive conservative intervals from primary simultaneous mean bounds",
+    "secondary_paired_intervals": "record-level paired t intervals, explicitly pointwise and supplementary",
+    "MAE_and_count_intervals": "coverage declared separately; not silently included in the 92-statistic family",
+    "nonpositive_lower_bound": "retain numerical value and method limitation; do not take log or silently replace by epsilon"
+  },
+  "phase1_generated_here": false,
+  "retune_filter_quantiser_code_metric_or_personal_parameters": false,
+  "statistical_scope": "phase0 summaries describe implementation/planning only, not final validation or continuous-parameter guarantees",
+  "upstream_freezes": [
+    "stage2/r22/results/filter_freeze.json",
+    "stage3/r31/results/quantiser_freeze.json",
+    "stage3/r32/results/code_freeze.json",
+    "stage3/r33/results/range_freeze.json",
+    "stage4/r41/metric_definition_freeze.json"
+  ],
+  "fixed_inputs_sha256": {
+    "reference_signal.npy": "2f62c84fb0e11586373b2dc0d92f180206d15d4a77098046c9c43de290657095",
+    "reference_signal.wav": "0ffec41d7773f8a5fda064aecfec3affe956b6955227ab0c5774e4a4349c9454",
+    "stage1/r12/results/selected_samples.npy": "31d4e66e1e7e928aa0d6cc3db99a4a76098c97d71ee7d8ba9487f28ac0a5d409",
+    "stage2/r22/results/selected_coefficients.npy": "aa155baf5455d627aa4df47373cad6c6d254fa1359020dc10895fcc28e89dec8",
+    "stage3/r31/results/quantiser_freeze.json": "dc4ff3d3a91a06326af90865f353d2b9369841b8e1a17be440283cf079765c08",
+    "stage3/r32/results/code_freeze.json": "a33059b180cdfdb5d2d03f5c181331772bd3d84026e287bc3ccfce1541d856b6",
+    "stage3/r33/results/range_freeze.json": "e7ad2b772b822623d10ec178e8f17f973ab7ca4dd311dc762555e751ad21c363",
+    "stage4/r41/metric_definition_freeze.json": "7943ef14a2fdcbd9268acf55b3e4210ae157f5e0b9050c22a9bec564fc61b6f5"
+  }
+}

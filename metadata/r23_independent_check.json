@@ -1,0 +1,32 @@
+{
+  "status": "Independent R2.3 recomputation passed",
+  "checks": {
+    "all_400_noise_and_contaminated_arrays_replay": true,
+    "all_summary_statistics_and_intervals": true,
+    "all_full_edge_interior_partitions": true,
+    "all_paired_gain_definitions": true,
+    "four_full_example_csv_metrics": true,
+    "direct_convolution_scipy_recovery_examples": true,
+    "all_recorded_source_and_example_hashes": true
+  },
+  "max_summary_difference": 3.469446951953614e-18,
+  "max_partition_difference": 1.6653345369377348e-16,
+  "max_gain_difference": 0.0,
+  "max_example_mse_difference": 0.0,
+  "max_independent_recovery_difference": 2.220446049250313e-15,
+  "source_hash_checks": {
+    "reference_signal.npy": true,
+    "stage1/r12/results/selected_samples.npy": true,
+    "stage2/r22/results/selected_coefficients.npy": true,
+    "stage2/r22/results/filter_freeze.json": true,
+    "stage2/r23/design.json": true,
+    "stage2/r23/validation.py": true,
+    "degradation.py": true,
+    "stage1/r12/sampling_rate.py": true,
+    "stage2/r21/filtering_approach.py": true,
+    "stage2/r23/results/example_c5_r0_16000hz.csv": true,
+    "stage2/r23/results/example_c5_r0_48000hz.csv": true,
+    "stage2/r23/results/example_c7_r0_16000hz.csv": true,
+    "stage2/r23/results/example_c7_r0_48000hz.csv": true
+  }
+}

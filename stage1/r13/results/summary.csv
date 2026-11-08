@@ -1,0 +1,13 @@
+metric,value
+baseline_fs_hz,16000.0
+under_fs_hz,8000.0
+band_edge_hz,6000.0
+duration_s,2.0
+evaluation_points,96000
+baseline_mse,1.7503771175125548e-25
+under_mse,0.010000000000000037
+under_rmse,0.10000000000000019
+under_nmse,0.013698630136986354
+under_maximum_error,0.15000000000366104
+predicted_under_mse,0.010000000000000087
+deterministic_check_count,16

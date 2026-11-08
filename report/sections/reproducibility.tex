@@ -1,0 +1,41 @@
+\FloatBarrier
+\section{Stage 6: Integrity and reproducibility}
+\subsection{Reproduce inputs, measurements and report}
+\label{sec:r61}
+The verified stack is Python 3.13.5, NumPy 2.1.3, SciPy 1.15.3,
+Matplotlib 3.10.0 and Tectonic 0.17.0. The explicit Windows dependency
+lock records the numerical and rendering environment. From the repository root:
+\par\noindent\begin{minipage}{\linewidth}\small\begin{verbatim}
+conda create -n signal-transmission --file conda-win-64-explicit.txt
+conda activate signal-transmission
+python run_all.py --tectonic PATH_TO_TECTONIC
+\end{verbatim}\end{minipage}\par
+\texttt{--data-only} skips PDF compilation. Worker settings and the
+four-thread parameter scan are documented in \path{README.md}.
+
+The entry point checks the NPY/WAV input hashes, then regenerates measured
+CSV, figures and LaTeX fragments. It verifies \RsixProducts{} frozen
+scientific targets plus seven packing-diagnostic products. CSV fields,
+arrays, payloads and generated formula/table text are compared exactly;
+raster comparisons use exact pixels. SVG comparisons retain geometry,
+visible text and styling while excluding nonvisual export metadata and
+consistently renamed opaque identifiers. The targets were fixed before
+packaging and are never refreshed to conceal a mismatch. This release uses
+the existing validated measurements; publication checks do not constitute
+a new complete numerical replay.
+
+\paragraph{Computational cross-checks.}
+Alternative methods use direct convolution, midpoint and threshold
+quantisation, XOR parity, correction-sphere lookup decoding and SciPy
+resampling where applicable. Candidate kernels also have cosine-series
+checks. These reproduce existing trials and do not add independent
+observations. Complete records, rather than individual samples, are the
+independent units in the reported uncertainty calculations.
+
+The six final vector figures are regenerated automatically from measured
+CSV by \path{reproduction/prepare_publication_figures.py}. A report-only
+build uses \path{reproduction/build_pdf.py}. Two independent source-only
+builds with a fixed \texttt{SOURCE\_DATE\_EPOCH} check deterministic PDF
+output. Runtime evidence and scientific product hashes are saved under
+\path{stage6/results/}. Exact replay is scoped to the recorded Windows
+stack; execution on a second machine has not been tested.

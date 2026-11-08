@@ -1,0 +1,12 @@
+{
+  "status": "complete",
+  "records": 350,
+  "path_rows": 47250,
+  "primary_family": 19,
+  "statistics_above_planned_precision": [],
+  "maximum_power_identity_residual": 6.670358709826019e-14,
+  "limiting_decision_selected_by_this_aggregation": null,
+  "R52_constraint_assessment_pending": true,
+  "phase0_rows_imported_into_confirmation": 0,
+  "coverage": "Approximate19-family t/CLT mean intervals; diagnostic means/counts descriptive"
+}

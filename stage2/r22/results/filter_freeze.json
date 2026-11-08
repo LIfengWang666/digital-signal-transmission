@@ -1,0 +1,238 @@
+{
+  "status": "Frozen for R2.3; chosen only from phase-0 design data",
+  "selected": {
+    "candidate_id": "M385-B70-hann",
+    "stage": "refined",
+    "length": 385,
+    "half_width_hz": 70.0,
+    "window": "hann",
+    "delay_samples": 192,
+    "fft_length": 32768,
+    "gain_max_deviation": 0.0010881875559325405,
+    "feasible": true,
+    "score": 0.12285366047451633,
+    "clean_full_mse": 0.00022950758078883963,
+    "clean_fixed_edge_mse": 0.014291276382218575,
+    "clean_fixed_interior_mse": 8.609336111203641e-07,
+    "noise_gain_interior": 0.05326824645519167,
+    "noise_gain_full": 0.0532242709446543
+  },
+  "strict_minimum": {
+    "candidate_id": "M385-B70-hann",
+    "stage": "refined",
+    "length": 385,
+    "half_width_hz": 70.0,
+    "window": "hann",
+    "delay_samples": 192,
+    "fft_length": 32768,
+    "gain_max_deviation": 0.0010881875559325405,
+    "feasible": true,
+    "score": 0.12285366047451633,
+    "clean_full_mse": 0.00022950758078883963,
+    "clean_fixed_edge_mse": 0.014291276382218575,
+    "clean_fixed_interior_mse": 8.609336111203641e-07,
+    "noise_gain_interior": 0.05326824645519167,
+    "noise_gain_full": 0.0532242709446543
+  },
+  "coarse_best": {
+    "candidate_id": "M513-B80-hann",
+    "stage": "coarse",
+    "length": 513,
+    "half_width_hz": 80,
+    "window": "hann",
+    "delay_samples": 256,
+    "fft_length": 32768,
+    "gain_max_deviation": 0.000998834892501188,
+    "feasible": true,
+    "score": 0.12859316756462463,
+    "clean_full_mse": 0.0002013925509850173,
+    "clean_fixed_edge_mse": 0.01255013579254851,
+    "clean_fixed_interior_mse": 5.99977951464552e-07,
+    "noise_gain_interior": 0.06751273657278378,
+    "noise_gain_full": 0.06745754431169586
+  },
+  "refined_lengths": [
+    257,
+    385,
+    513,
+    641,
+    769,
+    897,
+    1025
+  ],
+  "refined_half_widths_hz": [
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0,
+    110.0,
+    120.0,
+    130.0,
+    140.0,
+    150.0,
+    160.0
+  ],
+  "centres_hz": [
+    440.0,
+    1320.0,
+    2200.0,
+    6000.0
+  ],
+  "sample_rate_hz": 16000,
+  "record_samples": 32000,
+  "kernel_origin": 192,
+  "boundary": "Zero extension; full linear convolution; fixed centred crop d=(M-1)/2",
+  "gain_guard_dense_max_deviation": 0.0010881875559325405,
+  "coefficient_sha256": "aa155baf5455d627aa4df47373cad6c6d254fa1359020dc10895fcc28e89dec8",
+  "design_sha256": "2f6630dae0c5642a12c40a34f036c9bc790cc3ed0c35b3b7e57a5618d0ac7abc",
+  "code_sha256": "75b1ca6e370f900c765079b8cd1c43ad0b598c79bf2e7b4b65aa0399e0fa85ab",
+  "source_noise_sha256": "16fb3fe0bd400fd98fefefd8ca55da642fc055cb8c888fd723454e729d39d999",
+  "source_manifest_sha256": "9a0d06c5c1e29aabd812ff9cf255d17f95adba31aefc03c4c4c63e10a98b55a8",
+  "environment": {
+    "python": "3.13.5",
+    "numpy": "2.1.3"
+  },
+  "source_input_sha256": {
+    "reference_signal.npy": "2f62c84fb0e11586373b2dc0d92f180206d15d4a77098046c9c43de290657095",
+    "stage1/r12/results/selected_samples.npy": "31d4e66e1e7e928aa0d6cc3db99a4a76098c97d71ee7d8ba9487f28ac0a5d409",
+    "stage2/r21/results/corrupted_peaks.csv": "0560676a96406ddcab2e3c0a11a29a21a66cbc14fcd4569aa14fdeacdf11a81c",
+    "stage2/r21/results/noise_trials.csv": "4c0ef995ced157457a5f04a1691b4ab47317045cc944132fa2ddf8484e37d708",
+    "stage2/r21/results/prototype_kernels.csv": "0cd94304b77051757d6035a0ac74a6b45a870944ebe828871ca4146d2d95e696"
+  },
+  "candidate_count": 372,
+  "feasible_count": 177,
+  "design_records": 18,
+  "phase_1_used": false,
+  "source_spawn_keys": [
+    [
+      1,
+      2,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      2,
+      0,
+      0,
+      1
+    ],
+    [
+      1,
+      2,
+      0,
+      0,
+      2
+    ],
+    [
+      1,
+      2,
+      0,
+      1,
+      0
+    ],
+    [
+      1,
+      2,
+      0,
+      1,
+      1
+    ],
+    [
+      1,
+      2,
+      0,
+      1,
+      2
+    ],
+    [
+      1,
+      2,
+      0,
+      2,
+      0
+    ],
+    [
+      1,
+      2,
+      0,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      0,
+      2,
+      2
+    ],
+    [
+      1,
+      2,
+      0,
+      3,
+      0
+    ],
+    [
+      1,
+      2,
+      0,
+      3,
+      1
+    ],
+    [
+      1,
+      2,
+      0,
+      3,
+      2
+    ],
+    [
+      1,
+      2,
+      0,
+      4,
+      0
+    ],
+    [
+      1,
+      2,
+      0,
+      4,
+      1
+    ],
+    [
+      1,
+      2,
+      0,
+      4,
+      2
+    ],
+    [
+      1,
+      2,
+      0,
+      5,
+      0
+    ],
+    [
+      1,
+      2,
+      0,
+      5,
+      1
+    ],
+    [
+      1,
+      2,
+      0,
+      5,
+      2
+    ]
+  ],
+  "scope": "Bounded coarse/refined family; no global optimum claim"
+}

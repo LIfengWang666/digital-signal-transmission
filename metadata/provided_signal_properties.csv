@@ -1,0 +1,10 @@
+property,value
+npy_samples,96000
+npy_storage,float64
+wav_sample_rate_hz,48000
+wav_storage,int16
+wav_channels,1
+pcm_counts_per_npy_unit,20000
+nearest_integer_mapping_exact,True
+pcm_mapping_maximum_residual_counts,0.49950042451382615
+pcm_mapping_rms_residual_counts,0.2845389945568577

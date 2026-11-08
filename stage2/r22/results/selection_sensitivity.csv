@@ -1,0 +1,5 @@
+near_minimum_fraction,candidate_id,length,half_width_hz,window,score
+0,M385-B70-hann,385,70.0,hann,0.12285366047451633
+0.005,M385-B70-hann,385,70.0,hann,0.12285366047451633
+0.01,M385-B70-hann,385,70.0,hann,0.12285366047451633
+0.05,M257-B110-hamming,257,110.0,hamming,0.128543184890824

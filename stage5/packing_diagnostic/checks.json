@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "decoder_invariance_pairs_checked": 2048,
+  "independent_small_record_MSE_disagreement": 3.552713678800501e-15,
+  "same_payload_quantiser_code_and_rate": true,
+  "source_sha256": "c87479646ee0dfc92be33cb63f7a7ebff8e6b75db100d9e9cbfd9e034c474c3d",
+  "new_independent_statistical_observations_claimed": 0,
+  "illustrative_channel_masks_generated": 1
+}

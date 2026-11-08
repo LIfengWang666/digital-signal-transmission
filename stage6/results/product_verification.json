@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "products_checked": 316,
+  "packing_products_checked": 7,
+  "kinds": {
+    "measured/check CSV": 152,
+    "generated LaTeX number/table": 52,
+    "generated raster figure": 67,
+    "generated vector figure": 34,
+    "generated numerical array": 10,
+    "generated packed payload": 1
+  },
+  "baseline_sha256": "e10a07c44dcccb964c3f6bddf4614e08ea1550a8daaef29b66401fbd3998cff3",
+  "numerical_environment": {
+    "python": "3.13.5",
+    "numpy": "2.1.3",
+    "scipy": "1.15.3",
+    "matplotlib": "3.10.0",
+    "Pillow": "11.1.0",
+    "contourpy": "1.3.1",
+    "cycler": "0.11.0",
+    "fonttools": "4.55.3",
+    "kiwisolver": "1.4.8",
+    "packaging": "24.2",
+    "pyparsing": "3.2.0",
+    "python-dateutil": "2.9.0.post0",
+    "six": "1.17.0"
+  },
+  "new_independent_observations": 0,
+  "comparison_scope": "Exact CSV values, arrays, payloads and TeX; exact image pixels; SVG visible content with metadata/opaque IDs excluded"
+}

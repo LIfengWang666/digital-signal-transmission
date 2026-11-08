@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "release_scope": "Existing completed scientific measurements packaged with a personal-project technical report",
+  "new_complete_numerical_replay_for_publication": false,
+  "additional_experiments_stopped_at_user_request": true,
+  "saved_scientific_products_checked": 323,
+  "scientific_comparison_record": "stage6/results/product_verification.json",
+  "source_only_PDF_builds_byte_identical": true,
+  "report_build_record": "stage6/results/report_rebuild_verification.json",
+  "report_pdf_sha256": "2aa5a3b7da1aac0f2e0f35bb4f069f626a06fd841061960f46b6572f42bdb5a4",
+  "report_source_sha256": "c3986af337ea152ab381eda3ee7e3695f77960321344658577477bb39386dd05",
+  "layout_or_reference_warnings": [],
+  "README_words": 2162,
+  "original_local_source_archive_preserved_unchanged": true
+}

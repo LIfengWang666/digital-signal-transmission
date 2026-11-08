@@ -1,0 +1,6 @@
+sample_rate_hz,sample_count,duration_s,nyquist_frequency_hz,measured_band_edge_hz,guard_hz,strict_nyquist,selected,raw_payload_ratio_to_selected,mse_npy_units_squared,measurement_source
+8000.0,16000,2.0,4000.0,6000.0,-2000.0,False,False,0.5,0.010000000000000037,r13/results/comparison.csv
+12000.0,24000,2.0,6000.0,6000.0,0.0,False,False,0.75,0.0050000000000000435,r12/results/rate_comparison.csv
+16000.0,32000,2.0,8000.0,6000.0,2000.0,True,True,1.0,1.7503771175125548e-25,r12/results/rate_comparison.csv
+24000.0,48000,2.0,12000.0,6000.0,6000.0,True,False,1.5,1.273498885348088e-25,r12/results/rate_comparison.csv
+48000.0,96000,2.0,24000.0,6000.0,18000.0,True,False,3.0,1.7170464546145565e-31,r12/results/rate_comparison.csv

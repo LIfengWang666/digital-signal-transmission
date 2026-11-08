@@ -1,0 +1,7 @@
+condition_id,target_snr_db,role
+0,-10,pilot
+1,0,pilot
+2,10,pilot
+3,20,pilot
+4,30,pilot
+5,2.6612673327971192,personal_design

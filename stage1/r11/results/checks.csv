@@ -1,0 +1,11 @@
+check,error,tolerance,unit,passed
+DC is not doubled,0.0,1e-12,amplitude,True
+even Nyquist is not doubled,0.0,1e-12,amplitude,True
+interior real cosine recovers amplitude,2.220446049250313e-16,1e-12,amplitude,True
+odd final bin is doubled,1.1102230246251565e-15,1e-12,amplitude,True
+rFFT agrees with full FFT nonnegative bins,1.6227099032524527e-16,1e-12,relative coefficient,True
+selected bins agree with explicit reference DFT sum,3.319698639027581e-13,1e-10,relative coefficient,True
+same-grid FFT inverse round trip,1.9984014443252818e-15,1e-12,amplitude,True
+Parseval mean-square consistency,6.083413833562502e-16,1e-12,relative power,True
+NumPy Hann matches reference L-1 formula,4.996003610813204e-16,1e-14,window weight,True
+symmetric Hann coherent gain,5.551115123125783e-17,1e-14,gain,True

@@ -1,0 +1,52 @@
+\FloatBarrier
+\section{Stage 2: Filtering}
+\subsection{Choose a multiband FIR implemented by FFT convolution}
+\label{sec:r21}
+I select a multiband FIR because four tones leave wide noise-only gaps.
+FFT convolution gives the direct-convolution result efficiently; denoising
+comes from the filter, not the FFT. The implementation follows linear
+convolution and Fourier analysis;
+Appendix~\ref{app:filter} derives padding and the centre crop.
+For the 513-tap prototype, $K\ge N+M-1=32512$; $K=32768$ is convenient,
+not mandatory, before cropping to 32000. Padding, identity and zero-filter
+controls check this implementation.
+
+The input is exactly $ u[3n]$ with measured power 0.73. Gaussian degradation
+follows Eq.~\eqref{eq:noise-contract} after sampling. I declare the
+anchor-SNR range $[0,30]$ dB (equal signal/noise power down to one
+thousandth). Parameter leaf $(0,0)$ gives
+\begin{equation}
+ U_S=\RtwoUniform,\qquad
+ S_0=0+(30-0)U_S=\RtwoPersonalSnr\ {\rm dB}.
+ \label{eq:r21-personal-snr}
+\end{equation}
+Three phase-0 draws at $-10,0,10,20,30,S_0 $ give 18 paired design records,
+noise paths $(1,2,0,c,r)$. All methods share each contaminated array.
+Personal repeat 0 realises $\RtwoRealisedSnr $ dB; draws are not rescaled.
+Searching its spectrum within $\pm10 $ Hz of declared R1 priors recovers
+440/1320/2200/6000 Hz. This is informed design, not blind discovery;
+the true noise vector never enters construction.
+
+The three-point mean has aligned response $(1+2\cos\omega)/3 $.
+At 6 kHz it is $(1-\sqrt2)/3=-0.138071 $, attenuating and reversing a valid
+tone; clean-input MSE is $\RtwoMaClean $. A broad low-pass also retains
+much white noise. The prototype instead uses an even four-band
+$\pm80 $ Hz template, a 513-tap IDFT crop and a symmetric Hann kernel
+taper; a 6600 Hz low-pass is the matched construction comparator.
+This taper acts on coefficients, not the input record.
+
+\begin{table}[!htbp]
+ \centering\small
+ \caption{Method-selection pilot: three paired design draws per level, all 32000 samples. Prototype parameters are provisional; these are design results.}
+ \label{tab:r21-pilot}
+ \input{generated/r21_pilot_table}
+\end{table}
+
+The multiband clean MSE is $\RtwoMultiClean$; fixed 256-sample
+edges/interior give $\RtwoMultiEdge/\RtwoMultiInterior$, both retained.
+Its offline prototype has 16 ms causal group delay, not total latency.
+Direct/FFT outputs agree over 18 inputs within $\RtwoFftError$;
+all $\RtwoCheckCount$ checks pass. The reference costs are
+$O(NM)$ versus $O(K\log K)$ \citep{duhamel1990fft}, without a measured runtime claim.
+This pilot selects the family; R2.2 tunes its distortion/noise tradeoff,
+and R2.3 evaluates unused noise.

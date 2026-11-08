@@ -1,0 +1,138 @@
+{
+  "status": "All independent Stage 2 numerical checks passed",
+  "coefficient_sha256": "aa155baf5455d627aa4df47373cad6c6d254fa1359020dc10895fcc28e89dec8",
+  "candidate_count": 372,
+  "candidate_record_measurements": 6696,
+  "feasible_candidates": 177,
+  "validation_records": 400,
+  "validation_grid_rows": 800,
+  "independent_candidate_fft_length": 64000,
+  "independent_kernel": "Finite cosine-series sum evaluated with sinc; no production IFFT constructor",
+  "validation_recovery": "np.convolve(mode=same) and scipy.signal.resample; no production filter/reconstruction functions",
+  "selection_audit_only": true,
+  "filter_retuned": false,
+  "new_random_trials": false,
+  "checks": [
+    {
+      "check": "Original reference SHA256",
+      "error": 0.0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "check": "Exact R1.2 decimated input identity",
+      "error": 0.0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "check": "Pre-validation frozen coefficients unchanged",
+      "error": 0.0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "check": "Audited gain guard matches the declared protocol",
+      "error": 0.0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "check": "18 distinct phase-0 design paths",
+      "error": 0.0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "check": "All native windowed amplitudes and PSDs",
+      "error": 2.220446049250313e-16,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    {
+      "check": "All saved padded local-peak amplitudes",
+      "error": 2.220446049250313e-16,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    {
+      "check": "PSD Parseval integrals for N and 16N",
+      "error": 4.440892098500626e-16,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    {
+      "check": "Four corrupted-spectrum peak searches",
+      "error": 0.0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "check": "372 candidates each retain all 18 design records",
+      "error": 0.0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "check": "Frozen kernel agrees with the independent cosine-series sum",
+      "error": 1.7824283715661693e-16,
+      "tolerance": 1e-13,
+      "passed": true
+    },
+    {
+      "check": "All 6696 candidate-record full MSE values",
+      "error": 1.5543122344752192e-15,
+      "tolerance": 1e-11,
+      "passed": true
+    },
+    {
+      "check": "All 372 balanced candidate objectives",
+      "error": 2.3447910280083306e-13,
+      "tolerance": 1e-11,
+      "passed": true
+    },
+    {
+      "check": "All candidate clean distortions",
+      "error": 7.494005416219807e-16,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    {
+      "check": "All candidate finite-record noise gains",
+      "error": 6.938893903907228e-17,
+      "tolerance": 1e-13,
+      "passed": true
+    },
+    {
+      "check": "All candidate gain-constraint classifications",
+      "error": 0.0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "check": "Declared selection rule preserves the frozen candidate",
+      "error": 0.0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "check": "400 held-out paths disjoint from design",
+      "error": 0.0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "check": "All 400 Gaussian draws replay exactly",
+      "error": 0.0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "check": "All 800 validation rows via independent direct/SciPy recovery",
+      "error": 1.4210854715202004e-14,
+      "tolerance": 1e-10,
+      "passed": true
+    }
+  ],
+  "audit_source_sha256": "5a4e37781ec2de8259f84b5c2aec1f40c6054a4eb4cd1ffe36c4f7658da67557"
+}

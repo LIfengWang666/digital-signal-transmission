@@ -1,0 +1,7 @@
+window,threshold_db,peak_count,peak_frequencies_hz,highest_peak_centre_hz,all_bins_above_threshold,last_bin_above_threshold_hz
+rectangular,-40.0,4,440;1320;2200;6000,6000.0,4,6000.0
+symmetric_hann,-40.0,4,440;1320;2200;6000,6000.0,12,6000.5
+rectangular,-60.0,4,440;1320;2200;6000,6000.0,4,6000.0
+symmetric_hann,-60.0,4,440;1320;2200;6000,6000.0,12,6000.5
+rectangular,-80.0,4,440;1320;2200;6000,6000.0,4,6000.0
+symmetric_hann,-80.0,4,440;1320;2200;6000,6000.0,12,6000.5

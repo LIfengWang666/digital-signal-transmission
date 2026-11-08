@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "noise_records_replayed": 40,
+  "measurement_rows_recomputed": 1040,
+  "methods": [
+    "Direct time-domain np.convolve instead of FFT filtering",
+    "Threshold search on a codebook instead of scaled np.round",
+    "SciPy Fourier resample instead of project reconstruction",
+    "Packed bytes decoded by np.unpackbits and binary weights"
+  ],
+  "maximum_absolute_numeric_difference": 6.821210263296962e-12,
+  "maximum_relative_mse_difference": 3.136848508351949e-13,
+  "example_label_difference": 0,
+  "selected_bits_independently_confirmed": 14,
+  "packed_payload_bytes": 56000,
+  "p_registry_is_null_at_audit": false,
+  "r31_draws_bsc_or_parameter_leaf": false,
+  "inference_limit": "Design evidence only; no R3 phase-1 coding validation"
+}

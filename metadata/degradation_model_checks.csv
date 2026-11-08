@@ -1,0 +1,9 @@
+check,passed,measured,expected
+variance follows specification equation 4,True,0.01,0.01
+noise is added without signal normalization,True,1.1102230246251565e-16,0
+Gaussian sample mean within six model standard errors,True,1.3067555263736707e-05,0
+Gaussian sample variance within six approximate standard errors,True,0.010024013107453177,0.01
+BSC p0 preserves bits,True,0.0,0
+BSC p1 flips every bit,True,1.0,1
+BSC mask equals actual XOR errors,True,0.050105,0.050105
+BSC empirical rate within six standard errors,True,0.050105,0.05

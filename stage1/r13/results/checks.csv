@@ -1,0 +1,17 @@
+check,error,tolerance,passed,unit
+16000 Hz: same complete duration,0.0,1e-15,True,s
+16000 Hz: detected peak count,0,0,True,count
+16000 Hz: predicted versus detected frequencies,0.0,1e-09,True,Hz
+16000 Hz: predicted complex coefficients,1.3586690111327988e-15,1e-12,True,NPY units
+16000 Hz: predicted reflected phases,1.9317880628477724e-14,1e-10,True,rad
+16000 Hz: alias model agrees on sample grid,5.023759186428833e-12,1e-10,True,NPY units
+16000 Hz: reconstruction fits received samples,1.3322676295501878e-15,1e-12,True,NPY units
+16000 Hz: MSE agrees with spectral error prediction,1.7503771175125548e-25,1e-12,True,NPY units squared
+8000 Hz: same complete duration,0.0,1e-15,True,s
+8000 Hz: detected peak count,0,0,True,count
+8000 Hz: predicted versus detected frequencies,0.0,1e-09,True,Hz
+8000 Hz: predicted complex coefficients,1.1713501963043968e-14,1e-12,True,NPY units
+8000 Hz: predicted reflected phases,1.532107773982716e-14,1e-10,True,rad
+8000 Hz: alias model agrees on sample grid,4.847122703210971e-12,1e-10,True,NPY units
+8000 Hz: reconstruction fits received samples,1.2212453270876722e-15,1e-12,True,NPY units
+8000 Hz: MSE agrees with spectral error prediction,5.0306980803327406e-17,1e-12,True,NPY units squared

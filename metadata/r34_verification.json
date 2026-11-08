@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-21",
+  "status": "passed",
+  "new_gaussian_input_records": 300,
+  "new_bsc_masks": 8400,
+  "trial_rows": 9000,
+  "conditions": 15,
+  "identity_reconstruction_difference": 0.0,
+  "maximum_mse_decomposition_residual": 6.568356969438582e-14,
+  "observed_overload_samples_across_300_inputs": 0,
+  "all_inputs_phase1_study3": true,
+  "design_rows_imported": 0,
+  "frozen_sources_match_before_and_after": true,
+  "threshold_or_sample_size_retuned": false,
+  "r4_streams_used": false
+}

@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "phase_id": 1,
+  "complete_bundles": 350,
+  "independent_path_records": 47250,
+  "unique_random_leaves": 28350,
+  "unique_Gaussian_inputs": 2100,
+  "unique_BSC_masks": 26250,
+  "unique_quantiser_inputs": 12600,
+  "maximum_independent_MSE_difference": 4.263256414560601e-14,
+  "primary_statistics_verified": 19,
+  "planned_confirmation_count_verified": 350,
+  "kernels_verified": 5,
+  "maximum_direct_IDFT_coefficient_difference": 1.9081958235744878e-16,
+  "truth_free_receiver_signature": true,
+  "checker_sha256": "1bb7fbb04cf650b9ebd8aefd89c5f1942e1e8832f7028f116d44fba5517ed27b",
+  "methods": [
+    "direct full convolution",
+    "midpoint threshold quantisation",
+    "XOR parity encoding",
+    "independent correction-sphere lookup",
+    "SciPy Fourier resampling",
+    "scalar fmean/stdev and fixed-unit planning"
+  ]
+}

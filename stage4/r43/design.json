@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-21",
+  "scope": "Held-out R4.3 central curves; four previously frozen configurations",
+  "choices_source": "../r42/results/validation_choices_freeze.json",
+  "external_requirement": "Project p10 R4.3/M2 and p14 four correct curves/A5",
+  "external_source": "../../../DST-Project1.pdf",
+  "records_per_condition": 1400,
+  "independent_unit": "One complete record bundle; shared inputs within a bundle, distinct leaf paths between bundles",
+  "phase": 1,
+  "primary_family": "88 condition/configuration NMSE means plus4 equally weighted 12-condition objective means",
+  "family_size": 92,
+  "familywise_alpha": 0.05,
+  "mean_interval": "mean +/- t.ppf(1-.05/(2*92),1399)*sd(ddof=1)/sqrt(1400)",
+  "coverage": "Approximate t/CLT finite-family mean intervals, not exact finite-sample or continuous-parameter bands",
+  "conditional_effects": "Four conditional NMSE reductions and interaction; conservative bounds from92 primary intervals; separate pointwise paired95% intervals",
+  "MAE_and_counts": "Descriptive means and record-level counts only; no undisclosed simultaneous coverage",
+  "precision_audit": "Report actual relative half-widths against5% without changing1400 or optional stopping",
+  "retune_scientific_choices": false,
+  "phase0_imported_into_validation_means": false,
+  "predeclared_examples": [
+    {"joint_condition_id": 11, "record_id": 0, "name": "personal"},
+    {"joint_condition_id": 5, "record_id": 0, "name": "personal_snr_p003"},
+    {"joint_condition_id": 21, "record_id": 0, "name": "snr40_personal_p"}
+  ],
+  "example_window_seconds": [0.2, 0.22],
+  "example_window_substitutes_full_record_metric": false,
+  "execution": "Unchanged R4.2 NumPy pipeline; optional process chunks use fixed record IDs; deterministic sorted merge; no numerical approximation or shortened records",
+  "unique_quantiser_exposures": "16*1400, not duplicated across p/ECC configurations",
+  "p_zero": "Retains Gaussian; BSC is identity with no RNG call",
+  "clean_controls": "Four deterministic no-Gaussian/p0 records once, excluded from random means and intervals",
+  "central_plot": "Two four-curve panels, actual tested points and92-family mean intervals; p0 separate; lines are guides between measured points",
+  "nonpositive_interval_limit": "Retain numeric values; use linear/symmetric-log display when required; never replace limits by an arbitrary epsilon"
+}

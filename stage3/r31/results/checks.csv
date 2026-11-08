@@ -1,0 +1,66 @@
+check,error,tolerance
+B4: actual quantisation example expression,0.0,0.0
+B4: all labels MSB-first round trip,0.0,0
+B4: shifted half-step granular bound,0.0,2e-13
+B4: saturated endpoints,0.0,0.0
+B4: MSB weight,0.0,0
+B5: actual quantisation example expression,0.0,0.0
+B5: all labels MSB-first round trip,0.0,0
+B5: shifted half-step granular bound,0.0,2e-13
+B5: saturated endpoints,0.0,0.0
+B5: MSB weight,0.0,0
+B6: actual quantisation example expression,0.0,0.0
+B6: all labels MSB-first round trip,0.0,0
+B6: shifted half-step granular bound,0.0,2e-13
+B6: saturated endpoints,0.0,0.0
+B6: MSB weight,0.0,0
+B7: actual quantisation example expression,0.0,0.0
+B7: all labels MSB-first round trip,0.0,0
+B7: shifted half-step granular bound,0.0,2e-13
+B7: saturated endpoints,0.0,0.0
+B7: MSB weight,0.0,0
+B8: actual quantisation example expression,0.0,0.0
+B8: all labels MSB-first round trip,0.0,0
+B8: shifted half-step granular bound,0.0,2e-13
+B8: saturated endpoints,0.0,0.0
+B8: MSB weight,0.0,0
+B9: actual quantisation example expression,0.0,0.0
+B9: all labels MSB-first round trip,0.0,0
+B9: shifted half-step granular bound,0.0,2e-13
+B9: saturated endpoints,0.0,0.0
+B9: MSB weight,0.0,0
+B10: actual quantisation example expression,0.0,0.0
+B10: all labels MSB-first round trip,0.0,0
+B10: shifted half-step granular bound,0.0,2e-13
+B10: saturated endpoints,0.0,0.0
+B10: MSB weight,0.0,0
+B11: actual quantisation example expression,0.0,0.0
+B11: all labels MSB-first round trip,0.0,0
+B11: shifted half-step granular bound,0.0,2e-13
+B11: saturated endpoints,0.0,0.0
+B11: MSB weight,0.0,0
+B12: actual quantisation example expression,0.0,0.0
+B12: all labels MSB-first round trip,0.0,0
+B12: shifted half-step granular bound,0.0,2e-13
+B12: saturated endpoints,0.0,0.0
+B12: MSB weight,0.0,0
+B13: actual quantisation example expression,0.0,0.0
+B13: all labels MSB-first round trip,0.0,0
+B13: shifted half-step granular bound,0.0,2e-13
+B13: saturated endpoints,0.0,0.0
+B13: MSB weight,0.0,0
+B14: actual quantisation example expression,0.0,0.0
+B14: all labels MSB-first round trip,0.0,0
+B14: shifted half-step granular bound,0.0,2e-13
+B14: saturated endpoints,0.0,0.0
+B14: MSB weight,0.0,0
+B15: actual quantisation example expression,0.0,0.0
+B15: all labels MSB-first round trip,0.0,0
+B15: shifted half-step granular bound,0.0,2e-13
+B15: saturated endpoints,0.0,0.0
+B15: MSB weight,0.0,0
+B16: actual quantisation example expression,0.0,0.0
+B16: all labels MSB-first round trip,0.0,0
+B16: shifted half-step granular bound,0.0,2e-13
+B16: saturated endpoints,0.0,0.0
+B16: MSB weight,0.0,0

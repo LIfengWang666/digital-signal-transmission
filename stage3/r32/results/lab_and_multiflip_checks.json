@@ -1,0 +1,31 @@
+{
+  "all_checks_passed": true,
+  "lab_repetition_probability": 0.001,
+  "lab_repetition_decoded_ber": 9.985006e-09,
+  "lab_bsc_capacity": 0.9885922422625388,
+  "double_error_received": [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "double_error_decoded": [
+    1,
+    1,
+    1,
+    0
+  ],
+  "double_error_corrected": [
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0
+  ],
+  "zero_post_syndrome_does_not_imply_recovery": true
+}

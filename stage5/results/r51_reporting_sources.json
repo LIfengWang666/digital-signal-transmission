@@ -1,0 +1,31 @@
+{
+  "macros": {
+    "RfiveRecords": "350",
+    "RfivePaths": "47250",
+    "RfiveIndependentMse": "4.2633\\times10^{-14}",
+    "RfiveMainChannel": "1.8720\\times10^{0}",
+    "RfiveMainGaussian": "1.7637\\times10^{-2}",
+    "RfiveMainQuant": "4.0241\\times10^{-7}",
+    "RfiveBaseJ": "2.590362",
+    "RfiveRepeatJ": "0.455812",
+    "RfiveRepeatGain": "2.134550",
+    "RfiveRepeatLower": "2.126786",
+    "RfiveRepeatUpper": "2.142314",
+    "RfiveBitsGain": "0.168868",
+    "RfiveBitsLower": "0.159440",
+    "RfiveBitsUpper": "0.178295",
+    "RfiveBitsPreGain": "5.5832\\times10^{-7}",
+    "RfiveCodeOtherJ": "5.011250",
+    "RfiveQSeven": "0.1496944",
+    "RfiveQFifteen": "0.4509570",
+    "RfiveQRepeat": "0.0085600"
+  },
+  "component_cohort": "R4phase1R1400",
+  "counterfactual_cohort": "R5phase1R350",
+  "derived_block_failure_probabilities_at_p01": {
+    "hamming74": 0.14969440000000006,
+    "hamming1511": 0.4509569810809363,
+    "repetition51": 0.008560000000000002
+  },
+  "prechannel_gain_B16_not_equal_full_gain": 5.583198610248516e-07
+}

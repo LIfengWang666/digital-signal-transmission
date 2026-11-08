@@ -1,0 +1,7 @@
+check,passed
+band edge agrees across components and stages,True
+all measured candidates share reference duration,True
+chosen rate and sample count agree across stages,True
+chosen full-record MSE agrees across stages,True
+undersampling error agrees with summary,True
+spectrum retains complete native frequency grid,True

@@ -1,0 +1,5 @@
+configuration,name,sample_rate_hz,bits_per_sample,filter_taps,filter_group_delay_ms,payload_bits,transmitted_bits,logical_rate_bits_s,extra_transmitted_fraction
+00,neither,16000,14,0,0,448000,448000,224000,0.0
+10,filter-only,16000,14,385,12,448000,448000,224000,0.0
+01,code-only,16000,14,0,0,448000,784000,392000,0.75
+11,both,16000,14,385,12,448000,784000,392000,0.75

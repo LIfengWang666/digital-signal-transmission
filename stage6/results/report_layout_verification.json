@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "pages": 41,
+  "cited_references": 24,
+  "contents_entries": 39,
+  "contents_links_verified": 78,
+  "all_contents_links_match_printed_pages": true,
+  "no_administrative_or_assistant_text": true,
+  "pdf_sha256": "2aa5a3b7da1aac0f2e0f35bb4f069f626a06fd841061960f46b6572f42bdb5a4",
+  "visual_review_of_final_title_reproduction_and_references": "passed"
+}

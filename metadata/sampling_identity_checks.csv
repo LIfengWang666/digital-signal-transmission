@@ -1,0 +1,6 @@
+sample_rate_hz,factor,compared_complex_bins,maximum_coefficient_error,tolerance,unit,passed
+8000.0,6,16000,1.1170964850151139e-16,1e-12,NPY units,True
+12000.0,4,24000,1.1198875585139753e-16,1e-12,NPY units,True
+16000.0,3,32000,1.1187626183260744e-16,1e-12,NPY units,True
+24000.0,2,48000,9.434084296241437e-17,1e-12,NPY units,True
+48000.0,1,96000,0.0,1e-12,NPY units,True

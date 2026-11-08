@@ -1,0 +1,47 @@
+{
+  "status": "R3.1 quantiser frozen from phase-0 design evidence",
+  "bits": 14,
+  "half_range": 18.0,
+  "levels": 16384,
+  "step": 0.0021973997436366965,
+  "normalised_epsilon": 1e-09,
+  "label_type": "uint32",
+  "bit_order": "unsigned natural binary, MSB first, sample-major",
+  "range_rule": "Fixed A, clip samples to [-A,A] before normalising; clip final labels to [0,2**B-1]; count original-input overload",
+  "component_budget": 0.01,
+  "worst_observed_component_ratio": 0.005586389563312654,
+  "maximum_observed_total_mse_change_fraction": 0.005839854580445225,
+  "source_sha256": {
+    "stage3/r31/quantisation.py": "49cce25f461d0043a6f19de4baed638a6e90d501ddcf0a06a60f8b5c48c8c49f",
+    "stage3/r31/design.json": "a2ca1d2655dc6c3b019f3e26e46a87feb1c23d50a54790e3c04aa06336ea552d",
+    "stage3/bitstream.py": "8af75b175d1873f271f1dca36f7b6648d87d7a76794ca1cbd73bdb6fd166af83",
+    "degradation.py": "beb4a6abeba009fc5d04415e22bc666de34ac09bc6170e70218dd2629b3abdaa",
+    "stage1/r12/sampling_rate.py": "9f87beaf817a386d771e956162b6e1f1468e34e13658053aba74d898c41db11b",
+    "stage2/r21/filtering_approach.py": "90c7e544a95fecfc8e51f8d134f843aed3263702d923bccc61a99dbaea53e9db",
+    "stage2/r23/validation.py": "d942599c51783e6cbc378d3aadec382241abd4a82228dbcd533fae61bbc9bfb2",
+    "reference_signal.npy": "2f62c84fb0e11586373b2dc0d92f180206d15d4a77098046c9c43de290657095",
+    "stage2/r22/results/selected_coefficients.npy": "aa155baf5455d627aa4df47373cad6c6d254fa1359020dc10895fcc28e89dec8",
+    "stage1/r12/results/selected_samples.npy": "31d4e66e1e7e928aa0d6cc3db99a4a76098c97d71ee7d8ba9487f28ac0a5d409"
+  },
+  "headroom": {
+    "minimum_snr_db": -10.0,
+    "sigma_max": 2.7018512172212605,
+    "clean_peaks": {
+      "unfiltered": 1.3587355384529318,
+      "filtered": 1.3691955697335352
+    },
+    "pointwise_sd_gain_upper": {
+      "unfiltered": 1.0,
+      "filtered": 0.23079914743168284
+    },
+    "six_sigma_amplitude_bounds": {
+      "unfiltered": 17.569842841780495,
+      "filtered": 5.110705314265064
+    },
+    "per_sample_two_sided_six_sigma_tail": 1.9731752900754032e-09,
+    "two_branch_record_union_bound": 0.0001262832185648258,
+    "guarantees_zero_overload": false
+  },
+  "evidence_scope": "40 Gaussian design records, 80 branches; no R3/R4 held-out coding validation",
+  "no_bsc_or_parameter_leaf_0_1_used": true
+}

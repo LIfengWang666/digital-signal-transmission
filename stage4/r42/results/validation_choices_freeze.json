@@ -1,0 +1,489 @@
+{
+  "date": "2026-10-21",
+  "status": "Choices frozen before R4 phase1",
+  "study_id": 4,
+  "phase_id": 1,
+  "records_per_condition": 1400,
+  "conditions": [
+    {
+      "joint_condition_id": 0,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.0,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "identity BSC control; Gaussian still random",
+      "primary": false,
+      "main_weight_numerator": 0,
+      "main_weight_denominator": 12,
+      "main_weight": 0.0,
+      "bsc_rng_required": false
+    },
+    {
+      "joint_condition_id": 1,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.0001,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "primary BSC slice",
+      "primary": true,
+      "main_weight_numerator": 1,
+      "main_weight_denominator": 12,
+      "main_weight": 0.08333333333333333,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 2,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.001,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "primary BSC slice",
+      "primary": true,
+      "main_weight_numerator": 1,
+      "main_weight_denominator": 12,
+      "main_weight": 0.08333333333333333,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 3,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.003,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "primary BSC slice",
+      "primary": true,
+      "main_weight_numerator": 1,
+      "main_weight_denominator": 12,
+      "main_weight": 0.08333333333333333,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 4,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.01,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "primary BSC slice",
+      "primary": true,
+      "main_weight_numerator": 1,
+      "main_weight_denominator": 12,
+      "main_weight": 0.08333333333333333,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 5,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.03,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "primary BSC slice",
+      "primary": true,
+      "main_weight_numerator": 1,
+      "main_weight_denominator": 12,
+      "main_weight": 0.08333333333333333,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 6,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.1,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "primary BSC slice",
+      "primary": true,
+      "main_weight_numerator": 1,
+      "main_weight_denominator": 12,
+      "main_weight": 0.08333333333333333,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 7,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.3,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "BSC stress diagnostic",
+      "primary": false,
+      "main_weight_numerator": 0,
+      "main_weight_denominator": 12,
+      "main_weight": 0.0,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 8,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.0003,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "primary BSC slice",
+      "primary": true,
+      "main_weight_numerator": 1,
+      "main_weight_denominator": 12,
+      "main_weight": 0.08333333333333333,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 9,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.2,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "BSC stress diagnostic",
+      "primary": false,
+      "main_weight_numerator": 0,
+      "main_weight_denominator": 12,
+      "main_weight": 0.0,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 10,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.5,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "BSC stress diagnostic",
+      "primary": false,
+      "main_weight_numerator": 0,
+      "main_weight_denominator": 12,
+      "main_weight": 0.0,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 11,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.00021099569319078592,
+      "slice_membership": [
+        "bsc_at_personal_snr",
+        "gaussian_at_personal_p"
+      ],
+      "role": "personal overlap; one condition and one main weight",
+      "primary": true,
+      "main_weight_numerator": 1,
+      "main_weight_denominator": 12,
+      "main_weight": 0.08333333333333333,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 12,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.002,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "transition refinement diagnostic",
+      "primary": false,
+      "main_weight_numerator": 0,
+      "main_weight_denominator": 12,
+      "main_weight": 0.0,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 13,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.004,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "transition refinement diagnostic",
+      "primary": false,
+      "main_weight_numerator": 0,
+      "main_weight_denominator": 12,
+      "main_weight": 0.0,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 14,
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192,
+      "probability": 0.005,
+      "slice_membership": [
+        "bsc_at_personal_snr"
+      ],
+      "role": "transition refinement diagnostic",
+      "primary": false,
+      "main_weight_numerator": 0,
+      "main_weight_denominator": 12,
+      "main_weight": 0.0,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 15,
+      "snr_condition_id": 0,
+      "snr_db": -10.0,
+      "probability": 0.00021099569319078592,
+      "slice_membership": [
+        "gaussian_at_personal_p"
+      ],
+      "role": "Gaussian severity/high-SNR diagnostic",
+      "primary": false,
+      "main_weight_numerator": 0,
+      "main_weight_denominator": 12,
+      "main_weight": 0.0,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 16,
+      "snr_condition_id": 1,
+      "snr_db": 0.0,
+      "probability": 0.00021099569319078592,
+      "slice_membership": [
+        "gaussian_at_personal_p"
+      ],
+      "role": "primary Gaussian slice",
+      "primary": true,
+      "main_weight_numerator": 1,
+      "main_weight_denominator": 12,
+      "main_weight": 0.08333333333333333,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 17,
+      "snr_condition_id": 2,
+      "snr_db": 10.0,
+      "probability": 0.00021099569319078592,
+      "slice_membership": [
+        "gaussian_at_personal_p"
+      ],
+      "role": "primary Gaussian slice",
+      "primary": true,
+      "main_weight_numerator": 1,
+      "main_weight_denominator": 12,
+      "main_weight": 0.08333333333333333,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 18,
+      "snr_condition_id": 3,
+      "snr_db": 20.0,
+      "probability": 0.00021099569319078592,
+      "slice_membership": [
+        "gaussian_at_personal_p"
+      ],
+      "role": "primary Gaussian slice",
+      "primary": true,
+      "main_weight_numerator": 1,
+      "main_weight_denominator": 12,
+      "main_weight": 0.08333333333333333,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 19,
+      "snr_condition_id": 4,
+      "snr_db": 30.0,
+      "probability": 0.00021099569319078592,
+      "slice_membership": [
+        "gaussian_at_personal_p"
+      ],
+      "role": "primary Gaussian slice",
+      "primary": true,
+      "main_weight_numerator": 1,
+      "main_weight_denominator": 12,
+      "main_weight": 0.08333333333333333,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 20,
+      "snr_condition_id": 6,
+      "snr_db": 35.0,
+      "probability": 0.00021099569319078592,
+      "slice_membership": [
+        "gaussian_at_personal_p"
+      ],
+      "role": "Gaussian severity/high-SNR diagnostic",
+      "primary": false,
+      "main_weight_numerator": 0,
+      "main_weight_denominator": 12,
+      "main_weight": 0.0,
+      "bsc_rng_required": true
+    },
+    {
+      "joint_condition_id": 21,
+      "snr_condition_id": 7,
+      "snr_db": 40.0,
+      "probability": 0.00021099569319078592,
+      "slice_membership": [
+        "gaussian_at_personal_p"
+      ],
+      "role": "Gaussian severity/high-SNR diagnostic",
+      "primary": false,
+      "main_weight_numerator": 0,
+      "main_weight_denominator": 12,
+      "main_weight": 0.0,
+      "bsc_rng_required": true
+    }
+  ],
+  "configurations": [
+    {
+      "configuration_id": "00",
+      "name": "neither",
+      "filter_enabled": false,
+      "ecc_enabled": false,
+      "bsc_layout_id": 0,
+      "quantisation_bits": 14,
+      "transmitted_bits": 448000,
+      "logical_rate_bits_s": 224000,
+      "gaussian_enabled_in_random_conditions": true,
+      "quantisation_enabled": true,
+      "bsc_enabled": true
+    },
+    {
+      "configuration_id": "10",
+      "name": "filter-only",
+      "filter_enabled": true,
+      "ecc_enabled": false,
+      "bsc_layout_id": 0,
+      "quantisation_bits": 14,
+      "transmitted_bits": 448000,
+      "logical_rate_bits_s": 224000,
+      "gaussian_enabled_in_random_conditions": true,
+      "quantisation_enabled": true,
+      "bsc_enabled": true
+    },
+    {
+      "configuration_id": "01",
+      "name": "code-only",
+      "filter_enabled": false,
+      "ecc_enabled": true,
+      "bsc_layout_id": 1,
+      "quantisation_bits": 14,
+      "transmitted_bits": 784000,
+      "logical_rate_bits_s": 392000,
+      "gaussian_enabled_in_random_conditions": true,
+      "quantisation_enabled": true,
+      "bsc_enabled": true
+    },
+    {
+      "configuration_id": "11",
+      "name": "both",
+      "filter_enabled": true,
+      "ecc_enabled": true,
+      "bsc_layout_id": 1,
+      "quantisation_bits": 14,
+      "transmitted_bits": 784000,
+      "logical_rate_bits_s": 392000,
+      "gaussian_enabled_in_random_conditions": true,
+      "quantisation_enabled": true,
+      "bsc_enabled": true
+    }
+  ],
+  "snr_conditions": [
+    {
+      "snr_condition_id": 0,
+      "snr_db": -10.0
+    },
+    {
+      "snr_condition_id": 1,
+      "snr_db": 0.0
+    },
+    {
+      "snr_condition_id": 2,
+      "snr_db": 10.0
+    },
+    {
+      "snr_condition_id": 3,
+      "snr_db": 20.0
+    },
+    {
+      "snr_condition_id": 4,
+      "snr_db": 30.0
+    },
+    {
+      "snr_condition_id": 5,
+      "snr_db": 2.6612673327971192
+    },
+    {
+      "snr_condition_id": 6,
+      "snr_db": 35.0
+    },
+    {
+      "snr_condition_id": 7,
+      "snr_db": 40.0
+    }
+  ],
+  "main_objective": "equal mean of12 unique main cases per full bundle",
+  "primary_metric": "frozen R4.1 NMSE, original 96000-point reference",
+  "confidence_family_size": 92,
+  "familywise_alpha": 0.05,
+  "mean_interval": "mean +/- t.ppf(1-.05/(2*92),R-1)*sample_sd/sqrt(R)",
+  "interval_scope": "approximate finite-family mean intervals; t/CLT approximation, not exact finite-sample or continuous-parameter coverage",
+  "precision_rule": "smallest multiple of50 >=200 with predicted adjusted half-width <=5% of all92 means",
+  "rare_event_planning_limitation": "20-bank estimates can underestimate rare-event variance; precision planning, not a guarantee",
+  "gaussian_path": [
+    1,
+    4,
+    1,
+    "snr_condition_id",
+    "record_id"
+  ],
+  "bsc_path": [
+    2,
+    4,
+    1,
+    "joint_condition_id",
+    "record_id",
+    "layout_id"
+  ],
+  "configuration_pairing": "one Gaussian perSNR/r across all four configurations and p; one BSC mask perjoint/r/layout across filter switches",
+  "phase0_observations_imported_into_validation": false,
+  "phase1_used_to_choose_any_rule": false,
+  "phase1_records_generated": 0,
+  "source_sha256": {
+    "stage4/r42/design.json": "c99f0bff0752cf5bb29721874d8e6e122254af5320761e48fc7f33cc460ddabd",
+    "stage4/r42/pipeline.py": "3ae15a0eee1ee463ada9d33fc8e8ec348ea613bda49c755704f4e7353e6c2807",
+    "stage4/r42/protocol.py": "077749824a1a98384f9cf14284947a5b5030685ecd781ad6f0cbf380f5dfd766",
+    "stage4/r42/pilot.py": "687c45af4bcda113fbd39eb4975a7fca3d19cce6dd12f22e64aa0589dd7b5852",
+    "stage4/r42/planning.py": "d333c428023e0563ed850cda69846cd26ff533c377ee7581313976b469446898",
+    "stage4/r42/freeze_validation.py": "71dc3f5ec37ad4f4ad4a5eba7411a3db55153c8bf5d0fdd940d16608dc7671cb",
+    "reproduction/check_r42_results.py": "5d1f8eca3132a992f3a6419652c16bd45e4b4d63b19c357564fa5445169dc381",
+    "stage4/r42/results/pilot_freeze.json": "625d6cb22b8cc9657ffe6b94b6d8b3b196ba7f71ddc3058dd28d8e51cde0fb76",
+    "stage4/r42/results/pilot_trials.csv": "329718896cbdf2ddba166db2912479f3309d969586c40af46616a0f7b008403e",
+    "stage4/r42/results/pilot_summary.csv": "88b843fd9e254541eeb258d525ed32196bd800e8014933edfe33977af7d2dc6a",
+    "stage4/r42/results/pilot_bundle_scores.csv": "dba4416394431f999f6d5a085c20b1add3b22f9e2d3b78f8cbc1fd4a1c63b9b0",
+    "stage4/r42/results/precision_planning.csv": "32d2f3c8582950bc37a9c12302bb626827e48cc089c5beadc65b887e430fb9a6",
+    "stage4/r42/results/validation_planning.json": "2b85f62c054cf6ac032005fe791f0695073c85e8016a33c86399b89dbbb6e55e",
+    "stage4/r42/results/independent_checks.json": "de78a049d4bb9bc35fec2579522e571335887fa7ed9ea89a90f4107e48393624"
+  },
+  "fixed_inputs_sha256": {
+    "reference_signal.npy": "2f62c84fb0e11586373b2dc0d92f180206d15d4a77098046c9c43de290657095",
+    "reference_signal.wav": "0ffec41d7773f8a5fda064aecfec3affe956b6955227ab0c5774e4a4349c9454",
+    "stage1/r12/results/selected_samples.npy": "31d4e66e1e7e928aa0d6cc3db99a4a76098c97d71ee7d8ba9487f28ac0a5d409",
+    "stage2/r22/results/selected_coefficients.npy": "aa155baf5455d627aa4df47373cad6c6d254fa1359020dc10895fcc28e89dec8",
+    "stage3/r31/results/quantiser_freeze.json": "8fefa577802f4b458f82c919e874779e96b0008b9b5efbbefe343a2f78f49cec",
+    "stage3/r32/results/code_freeze.json": "cf39ad92e530827918bdb642ac6e2184cb041fcd033f91672964b12e1aeb4e33",
+    "stage3/r33/results/range_freeze.json": "f12e51c54ceee3bf7e4ed0a4ac1cff614672b4919b1ad41e3429baced965e75f",
+    "stage4/r41/metric_definition_freeze.json": "f9c823b4e223018d5bd3513cbb82a588f87b8d985c84c50b8b42f7c12d70e390"
+  },
+  "upstream_freezes": [
+    "stage2/r22/results/filter_freeze.json",
+    "stage3/r31/results/quantiser_freeze.json",
+    "stage3/r32/results/code_freeze.json",
+    "stage3/r33/results/range_freeze.json",
+    "stage4/r41/metric_definition_freeze.json"
+  ],
+  "validation_code_freeze_still_required_before_R4_3_draws": true
+}

@@ -1,0 +1,66 @@
+\FloatBarrier
+\subsection{Four configurations and what their contrasts isolate}
+\label{sec:r42}
+Filter switch $ f $ and code switch $ c $ vary while sampling, Gaussian/BSC
+models, quantiser, framing and receiver remain common. Here $ x $ contains
+32000 transmission samples; $\mathcal R $ returns 96000 reference-grid
+positions and $ d_{fc}$ denotes their full-record NMSE:
+\begin{align}
+ y&=x+\eta,\quad z_f=F_f(y),\quad
+ b_f=\operatorname{pack}(\mathcal Q(z_f)),\nonumber\\
+ t_{fc}&=E_c(b_f),\quad r_{fc}=t_{fc}\oplus\varepsilon_c,\nonumber\\
+ \widehat x_{fc}&=\mathcal R\!\left[
+ \mathcal Q^{-1}\!\left(\operatorname{unpack}(D_c(r_{fc}))\right)\right].
+ \label{eq:r42-chain}
+\end{align}
+Here $ F_0=E_0=D_0=I $; $ F_1 $ is the frozen FIR and $ E_1,D_1 $ the taught
+Hamming(7,4). Neither bypasses the protective modules, not the degradations.
+Code-only quantises noisy unfiltered samples; filter-only sends unprotected
+bits through the BSC. The receiver has only received bits and public
+codebook/framing/output-length metadata, never the reference or true masks.
+
+\begin{table}[htbp]
+ \centering
+ \small
+ \caption{Four actual paths carrying 448000 real information bits. Gaussian noise, quantisation, BSC and reconstruction remain enabled in every configuration.}
+ \label{tab:r42-configurations}
+ \input{generated/r42_configurations_table}
+ 
+ 
+\end{table}
+
+One Gaussian vector is shared within each $(S,r)$ across all four paths
+and $ p $ values. Same-code filter pairs replay the same BSC leaf and shape;
+uncoded/coded layouts have independent masks and unequal lengths.
+\begin{align}
+ \text{Gaussian}:&(1,4,a,\mathrm{SNR\ ID},r),\nonumber\\
+ \text{BSC}:&(2,4,a,\mathrm{joint\ ID},r,\mathrm{layout\ ID}).
+ \label{eq:r42-rng}
+\end{align}
+At $ p=0 $ no mask is drawn. The actual decoder's translation identity
+(Eq.~\eqref{eq:r42-pair-invariant}) gives equal XOR error patterns/BER
+within 00/10 and 01/11, while their waveform NMSE can differ through
+bit values, upstream errors and amplitude-error signs.
+The conditional reductions and interaction are
+\begin{align}
+ g_{F\mid c=0}&=d_{00}-d_{10},&
+ g_{F\mid c=1}&=d_{01}-d_{11},\nonumber\\
+ g_{C\mid f=0}&=d_{00}-d_{01},&
+ g_{C\mid f=1}&=d_{10}-d_{11},\nonumber\\
+ I&=d_{00}-d_{10}-d_{01}+d_{11}.
+ \label{eq:r42-effects}
+\end{align}
+Positive reductions improve quality; negative values are retained.
+Comparisons at fixed $ c $ isolate enabling the filter; those at fixed $ f $
+isolate enabling ECC including its extra transmitted bits. Comparing only
+00 with 11 confounds these effects. Interaction is not a responsibility
+percentage, and these switches do not separately identify changing the
+sampling rate or bit depth. Rates remain 224/392 kbit/s, not equal energy.
+
+Twenty new pilot bundles over 22 unique conditions produce 1760 paths.
+All are independently replayed; mask invariants and clean/identity controls
+pass. Pilot variance alone plans 1400 validation bundles for 88 condition
+means plus four main-objective means, targeting 5 \% relative half-width.
+The smallest passing multiple of 50 is frozen before phase 1
+(Eq.~\eqref{eq:r42-planning}); a pilot prediction is not a guarantee of
+achieved precision. No pilot observation enters the final means.

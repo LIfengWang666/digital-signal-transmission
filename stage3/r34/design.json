@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-21",
+  "scope": "R3.4 held-out phase-1 coding validation at the frozen personal Gaussian SNR; R4 remains separate",
+  "external_requirement": "Identify error levels where the coded path succeeds and the uncoded path fails; the external supplies no numerical quality threshold",
+  "code_names": ["uncoded", "hamming74"],
+  "layout_ids": {"uncoded": 0, "hamming74": 1},
+  "gaussian_condition_id": 5,
+  "records_per_condition": 300,
+  "study_id": 3,
+  "phase_id": 1,
+  "primary_metric": "Whole-record 96000-sample NMSE against the original 48 kHz NPY, retaining boundaries and cross terms",
+  "baseline_source": "Frozen R3.3 imported p=0 Hamming summary: mean MSE of five phase-0 inputs divided by original mean-square power",
+  "primary_total_mse_budget_factor": 2.0,
+  "threshold_reason": "Allow at most one design-baseline MSE of additional total distortion, equivalent to a factor-two total MSE budget (3.01029995664 dB); declared project preference, not a external or perceptual standard",
+  "threshold_sensitivity_factors": [1.5, 2.0, 4.0],
+  "success_definition": "Population mean reconstruction quality under new noise draws; not a guarantee of every record passing or of bit-perfect messages",
+  "confidence_family": "30 means: two paths times all 15 conditions, including identity and stress cases",
+  "familywise_alpha": 0.05,
+  "mean_interval": "mean +/- t.ppf(1-alpha/(2*30), R-1)*sample_sd/sqrt(R)",
+  "interval_scope": "Bonferroni-adjusted approximate simultaneous 95% mean intervals; t/CLT approximation for independent records, not exact finite-sample normality or a continuous-p band",
+  "classification": "Pass if upper<=tau; fail if lower>tau; otherwise inconclusive. Gain requires coded pass and uncoded fail at the same tested p.",
+  "sample_size_planning": {
+    "source": "R3.3 phase-0 trials only; five input banks with eight BSC masks each",
+    "target_cases": [
+      {"code": "uncoded", "probability": 0.0001},
+      {"code": "hamming74", "probability": 0.003}
+    ],
+    "variance_rule": "mean(within-bank sample variance) + max(sample_variance(bank_means)-mean(within-bank sample variance)/8,0)",
+    "target_half_width_fraction_of_primary_threshold": 0.1,
+    "rule": "Smallest multiple of 50, at least 200, with planned adjusted t half-width <=0.1*tau for both boundary-adjacent pilot cases",
+    "selected_records": 300,
+    "limitation": "Five-bank variance estimates are a planning heuristic, not a power or precision guarantee; sample size will not be changed after validation"
+  },
+  "base_condition_ids": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+  "additional_conditions": [
+    {"condition_id": 12, "probability": 0.002, "role": "predeclared transition refinement below the p=0.003 pilot"},
+    {"condition_id": 13, "probability": 0.004, "role": "predeclared transition refinement above the p=0.003 pilot"},
+    {"condition_id": 14, "probability": 0.005, "role": "predeclared upper transition check"}
+  ],
+  "range_rule": "Retain every R3.3 point, including the personal point, identity and stress points; add three within-range refinements before validation; do not change the personal mapping or main endpoints",
+  "gaussian_path": [1, 3, 1, 5, "record_id"],
+  "bsc_path": [2, 3, 1, "condition_id", "record_id", "layout_id"],
+  "pairing": "One new Gaussian input and quantised payload shared by all p and both codes within a record; different p/layout leaves have separate BSC masks",
+  "identity_rng": "p=0 is an exact roundtrip without an RNG draw",
+  "no_phase0_imports": "No design observation is included in validation; only the already frozen choices and planning summaries are reused",
+  "secondary_metrics": [
+    "real channel and data BER counts",
+    "full-message block failures and actual block weights",
+    "bit-plane residual error counts",
+    "bit-perfect complete-payload records with pointwise exact binomial intervals",
+    "paired NMSE difference and paired reconstruction-MSE gain in dB, pointwise exploratory intervals",
+    "per-record waveform pass counts under the shared threshold"
+  ],
+  "bit_success_theory": "Uncoded (1-p)**448000; Hamming (1-q(p))**112000, q(p)=P(Binomial(7,p)>1)",
+  "gain_reporting": "Discrete tested probability set and pass/fail brackets only; do not claim an exact continuous transition or an Eb/N0 coding gain",
+  "examples": [
+    {"condition_id": 11, "record_id": 0, "name": "personal"},
+    {"condition_id": 5, "record_id": 0, "name": "high_error"}
+  ],
+  "example_window_s": [0.2, 0.22],
+  "quantiser_freeze": "stage3/r31/results/quantiser_freeze.json",
+  "code_freeze": "stage3/r32/results/code_freeze.json",
+  "range_freeze": "stage3/r33/results/range_freeze.json",
+  "validation_feedback": "No threshold, code, quantiser, filter, grid or repeat-count changes after inspecting phase-1 outputs",
+  "r4_streams_used": false
+}

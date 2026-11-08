@@ -1,0 +1,11 @@
+metric,value
+candidate_count,372
+feasible_count,177
+selected_length,385
+selected_half_width_hz,70.0
+selected_score,0.12285366047451633
+strict_minimum_score,0.12285366047451633
+offband_mean_psd,4.9037377607565914e-05
+selected_clean_mse,0.00022950758078883963
+prototype_clean_mse,0.0002013925509850173
+check_count,10

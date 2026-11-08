@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "cost_rows_verified": 5,
+  "personal_path_rows_reused_and_verified": 1050,
+  "new_random_observations": 0,
+  "selected_variant": "h1511",
+  "error_patterns_independently_checked": 32898,
+  "last_partial_word_verified": "Hamming15:3 real bits,8 pad bits",
+  "maximum_probability_difference": 1.1102230246251565e-16,
+  "Clopper_Pearson_checked_by": "independent beta quantiles",
+  "mean_intervals_checked_by": "scalar fmean/stdev,19-family t",
+  "checker_sha256": "dde61c3e595fd5e0b4501879c2ba3d14733f7ecedb1309160554eabdb4393ad2",
+  "constraint_assessment_sha256": "4fc7cb748c54818171ab8a019062b2aad928a14cb5500d875f05e32129d82ed0"
+}

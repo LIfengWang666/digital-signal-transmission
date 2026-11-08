@@ -1,0 +1,17 @@
+check,error,tolerance,passed
+convolution example hand convolution,0.0,1e-12,True
+DFT example direct circular expected values,0.0,1e-12,True
+DFT example circular convolution theorem,0.0,1e-12,True
+DFT example zero-padded linear expected values,0.0,1e-12,True
+DFT example insufficient-padding expected wrap,0.0,1e-12,True
+R1.2 input unchanged,0.0,0,True
+All full-record direct/FFT convolutions agree,8.881784197001252e-15,1e-11,True
+Anchor leaf replays anchor draw,0.0,0,True
+Contaminated peaks agree with declared R1 priors,0.0,0.5,True
+ma3 symmetric kernel,0.0,1e-13,True
+wide_lowpass symmetric kernel,2.7755575615628914e-17,1e-13,True
+multiband symmetric kernel,6.938893903907228e-18,1e-13,True
+Identity filter preserves input,1.3322676295501878e-15,1e-12,True
+Zero filter produces zero,0.0,0,True
+Anchor Parseval mean square,0.0,1e-12,True
+MA3 six-kilohertz signed gain,8.326672684688674e-17,1e-12,True

@@ -1,0 +1,33 @@
+{
+  "role": "Reporting joins only; original measurements retained",
+  "sources": [
+    {
+      "path_relative_to_stage1": "r11/results/summary.csv",
+      "sha256": "71d83e8938be871c86b75091b5c6f9821170a39df9fa78dc496ae7633315943e"
+    },
+    {
+      "path_relative_to_stage1": "r11/results/components.csv",
+      "sha256": "710a1228cd03f5d646128e2993b09ffad2390a6004220daddbf3a1dcf4370e9d"
+    },
+    {
+      "path_relative_to_stage1": "r11/results/spectrum.csv",
+      "sha256": "5457f9294d00d18ae3e4e1d614955df54462276a910197dcccf64bca727f5437"
+    },
+    {
+      "path_relative_to_stage1": "r12/results/summary.csv",
+      "sha256": "16bc94c4f623b5ad4de2daf10121e68ee273b3b6020da14643effae96d4c4580"
+    },
+    {
+      "path_relative_to_stage1": "r12/results/rate_comparison.csv",
+      "sha256": "5d7e94ed7a6ddd9794fb11c6dfc9dacc7d5a27716e8fa4b0600644770f41d6fc"
+    },
+    {
+      "path_relative_to_stage1": "r13/results/summary.csv",
+      "sha256": "d69bd8b913f09e066d99f5cc6abd8b9653323181ea038f695851452411266936"
+    },
+    {
+      "path_relative_to_stage1": "r13/results/comparison.csv",
+      "sha256": "f33de8163849b1da06c36b32fa8369201b8c50ae752cb17c5c8e310bf060cbc5"
+    }
+  ]
+}

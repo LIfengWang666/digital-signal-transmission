@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-21",
+  "status": "passed",
+  "total_trial_rows": 890,
+  "imported_r32_rows": 570,
+  "new_bsc_masks": 320,
+  "unique_total_bsc_masks": 880,
+  "gaussian_input_banks_replayed": 5,
+  "parameter_scalar_count": 1,
+  "personal_probability": 0.00021099569319078592,
+  "maximum_new_mse_decomposition_residual": 4.433953204596719e-14,
+  "all_upstream_frozen_hashes_match": true,
+  "no_r3_phase1_or_r4_paths": true
+}

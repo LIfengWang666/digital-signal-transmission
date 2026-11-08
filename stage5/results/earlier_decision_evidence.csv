@@ -1,0 +1,8 @@
+decision,quantity,value,cohort,source
+sampling16000,clean reconstruction MSE,1.7503771175125548e-25,R1 deterministic sufficient-rate comparison,stage1/r12/results/rate_comparison.csv
+sampling24000,clean reconstruction MSE,1.273498885348088e-25,R1 deterministic sufficient-rate comparison,stage1/r12/results/rate_comparison.csv
+quantisation14,quantisation component MSE on16k grid,4.0259178570545454e-07,"R3.1 phase0;5 design records, not R4 validation",stage3/r31/results/summary.csv
+quantisation11,worst original quantisation component ratio,0.3547878721288013,R3.1 declared full design envelope,stage3/r31/results/bit_selection.csv
+quantisation14,worst original quantisation component ratio,0.005586389563312654,R3.1 declared full design envelope,stage3/r31/results/bit_selection.csv
+quantisation16,worst original quantisation component ratio,0.00034720491425672224,R3.1 declared full design envelope,stage3/r31/results/bit_selection.csv
+FFT numerical implementation,maximum independent R4 MSE discrepancy,4.263256414560601e-14,R4 phase1; all123200 paths; independent algorithms,stage4/r43/results/independent_checks.json

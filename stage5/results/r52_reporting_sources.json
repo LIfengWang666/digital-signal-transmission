@@ -1,0 +1,18 @@
+{
+  "macros": {
+    "SfiveThreshold": "0.057666604564293136",
+    "SfiveNewMean": "0.029279",
+    "SfiveNewLower": "0.028995",
+    "SfiveNewUpper": "0.029564",
+    "SfiveBaseMean": "0.029145",
+    "SfiveRawMean": "0.151197",
+    "SfiveRateSaving": "22.08",
+    "SfivePerfectBase": "319",
+    "SfivePerfectNew": "298",
+    "SfiveBitElevenRatio": "0.354788"
+  },
+  "constraint_source": "design.json R52_prespecified_constraint",
+  "quality_source": "primary_summary.csv19-family personal means",
+  "probability_source": "payload_recovery_theory.csv; last partial block handled separately",
+  "additional_independent_records_claimed": 0
+}

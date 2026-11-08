@@ -1,0 +1,16 @@
+{
+  "input_npy_sha256": "2f62c84fb0e11586373b2dc0d92f180206d15d4a77098046c9c43de290657095",
+  "rate_selection": "Lowest strictly sufficient rate among reference[::M] candidates; integer-only family is our design choice, not a physical constraint or global optimum.",
+  "decimation_factors": [
+    4,
+    3,
+    2,
+    1
+  ],
+  "selected_factor": 3,
+  "pre_decimation_filter": "None for this measured clean reference; sub-Nyquist source content is verified. Not a general unfiltered-decimation rule.",
+  "reconstruction": "Real periodic Fourier interpolation, same 2 s period; scale L/N and split old Nyquist coefficient when expanded.",
+  "evaluation": "All 96000 original grid positions, no trimming, fitted gain, phase adjustment or time alignment.",
+  "random_seed": null,
+  "limitations": "Periodic-record clean-sampling baseline, not a claim of perfect reconstruction for nonperiodic/noisy data or a practical causal filter. Full stochastic system evaluation remains pending."
+}

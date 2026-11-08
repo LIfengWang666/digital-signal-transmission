@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-21",
+  "cohorts_combined_as_independent_observations": false,
+  "source_sha256": {
+    "stage1/r12/results/rate_comparison.csv": "5d7e94ed7a6ddd9794fb11c6dfc9dacc7d5a27716e8fa4b0600644770f41d6fc",
+    "stage3/r31/results/bit_selection.csv": "12487b5e80976cb21856238aca4cbba6ba4f6cff2ca8f24eaecb7d9031ff19fd",
+    "stage3/r31/results/summary.csv": "7c2f9262a6375db1b7427b684c5c33042e416118a017aca9c61a9c86f1ae4fa6",
+    "stage4/r43/results/component_summary.csv": "597e7dc27723d5b20b02798468d079d8292a48bda5696ad2b521c4b1ba23e09a",
+    "stage4/r43/results/independent_checks.json": "456b755a6ddd2f06e86c2c938c1e7c1229c83c29fee009d30a97d817a615b6ae",
+    "stage4/r43/results/objective_summary.csv": "81104fa06f290a9419895888a137d6a086edae8801ba50b8f944448102b0dce1",
+    "stage4/r43/results/validation_freeze.json": "6ba361ee37af19c4fa1e10b41076d2d7b98e805de68f8e2a0b3e0354723241c6",
+    "stage5/results/phase1_freeze.json": "c63af2603903f10effc5a2d184df3d8b3b14d1c6eca84063f85f382dcd661243",
+    "stage5/results/phase1_independent_checks.json": "1260cf0c2f56027b31d9bba8240b1dc311c64a3dd76a2d4707d035343b323836",
+    "stage5/results/decision_evidence.csv": "854437b2dc07014be06cc8cb5f1c396e005ad06850bc0f80f2494b2cee7248a1"
+  }
+}

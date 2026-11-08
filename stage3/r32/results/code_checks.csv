@@ -1,0 +1,5 @@
+code,all_message_count,single_error_cases,all_error_patterns,translation_cases,gf2_rank_G,gf2_rank_H,d_min,t,all_checks_passed
+uncoded,2,0,2,4,1,0,1,0,True
+hamming74,16,112,128,2048,4,3,3,1,True
+hamming1511,2048,30720,32768,0,11,4,3,1,True
+repetition51,2,10,32,64,1,4,5,2,True

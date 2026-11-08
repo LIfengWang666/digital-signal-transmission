@@ -1,0 +1,13 @@
+% Navigation only: all contents entries are generated from report headings.
+\hypersetup{linktoc=all,bookmarksnumbered=true,bookmarksopen=true}
+\setcounter{tocdepth}{2}
+\newcommand{\ReportTableOfContents}{%
+ \clearpage
+ \begingroup
+  \thispagestyle{plain}%
+  \setlength{\parskip}{0pt}%
+  \linespread{1}\selectfont
+  \pdfbookmark[1]{\contentsname}{report.contents}%
+  \tableofcontents
+  \clearpage
+ \endgroup}

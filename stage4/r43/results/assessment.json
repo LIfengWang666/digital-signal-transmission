@@ -1,0 +1,48 @@
+{
+  "status": "complete",
+  "phase_id": 1,
+  "complete_bundles": 1400,
+  "path_rows": 123200,
+  "primary_mean_family": 92,
+  "t_critical": 3.4663844772089285,
+  "all92_actual_relative_half_widths_le_5percent": false,
+  "statistics_above_planning_target": [
+    {
+      "statistic": "condition:18:11",
+      "relative_half_width": 0.12161096612277228
+    },
+    {
+      "statistic": "condition:19:01",
+      "relative_half_width": 0.10757151394259193
+    },
+    {
+      "statistic": "condition:19:11",
+      "relative_half_width": 0.23555520429745677
+    },
+    {
+      "statistic": "condition:20:01",
+      "relative_half_width": 0.23362145080224406
+    },
+    {
+      "statistic": "condition:20:11",
+      "relative_half_width": 0.22675076083778092
+    },
+    {
+      "statistic": "condition:21:01",
+      "relative_half_width": 0.42429783237843005
+    },
+    {
+      "statistic": "condition:21:11",
+      "relative_half_width": 0.231095339399947
+    }
+  ],
+  "maximum_actual_relative_half_width": 0.42429783237843005,
+  "record_count_changed_after_outcomes": false,
+  "phase0_records_imported": 0,
+  "maximum_mse_decomposition_residual": 7.105427357601002e-14,
+  "maximum_waveform_identity_residual": 1.0658141036401503e-14,
+  "maximum_nyquist_energy_residual": 5.684341886080802e-14,
+  "descriptive_MAE_and_bit_counts_not_in92_family": true,
+  "supported_negative_conditional_effects": [],
+  "coverage_limitation": "t/CLT approximate finite-family mean coverage; no exact finite-sample or continuous-band guarantee"
+}

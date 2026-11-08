@@ -1,0 +1,21 @@
+check,error,tolerance,passed
+Original reference SHA256,0.0,0,True
+Exact R1.2 decimated input identity,0.0,0,True
+Pre-validation frozen coefficients unchanged,0.0,0,True
+Audited gain guard matches the declared protocol,0.0,0,True
+18 distinct phase-0 design paths,0.0,0,True
+All native windowed amplitudes and PSDs,2.220446049250313e-16,1e-12,True
+All saved padded local-peak amplitudes,2.220446049250313e-16,1e-12,True
+PSD Parseval integrals for N and 16N,4.440892098500626e-16,1e-12,True
+Four corrupted-spectrum peak searches,0.0,0,True
+372 candidates each retain all 18 design records,0.0,0,True
+Frozen kernel agrees with the independent cosine-series sum,1.7824283715661693e-16,1e-13,True
+All 6696 candidate-record full MSE values,1.5543122344752192e-15,1e-11,True
+All 372 balanced candidate objectives,2.3447910280083306e-13,1e-11,True
+All candidate clean distortions,7.494005416219807e-16,1e-12,True
+All candidate finite-record noise gains,6.938893903907228e-17,1e-13,True
+All candidate gain-constraint classifications,0.0,0,True
+Declared selection rule preserves the frozen candidate,0.0,0,True
+400 held-out paths disjoint from design,0.0,0,True
+All 400 Gaussian draws replay exactly,0.0,0,True
+All 800 validation rows via independent direct/SciPy recovery,1.4210854715202004e-14,1e-10,True

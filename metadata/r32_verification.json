@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "trial_rows": 1140,
+  "reused_gaussian_input_banks": 5,
+  "positive_probability_bsc_masks": 1120,
+  "unique_bsc_paths": 1120,
+  "zero_control_reconstruction_difference": 0.0,
+  "maximum_mse_decomposition_residual": 5.77940473256433e-14,
+  "all_full_block_failures_equal_radius_tail_counts": true,
+  "selected_code": "hamming74",
+  "all_upstream_frozen_hashes_checked": true,
+  "p_parameter_fields_remain_null": true,
+  "phase_1_used": false
+}

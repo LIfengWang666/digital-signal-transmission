@@ -1,0 +1,11 @@
+{
+  "status": "Pilot candidate; freeze final protocol before phase1",
+  "pilot_complete_bundles": 20,
+  "statistics": 92,
+  "candidate_validation_records_per_condition": 1400,
+  "rule": "smallest multiple of50 >=200 with predicted adjusted half-width <=5% of all92 means",
+  "maximum_predicted_relative_half_width": 0.049110426771573915,
+  "limiting_pilot_statistic": "condition20:01",
+  "limitation": "20-bank estimates can underestimate rare-event variance; precision planning, not a guarantee",
+  "phase1_records_generated": 0
+}

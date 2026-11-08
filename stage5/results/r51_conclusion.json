@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-23",
+  "status": "R5.1 interpretation reconciled with independent numerical evidence",
+  "single_limiting_decision": "Retaining B=14 in the existing sequential binary-to-Hamming payload layout, within the prespecified main12 objective and tested feasible decision family",
+  "scope": "Prespecified R4 main12 equal-weight whole-record NMSE objective and tested decision family; not the personal point or universal global optimality",
+  "reasoning": [
+    "B16 is the only tested feasible non-baseline variant with strictly positive adjusted main-objective gain interval:0.168867786 [0.159440163,0.178295409]",
+    "Longer feasible FIR and both feasible code alternatives worsen the objective; sampling equivalence is already at numerical residual",
+    "Original quantisation component is small; B16 full-chain improvement predominantly changes channel-induced waveform terms and bit/codeword grouping, not merely Delta squared over12",
+    "Repetition5 improves much more but violates the original expansion preference; it is a diagnostic, not the basis for ranking feasible decisions",
+    "The personal-point B16 gain interval includes zero; no ID-point or universal quality improvement is claimed"
+  ],
+  "source_sha256": {
+    "phase1_freeze.json": "c63af2603903f10effc5a2d184df3d8b3b14d1c6eca84063f85f382dcd661243",
+    "phase1_independent_checks.json": "1260cf0c2f56027b31d9bba8240b1dc311c64a3dd76a2d4707d035343b323836",
+    "decision_evidence.csv": "854437b2dc07014be06cc8cb5f1c396e005ad06850bc0f80f2494b2cee7248a1",
+    "r4_component_evidence.csv": "903b44c830a8ea9b528575d14f0ab27237b962f219cbf7e23899c6df9928ed19",
+    "confirmed_stage_accounting.csv": "23c3b43097b264265caa3ac15aab7bcd439b8f8161560fa6592f7702f94526a7"
+  },
+  "previous_conclusion": "Selection of single-error-correcting Hamming(7,4) under the declared factor-two redundancy preference",
+  "revision_reason": "Previous code-capability conclusion conflated error-location dominance and an infeasible stronger-code diagnostic with a feasible single-decision ranking",
+  "universal_optimality_claim": false
+}

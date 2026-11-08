@@ -1,0 +1,1532 @@
+{
+  "design_version": 1,
+  "date": "2026-10-21",
+  "author": "Lifeng Wang",
+  "status": "R4.3 phase1 registered; retain all earlier study/phase records",
+  "origin": "Explicit project experiment registry",
+  "root_seed": 2470964,
+  "seed_conversion": "Fixed integer root_seed",
+  "seed_sequence": "numpy.random.SeedSequence",
+  "pool_size": 4,
+  "bit_generator": "PCG64",
+  "distribution_interface": "numpy.random.Generator",
+  "baseline_environment": {
+    "python": "3.13.5",
+    "numpy": "2.1.3"
+  },
+  "purpose_ids": {
+    "parameters": 0,
+    "gaussian_noise": 1,
+    "bit_flips": 2
+  },
+  "path_construction": "SeedSequence(root_seed, spawn_key=tuple(path), pool_size=4)",
+  "parameter_paths": {
+    "snr_baseline": [
+      0,
+      0
+    ],
+    "bit_flip_baseline": [
+      0,
+      1
+    ]
+  },
+  "parameter_draw": "One Generator.random() scalar per parameter leaf after justified ranges/mappings are frozen",
+  "gaussian_path_fields": [
+    "purpose_id=1",
+    "study_id",
+    "phase_id",
+    "condition_id",
+    "repeat_id"
+  ],
+  "bit_flip_path_fields": [
+    "purpose_id=2",
+    "study_id",
+    "phase_id",
+    "condition_id",
+    "repeat_id",
+    "layout_id"
+  ],
+  "study_ids": {
+    "R2": 2,
+    "R3": 3,
+    "R4": 4,
+    "R5": 5
+  },
+  "phase_ids": {
+    "design": 0,
+    "validation": 1
+  },
+  "layout_ids": {
+    "uncoded_reserved": 0,
+    "hamming74": 1,
+    "hamming1511": 2,
+    "repetition51": 3
+  },
+  "condition_registry": [
+    {
+      "study_id": 2,
+      "phase_id": 0,
+      "condition_id": 0,
+      "target_snr_db": -10.0,
+      "role": "pilot"
+    },
+    {
+      "study_id": 2,
+      "phase_id": 0,
+      "condition_id": 1,
+      "target_snr_db": 0.0,
+      "role": "pilot"
+    },
+    {
+      "study_id": 2,
+      "phase_id": 0,
+      "condition_id": 2,
+      "target_snr_db": 10.0,
+      "role": "pilot"
+    },
+    {
+      "study_id": 2,
+      "phase_id": 0,
+      "condition_id": 3,
+      "target_snr_db": 20.0,
+      "role": "pilot"
+    },
+    {
+      "study_id": 2,
+      "phase_id": 0,
+      "condition_id": 4,
+      "target_snr_db": 30.0,
+      "role": "pilot"
+    },
+    {
+      "study_id": 2,
+      "phase_id": 0,
+      "condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "role": "personal_design"
+    },
+    {
+      "study_id": 2,
+      "phase_id": 1,
+      "condition_id": 0,
+      "target_snr_db": -10.0,
+      "role": "low-SNR stress"
+    },
+    {
+      "study_id": 2,
+      "phase_id": 1,
+      "condition_id": 1,
+      "target_snr_db": 0.0,
+      "role": "design-range endpoint"
+    },
+    {
+      "study_id": 2,
+      "phase_id": 1,
+      "condition_id": 2,
+      "target_snr_db": 10.0,
+      "role": "design range"
+    },
+    {
+      "study_id": 2,
+      "phase_id": 1,
+      "condition_id": 3,
+      "target_snr_db": 20.0,
+      "role": "design range"
+    },
+    {
+      "study_id": 2,
+      "phase_id": 1,
+      "condition_id": 4,
+      "target_snr_db": 30.0,
+      "role": "design-range endpoint"
+    },
+    {
+      "study_id": 2,
+      "phase_id": 1,
+      "condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "role": "anchor-seed baseline"
+    },
+    {
+      "study_id": 2,
+      "phase_id": 1,
+      "condition_id": 6,
+      "target_snr_db": 35.0,
+      "role": "high-SNR diagnostic above predicted 34.79 dB crossover"
+    },
+    {
+      "study_id": 2,
+      "phase_id": 1,
+      "condition_id": 7,
+      "target_snr_db": 40.0,
+      "role": "high-SNR diagnostic outside design range"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 0,
+      "condition_id": 0,
+      "target_snr_db": -10.0,
+      "role": "R3.1 quantiser design Gaussian bank; shared by filter branches; p=0 identity"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 0,
+      "condition_id": 1,
+      "target_snr_db": 0.0,
+      "role": "R3.1 quantiser design Gaussian bank; shared by filter branches; p=0 identity"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 0,
+      "condition_id": 2,
+      "target_snr_db": 10.0,
+      "role": "R3.1 quantiser design Gaussian bank; shared by filter branches; p=0 identity"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 0,
+      "condition_id": 3,
+      "target_snr_db": 20.0,
+      "role": "R3.1 quantiser design Gaussian bank; shared by filter branches; p=0 identity"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 0,
+      "condition_id": 4,
+      "target_snr_db": 30.0,
+      "role": "R3.1 quantiser design Gaussian bank; shared by filter branches; p=0 identity"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 0,
+      "condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R3.1 quantiser design Gaussian bank; shared by filter branches; p=0 identity"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 0,
+      "condition_id": 6,
+      "target_snr_db": 35.0,
+      "role": "R3.1 quantiser design Gaussian bank; shared by filter branches; p=0 identity"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 0,
+      "condition_id": 7,
+      "target_snr_db": 40.0,
+      "role": "R3.1 quantiser design Gaussian bank; shared by filter branches; p=0 identity"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 1,
+      "condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R3.4 independent Gaussian bank shared across p and code"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 0,
+      "target_snr_db": -10.0,
+      "role": "R4.2 pilot Gaussian shared across all paths/p"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 1,
+      "target_snr_db": 0.0,
+      "role": "R4.2 pilot Gaussian shared across all paths/p"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 2,
+      "target_snr_db": 10.0,
+      "role": "R4.2 pilot Gaussian shared across all paths/p"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 3,
+      "target_snr_db": 20.0,
+      "role": "R4.2 pilot Gaussian shared across all paths/p"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 4,
+      "target_snr_db": 30.0,
+      "role": "R4.2 pilot Gaussian shared across all paths/p"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R4.2 pilot Gaussian shared across all paths/p"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 6,
+      "target_snr_db": 35.0,
+      "role": "R4.2 pilot Gaussian shared across all paths/p"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 7,
+      "target_snr_db": 40.0,
+      "role": "R4.2 pilot Gaussian shared across all paths/p"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 0,
+      "target_snr_db": -10.0,
+      "role": "R4.3 held-out validation; frozen choices and record count"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 1,
+      "target_snr_db": 0.0,
+      "role": "R4.3 held-out validation; frozen choices and record count"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 2,
+      "target_snr_db": 10.0,
+      "role": "R4.3 held-out validation; frozen choices and record count"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 3,
+      "target_snr_db": 20.0,
+      "role": "R4.3 held-out validation; frozen choices and record count"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 4,
+      "target_snr_db": 30.0,
+      "role": "R4.3 held-out validation; frozen choices and record count"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R4.3 held-out validation; frozen choices and record count"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 6,
+      "target_snr_db": 35.0,
+      "role": "R4.3 held-out validation; frozen choices and record count"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 7,
+      "target_snr_db": 40.0,
+      "role": "R4.3 held-out validation; frozen choices and record count"
+    },
+    {
+      "study_id": 5,
+      "phase_id": 0,
+      "condition_id": 1,
+      "target_snr_db": 0.0,
+      "role": "R5 predeclared single-decision/constraint study"
+    },
+    {
+      "study_id": 5,
+      "phase_id": 0,
+      "condition_id": 2,
+      "target_snr_db": 10.0,
+      "role": "R5 predeclared single-decision/constraint study"
+    },
+    {
+      "study_id": 5,
+      "phase_id": 0,
+      "condition_id": 3,
+      "target_snr_db": 20.0,
+      "role": "R5 predeclared single-decision/constraint study"
+    },
+    {
+      "study_id": 5,
+      "phase_id": 0,
+      "condition_id": 4,
+      "target_snr_db": 30.0,
+      "role": "R5 predeclared single-decision/constraint study"
+    },
+    {
+      "study_id": 5,
+      "phase_id": 0,
+      "condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R5 predeclared single-decision/constraint study"
+    },
+    {
+      "study_id": 5,
+      "phase_id": 0,
+      "condition_id": 7,
+      "target_snr_db": 40.0,
+      "role": "R5 predeclared single-decision/constraint study"
+    },
+    {
+      "study_id": 5,
+      "phase_id": 1,
+      "condition_id": 1,
+      "target_snr_db": 0.0,
+      "role": "R5 predeclared single-decision/constraint study"
+    },
+    {
+      "study_id": 5,
+      "phase_id": 1,
+      "condition_id": 2,
+      "target_snr_db": 10.0,
+      "role": "R5 predeclared single-decision/constraint study"
+    },
+    {
+      "study_id": 5,
+      "phase_id": 1,
+      "condition_id": 3,
+      "target_snr_db": 20.0,
+      "role": "R5 predeclared single-decision/constraint study"
+    },
+    {
+      "study_id": 5,
+      "phase_id": 1,
+      "condition_id": 4,
+      "target_snr_db": 30.0,
+      "role": "R5 predeclared single-decision/constraint study"
+    },
+    {
+      "study_id": 5,
+      "phase_id": 1,
+      "condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R5 predeclared single-decision/constraint study"
+    },
+    {
+      "study_id": 5,
+      "phase_id": 1,
+      "condition_id": 7,
+      "target_snr_db": 40.0,
+      "role": "R5 predeclared single-decision/constraint study"
+    }
+  ],
+  "snr_db_range": [
+    0,
+    30
+  ],
+  "snr_mapping": "S = 0 + 30*U_S; one random() scalar from parameter path (0,0)",
+  "snr_baseline_db": 2.6612673327971192,
+  "bit_flip_probability_range": [
+    0.0001,
+    0.1
+  ],
+  "bit_flip_mapping": "p_ID = 10**(log10(0.0001) + U_p*(log10(0.1)-log10(0.0001))) = 10**(-4+3*U_p)",
+  "bit_flip_baseline_probability": 0.00021099569319078592,
+  "formal_trials_generated": true,
+  "pairing": {
+    "within_filter_comparison": "Identical contaminated input; filter ID excluded from noise path",
+    "across_severity_conditions": "Separate registered condition paths by default",
+    "across_bit_layouts": "Separate paths; no claim of position pairing for incomparable layouts"
+  },
+  "gaussian_call": "rng.normal(0.0, sqrt(P_x * 10**(-snr_db/10)), samples.shape)",
+  "bsc_call": "rng.random(bits.shape) < probability",
+  "noise_postprocessing": "No sample-mean removal or forcing exact realised SNR",
+  "repeat_rule": "Same path replays; a new repeat uses a new repeat_id; do not reset the same leaf per sample",
+  "frozen_id_rule": "Never renumber existing IDs or change registered physical parameters; new or changed cases receive new IDs",
+  "run_manifest_required_fields": [
+    "run_id",
+    "root_seed",
+    "pool_size",
+    "bit_generator",
+    "spawn_key",
+    "study_id",
+    "phase_id",
+    "condition_id",
+    "repeat_id",
+    "layout_id_if_applicable",
+    "parameter_range_and_mapping",
+    "target_snr_db",
+    "realised_snr_db",
+    "target_flip_probability_if_applicable",
+    "empirical_flip_fraction_if_applicable",
+    "draw_calls_shapes_dtypes",
+    "python_version",
+    "numpy_version",
+    "input_sha256",
+    "code_sha256",
+    "pairing_group",
+    "output_paths_and_sha256"
+  ],
+  "design_notes": "project_seed_seeding_design.md",
+  "course_scope": "R2/R3 and R4.1/R4.2 complete; R4.3 phase1 pending",
+  "sources": [
+    "https://numpy.org/doc/2.1/reference/random/parallel.html",
+    "https://numpy.org/doc/2.1/reference/random/bit_generators/generated/numpy.random.SeedSequence.html",
+    "https://numpy.org/doc/2.1/reference/random/compatibility.html"
+  ],
+  "snr_parameter_uniform_draw": 0.08870891109323731,
+  "formal_trial_scope": "R2/R3 retained; R4 pilot20/confirmation1400 complete bundles; R5 pilot20/confirmation350; R5.2 subset reused; R6 replays fixed leaves without new observations",
+  "snr_profile_evidence": "../stage2/r21/results/seed_manifest.json",
+  "filter_freeze": "../stage2/r22/results/filter_freeze.json",
+  "r23_validation_protocol": "../stage2/r23/design.json",
+  "r23_seed_manifest": "../stage2/r23/results/seed_manifest.json",
+  "r31_protocol": "../stage3/r31/design.json",
+  "r31_seed_manifest": "../stage3/r31/results/seed_manifest.json",
+  "bsc_condition_registry": [
+    {
+      "study_id": 3,
+      "phase_id": 0,
+      "condition_id": 0,
+      "probability": 0.0,
+      "role": "deterministic identity control",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.2 code-selection pilot only; not final R3.3 range"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 0,
+      "condition_id": 1,
+      "probability": 0.0001,
+      "role": "rare-event diagnostic, excluded from selection score",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.2 code-selection pilot only; not final R3.3 range"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 0,
+      "condition_id": 2,
+      "probability": 0.001,
+      "role": "selection; coding example reference probability",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.2 code-selection pilot only; not final R3.3 range"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 0,
+      "condition_id": 3,
+      "probability": 0.003,
+      "role": "selection",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.2 code-selection pilot only; not final R3.3 range"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 0,
+      "condition_id": 4,
+      "probability": 0.01,
+      "role": "selection",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.2 code-selection pilot only; not final R3.3 range"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 0,
+      "condition_id": 5,
+      "probability": 0.03,
+      "role": "selection; growing multi-error exposure",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.2 code-selection pilot only; not final R3.3 range"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 0,
+      "condition_id": 6,
+      "probability": 0.1,
+      "role": "high-error diagnostic, excluded from selection score",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.2 code-selection pilot only; not final R3.3 range"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 0,
+      "condition_id": 7,
+      "probability": 0.3,
+      "role": "failure diagnostic, excluded from selection score",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.2 code-selection pilot only; not final R3.3 range"
+    },
+    {
+      "condition_id": 8,
+      "probability": 0.0003,
+      "role": "primary logarithmic-grid refinement",
+      "study_id": 3,
+      "phase_id": 0,
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.3 phase-0 range study"
+    },
+    {
+      "condition_id": 9,
+      "probability": 0.2,
+      "role": "stress: above capacity and near loss of BER advantage",
+      "study_id": 3,
+      "phase_id": 0,
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.3 phase-0 range study"
+    },
+    {
+      "condition_id": 10,
+      "probability": 0.5,
+      "role": "stress: zero-capacity uninformative BSC",
+      "study_id": 3,
+      "phase_id": 0,
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.3 phase-0 range study"
+    },
+    {
+      "condition_id": 11,
+      "probability": 0.00021099569319078592,
+      "role": "personal point bound exactly once after mapping freeze",
+      "study_id": 3,
+      "phase_id": 0,
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.3 phase-0 range study"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 1,
+      "condition_id": 0,
+      "probability": 0.0,
+      "role": "identity",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.4 predeclared independent coding validation"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 1,
+      "condition_id": 1,
+      "probability": 0.0001,
+      "role": "main_grid",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.4 predeclared independent coding validation"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 1,
+      "condition_id": 11,
+      "probability": 0.00021099569319078592,
+      "role": "personal",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.4 predeclared independent coding validation"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 1,
+      "condition_id": 8,
+      "probability": 0.0003,
+      "role": "main_grid",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.4 predeclared independent coding validation"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 1,
+      "condition_id": 2,
+      "probability": 0.001,
+      "role": "main_grid",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.4 predeclared independent coding validation"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 1,
+      "condition_id": 12,
+      "probability": 0.002,
+      "role": "predeclared transition refinement below the p=0.003 pilot",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.4 predeclared independent coding validation"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 1,
+      "condition_id": 3,
+      "probability": 0.003,
+      "role": "main_grid",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.4 predeclared independent coding validation"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 1,
+      "condition_id": 13,
+      "probability": 0.004,
+      "role": "predeclared transition refinement above the p=0.003 pilot",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.4 predeclared independent coding validation"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 1,
+      "condition_id": 14,
+      "probability": 0.005,
+      "role": "predeclared upper transition check",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.4 predeclared independent coding validation"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 1,
+      "condition_id": 4,
+      "probability": 0.01,
+      "role": "main_grid",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.4 predeclared independent coding validation"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 1,
+      "condition_id": 5,
+      "probability": 0.03,
+      "role": "main_grid",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.4 predeclared independent coding validation"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 1,
+      "condition_id": 6,
+      "probability": 0.1,
+      "role": "main_grid",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.4 predeclared independent coding validation"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 1,
+      "condition_id": 9,
+      "probability": 0.2,
+      "role": "stress",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.4 predeclared independent coding validation"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 1,
+      "condition_id": 7,
+      "probability": 0.3,
+      "role": "stress",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.4 predeclared independent coding validation"
+    },
+    {
+      "study_id": 3,
+      "phase_id": 1,
+      "condition_id": 10,
+      "probability": 0.5,
+      "role": "stress",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R3.4 predeclared independent coding validation"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 0,
+      "probability": 0.0,
+      "role": "identity BSC control; Gaussian still random",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R4.2 phase0 pilot; p0 draws no random mask"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 1,
+      "probability": 0.0001,
+      "role": "primary BSC slice",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R4.2 phase0 pilot; p0 draws no random mask"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 2,
+      "probability": 0.001,
+      "role": "primary BSC slice",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R4.2 phase0 pilot; p0 draws no random mask"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 3,
+      "probability": 0.003,
+      "role": "primary BSC slice",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R4.2 phase0 pilot; p0 draws no random mask"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 4,
+      "probability": 0.01,
+      "role": "primary BSC slice",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R4.2 phase0 pilot; p0 draws no random mask"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 5,
+      "probability": 0.03,
+      "role": "primary BSC slice",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R4.2 phase0 pilot; p0 draws no random mask"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 6,
+      "probability": 0.1,
+      "role": "primary BSC slice",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R4.2 phase0 pilot; p0 draws no random mask"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 7,
+      "probability": 0.3,
+      "role": "BSC stress diagnostic",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R4.2 phase0 pilot; p0 draws no random mask"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 8,
+      "probability": 0.0003,
+      "role": "primary BSC slice",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R4.2 phase0 pilot; p0 draws no random mask"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 9,
+      "probability": 0.2,
+      "role": "BSC stress diagnostic",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R4.2 phase0 pilot; p0 draws no random mask"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 10,
+      "probability": 0.5,
+      "role": "BSC stress diagnostic",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R4.2 phase0 pilot; p0 draws no random mask"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 11,
+      "probability": 0.00021099569319078592,
+      "role": "personal overlap; one condition and one main weight",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R4.2 phase0 pilot; p0 draws no random mask"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 12,
+      "probability": 0.002,
+      "role": "transition refinement diagnostic",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R4.2 phase0 pilot; p0 draws no random mask"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 13,
+      "probability": 0.004,
+      "role": "transition refinement diagnostic",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R4.2 phase0 pilot; p0 draws no random mask"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 14,
+      "probability": 0.005,
+      "role": "transition refinement diagnostic",
+      "gaussian_condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "scope": "R4.2 phase0 pilot; p0 draws no random mask"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 15,
+      "probability": 0.00021099569319078592,
+      "role": "Gaussian severity/high-SNR diagnostic",
+      "gaussian_condition_id": 0,
+      "target_snr_db": -10.0,
+      "scope": "R4.2 phase0 pilot; p0 draws no random mask"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 16,
+      "probability": 0.00021099569319078592,
+      "role": "primary Gaussian slice",
+      "gaussian_condition_id": 1,
+      "target_snr_db": 0.0,
+      "scope": "R4.2 phase0 pilot; p0 draws no random mask"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 17,
+      "probability": 0.00021099569319078592,
+      "role": "primary Gaussian slice",
+      "gaussian_condition_id": 2,
+      "target_snr_db": 10.0,
+      "scope": "R4.2 phase0 pilot; p0 draws no random mask"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 18,
+      "probability": 0.00021099569319078592,
+      "role": "primary Gaussian slice",
+      "gaussian_condition_id": 3,
+      "target_snr_db": 20.0,
+      "scope": "R4.2 phase0 pilot; p0 draws no random mask"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 19,
+      "probability": 0.00021099569319078592,
+      "role": "primary Gaussian slice",
+      "gaussian_condition_id": 4,
+      "target_snr_db": 30.0,
+      "scope": "R4.2 phase0 pilot; p0 draws no random mask"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 20,
+      "probability": 0.00021099569319078592,
+      "role": "Gaussian severity/high-SNR diagnostic",
+      "gaussian_condition_id": 6,
+      "target_snr_db": 35.0,
+      "scope": "R4.2 phase0 pilot; p0 draws no random mask"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 0,
+      "condition_id": 21,
+      "probability": 0.00021099569319078592,
+      "role": "Gaussian severity/high-SNR diagnostic",
+      "gaussian_condition_id": 7,
+      "target_snr_db": 40.0,
+      "scope": "R4.2 phase0 pilot; p0 draws no random mask"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 0,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R4.3 held-out validation; frozen choices and record count",
+      "probability": 0.0,
+      "gaussian_condition_id": 5,
+      "scope": "p0 is identity, without a BSC random draw"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 1,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R4.3 held-out validation; frozen choices and record count",
+      "probability": 0.0001,
+      "gaussian_condition_id": 5,
+      "scope": "p0 is identity, without a BSC random draw"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 2,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R4.3 held-out validation; frozen choices and record count",
+      "probability": 0.001,
+      "gaussian_condition_id": 5,
+      "scope": "p0 is identity, without a BSC random draw"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 3,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R4.3 held-out validation; frozen choices and record count",
+      "probability": 0.003,
+      "gaussian_condition_id": 5,
+      "scope": "p0 is identity, without a BSC random draw"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 4,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R4.3 held-out validation; frozen choices and record count",
+      "probability": 0.01,
+      "gaussian_condition_id": 5,
+      "scope": "p0 is identity, without a BSC random draw"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R4.3 held-out validation; frozen choices and record count",
+      "probability": 0.03,
+      "gaussian_condition_id": 5,
+      "scope": "p0 is identity, without a BSC random draw"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 6,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R4.3 held-out validation; frozen choices and record count",
+      "probability": 0.1,
+      "gaussian_condition_id": 5,
+      "scope": "p0 is identity, without a BSC random draw"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 7,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R4.3 held-out validation; frozen choices and record count",
+      "probability": 0.3,
+      "gaussian_condition_id": 5,
+      "scope": "p0 is identity, without a BSC random draw"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 8,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R4.3 held-out validation; frozen choices and record count",
+      "probability": 0.0003,
+      "gaussian_condition_id": 5,
+      "scope": "p0 is identity, without a BSC random draw"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 9,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R4.3 held-out validation; frozen choices and record count",
+      "probability": 0.2,
+      "gaussian_condition_id": 5,
+      "scope": "p0 is identity, without a BSC random draw"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 10,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R4.3 held-out validation; frozen choices and record count",
+      "probability": 0.5,
+      "gaussian_condition_id": 5,
+      "scope": "p0 is identity, without a BSC random draw"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 11,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R4.3 held-out validation; frozen choices and record count",
+      "probability": 0.00021099569319078592,
+      "gaussian_condition_id": 5,
+      "scope": "p0 is identity, without a BSC random draw"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 12,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R4.3 held-out validation; frozen choices and record count",
+      "probability": 0.002,
+      "gaussian_condition_id": 5,
+      "scope": "p0 is identity, without a BSC random draw"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 13,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R4.3 held-out validation; frozen choices and record count",
+      "probability": 0.004,
+      "gaussian_condition_id": 5,
+      "scope": "p0 is identity, without a BSC random draw"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 14,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R4.3 held-out validation; frozen choices and record count",
+      "probability": 0.005,
+      "gaussian_condition_id": 5,
+      "scope": "p0 is identity, without a BSC random draw"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 15,
+      "target_snr_db": -10.0,
+      "role": "R4.3 held-out validation; frozen choices and record count",
+      "probability": 0.00021099569319078592,
+      "gaussian_condition_id": 0,
+      "scope": "p0 is identity, without a BSC random draw"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 16,
+      "target_snr_db": 0.0,
+      "role": "R4.3 held-out validation; frozen choices and record count",
+      "probability": 0.00021099569319078592,
+      "gaussian_condition_id": 1,
+      "scope": "p0 is identity, without a BSC random draw"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 17,
+      "target_snr_db": 10.0,
+      "role": "R4.3 held-out validation; frozen choices and record count",
+      "probability": 0.00021099569319078592,
+      "gaussian_condition_id": 2,
+      "scope": "p0 is identity, without a BSC random draw"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 18,
+      "target_snr_db": 20.0,
+      "role": "R4.3 held-out validation; frozen choices and record count",
+      "probability": 0.00021099569319078592,
+      "gaussian_condition_id": 3,
+      "scope": "p0 is identity, without a BSC random draw"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 19,
+      "target_snr_db": 30.0,
+      "role": "R4.3 held-out validation; frozen choices and record count",
+      "probability": 0.00021099569319078592,
+      "gaussian_condition_id": 4,
+      "scope": "p0 is identity, without a BSC random draw"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 20,
+      "target_snr_db": 35.0,
+      "role": "R4.3 held-out validation; frozen choices and record count",
+      "probability": 0.00021099569319078592,
+      "gaussian_condition_id": 6,
+      "scope": "p0 is identity, without a BSC random draw"
+    },
+    {
+      "study_id": 4,
+      "phase_id": 1,
+      "condition_id": 21,
+      "target_snr_db": 40.0,
+      "role": "R4.3 held-out validation; frozen choices and record count",
+      "probability": 0.00021099569319078592,
+      "gaussian_condition_id": 7,
+      "scope": "p0 is identity, without a BSC random draw"
+    },
+    {
+      "study_id": 5,
+      "phase_id": 0,
+      "condition_id": 1,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.0001,
+      "gaussian_condition_id": 5
+    },
+    {
+      "study_id": 5,
+      "phase_id": 0,
+      "condition_id": 2,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.001,
+      "gaussian_condition_id": 5
+    },
+    {
+      "study_id": 5,
+      "phase_id": 0,
+      "condition_id": 3,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.003,
+      "gaussian_condition_id": 5
+    },
+    {
+      "study_id": 5,
+      "phase_id": 0,
+      "condition_id": 4,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.01,
+      "gaussian_condition_id": 5
+    },
+    {
+      "study_id": 5,
+      "phase_id": 0,
+      "condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.03,
+      "gaussian_condition_id": 5
+    },
+    {
+      "study_id": 5,
+      "phase_id": 0,
+      "condition_id": 6,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.1,
+      "gaussian_condition_id": 5
+    },
+    {
+      "study_id": 5,
+      "phase_id": 0,
+      "condition_id": 7,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.3,
+      "gaussian_condition_id": 5
+    },
+    {
+      "study_id": 5,
+      "phase_id": 0,
+      "condition_id": 8,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.0003,
+      "gaussian_condition_id": 5
+    },
+    {
+      "study_id": 5,
+      "phase_id": 0,
+      "condition_id": 10,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.5,
+      "gaussian_condition_id": 5
+    },
+    {
+      "study_id": 5,
+      "phase_id": 0,
+      "condition_id": 11,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.00021099569319078592,
+      "gaussian_condition_id": 5
+    },
+    {
+      "study_id": 5,
+      "phase_id": 0,
+      "condition_id": 16,
+      "target_snr_db": 0.0,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.00021099569319078592,
+      "gaussian_condition_id": 1
+    },
+    {
+      "study_id": 5,
+      "phase_id": 0,
+      "condition_id": 17,
+      "target_snr_db": 10.0,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.00021099569319078592,
+      "gaussian_condition_id": 2
+    },
+    {
+      "study_id": 5,
+      "phase_id": 0,
+      "condition_id": 18,
+      "target_snr_db": 20.0,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.00021099569319078592,
+      "gaussian_condition_id": 3
+    },
+    {
+      "study_id": 5,
+      "phase_id": 0,
+      "condition_id": 19,
+      "target_snr_db": 30.0,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.00021099569319078592,
+      "gaussian_condition_id": 4
+    },
+    {
+      "study_id": 5,
+      "phase_id": 0,
+      "condition_id": 21,
+      "target_snr_db": 40.0,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.00021099569319078592,
+      "gaussian_condition_id": 7
+    },
+    {
+      "study_id": 5,
+      "phase_id": 1,
+      "condition_id": 1,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.0001,
+      "gaussian_condition_id": 5
+    },
+    {
+      "study_id": 5,
+      "phase_id": 1,
+      "condition_id": 2,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.001,
+      "gaussian_condition_id": 5
+    },
+    {
+      "study_id": 5,
+      "phase_id": 1,
+      "condition_id": 3,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.003,
+      "gaussian_condition_id": 5
+    },
+    {
+      "study_id": 5,
+      "phase_id": 1,
+      "condition_id": 4,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.01,
+      "gaussian_condition_id": 5
+    },
+    {
+      "study_id": 5,
+      "phase_id": 1,
+      "condition_id": 5,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.03,
+      "gaussian_condition_id": 5
+    },
+    {
+      "study_id": 5,
+      "phase_id": 1,
+      "condition_id": 6,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.1,
+      "gaussian_condition_id": 5
+    },
+    {
+      "study_id": 5,
+      "phase_id": 1,
+      "condition_id": 7,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.3,
+      "gaussian_condition_id": 5
+    },
+    {
+      "study_id": 5,
+      "phase_id": 1,
+      "condition_id": 8,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.0003,
+      "gaussian_condition_id": 5
+    },
+    {
+      "study_id": 5,
+      "phase_id": 1,
+      "condition_id": 10,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.5,
+      "gaussian_condition_id": 5
+    },
+    {
+      "study_id": 5,
+      "phase_id": 1,
+      "condition_id": 11,
+      "target_snr_db": 2.6612673327971192,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.00021099569319078592,
+      "gaussian_condition_id": 5
+    },
+    {
+      "study_id": 5,
+      "phase_id": 1,
+      "condition_id": 16,
+      "target_snr_db": 0.0,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.00021099569319078592,
+      "gaussian_condition_id": 1
+    },
+    {
+      "study_id": 5,
+      "phase_id": 1,
+      "condition_id": 17,
+      "target_snr_db": 10.0,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.00021099569319078592,
+      "gaussian_condition_id": 2
+    },
+    {
+      "study_id": 5,
+      "phase_id": 1,
+      "condition_id": 18,
+      "target_snr_db": 20.0,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.00021099569319078592,
+      "gaussian_condition_id": 3
+    },
+    {
+      "study_id": 5,
+      "phase_id": 1,
+      "condition_id": 19,
+      "target_snr_db": 30.0,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.00021099569319078592,
+      "gaussian_condition_id": 4
+    },
+    {
+      "study_id": 5,
+      "phase_id": 1,
+      "condition_id": 21,
+      "target_snr_db": 40.0,
+      "role": "R5 predeclared single-decision/constraint study",
+      "probability": 0.00021099569319078592,
+      "gaussian_condition_id": 7
+    }
+  ],
+  "r32_protocol": "../stage3/r32/design.json",
+  "r32_pairing": "Gaussian paths (1,3,0,5,g) shared across p/code; BSC repeat=8*g+b; separate layout leaves for differing transmitted lengths",
+  "r32_status": "R3.2 pilot complete; personal parameter was unused by R3.2 and is subsequently fixed by R3.3",
+  "r32_seed_manifest": "../stage3/r32/results/seed_manifest.json",
+  "bit_flip_parameter_uniform_draw": 0.10809119688032798,
+  "r33_protocol": "../stage3/r33/design.json",
+  "r33_seed_manifest": "../stage3/r33/results/seed_manifest.json",
+  "r33_status": "Range and personal p frozen;890 cases including570 imported and320 new; no independent coding validation",
+  "r34_protocol": "../stage3/r34/design.json",
+  "r34_validation_freeze": "../stage3/r34/results/validation_freeze.json",
+  "r34_seed_manifest": "../stage3/r34/results/seed_manifest.json",
+  "r34_status": "300 new Gaussian inputs, 8400 new BSC masks, 15 conditions; frozen decision, no R4 draws",
+  "r42_protocol": "../stage4/r42/design.json",
+  "r42_pilot_freeze": "../stage4/r42/results/pilot_freeze.json",
+  "r42_seed_manifest": "../stage4/r42/results/seed_manifest.json",
+  "r42_status": "20 bundles,160 Gaussian,840 unique BSC masks,1760 paths; no validation records",
+  "r43_validation_freeze": "../stage4/r43/results/validation_freeze.json",
+  "r43_status": "1400 complete bundles,11200 Gaussian,58800 positive-p BSC masks,123200 paths; all independently checked",
+  "r43_seed_manifest": "../stage4/r43/results/seed_manifest.json",
+  "r5_design": "../stage5/design.json",
+  "r5_layouts": [
+    {
+      "layout": 0,
+      "bits": 14,
+      "code": "hamming74",
+      "payload_bits": 448000,
+      "padding_bits": 0,
+      "transmitted_bits": 784000
+    },
+    {
+      "layout": 1,
+      "bits": 16,
+      "code": "hamming74",
+      "payload_bits": 512000,
+      "padding_bits": 0,
+      "transmitted_bits": 896000
+    },
+    {
+      "layout": 2,
+      "bits": 14,
+      "code": "hamming1511",
+      "payload_bits": 448000,
+      "padding_bits": 8,
+      "transmitted_bits": 610920
+    },
+    {
+      "layout": 3,
+      "bits": 14,
+      "code": "repetition51",
+      "payload_bits": 448000,
+      "padding_bits": 0,
+      "transmitted_bits": 2240000
+    },
+    {
+      "layout": 4,
+      "bits": 14,
+      "code": "uncoded",
+      "payload_bits": 448000,
+      "padding_bits": 0,
+      "transmitted_bits": 448000
+    }
+  ],
+  "r5_status": "R5.1/R5.2 reviewed; pilot20/confirmation350; R52 reuses prespecified personal subset without new draws",
+  "r5_layout_semantics": "Study-specific:0=B14/H74 five FIR variants,1=B16/H74,2=B14/H15,3=B14/repeat5,4=B14/uncoded; earlier layout mappings unchanged"
+}

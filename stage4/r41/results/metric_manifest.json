@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-21",
+  "status": "R4.1 metric selection implemented",
+  "primary_metric": "full-record NMSE = mean((reconstructed-reference)**2)/mean(reference**2)",
+  "metric_selection_source": "stage4/FRAMEWORK.md, prepared before this metric evaluation",
+  "semantic_cases": 7,
+  "legacy_full_record_examples": 5,
+  "new_R4_channel_records": 0,
+  "new_rng_draws": 0,
+  "legacy_examples_are_independent_validation_for_R4": false,
+  "confidence_intervals_estimated_here": false,
+  "software": {
+    "Python": "3.13.5",
+    "NumPy": "2.1.3"
+  },
+  "input_sha256": {
+    "reference_signal.npy": "2f62c84fb0e11586373b2dc0d92f180206d15d4a77098046c9c43de290657095",
+    "stage3/r34/results/example_personal_48000hz.csv": "acd9ee0513788cd8504bcb8e81be7a26750f54a9c290655c85213c31f5a6f92c",
+    "stage3/r34/results/example_high_error_48000hz.csv": "de015c44485c331e72bf030014cc03211dbca4f5ac17a271f05ecd65cfb3dde7",
+    "stage3/r34/results/trials.csv": "b915d540837f8353406e6ef7e2786cbb8f0e61a6ff7df7d225b72ff147e0712e",
+    "stage3/r34/results/validation_freeze.json": "7a6a707e2396a9745e8a0b8177a534329806debb1940ea57460fceb12104f96e"
+  },
+  "source_sha256": {
+    "stage4/r41/design.json": "5a0674faa9b55672eb3303dd914b45f13faeba77112f564c864b761a9405cf60",
+    "stage4/r41/metrics.py": "c8784767b3e803758006814ca8d0a8bb5619066982a0eb8f4a8ef81aa8105110",
+    "stage4/r41/evidence.py": "7ffd462a712c597e40ad3a5dc6ec3f0448d3cf9a20969fd5aca9651dc87bf4bd",
+    "stage4/r41/metric_definition_freeze.json": "f9c823b4e223018d5bd3513cbb82a588f87b8d985c84c50b8b42f7c12d70e390"
+  }
+}

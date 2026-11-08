@@ -1,0 +1,23 @@
+joint_condition_id,snr_condition_id,snr_db,probability,slice_membership,role,primary,main_weight_numerator,main_weight_denominator,main_weight,bsc_rng_required
+0,5,2.6612673327971192,0.0,bsc_at_personal_snr,identity BSC control; Gaussian still random,False,0,12,0.0,False
+1,5,2.6612673327971192,0.0001,bsc_at_personal_snr,primary BSC slice,True,1,12,0.08333333333333333,True
+2,5,2.6612673327971192,0.001,bsc_at_personal_snr,primary BSC slice,True,1,12,0.08333333333333333,True
+3,5,2.6612673327971192,0.003,bsc_at_personal_snr,primary BSC slice,True,1,12,0.08333333333333333,True
+4,5,2.6612673327971192,0.01,bsc_at_personal_snr,primary BSC slice,True,1,12,0.08333333333333333,True
+5,5,2.6612673327971192,0.03,bsc_at_personal_snr,primary BSC slice,True,1,12,0.08333333333333333,True
+6,5,2.6612673327971192,0.1,bsc_at_personal_snr,primary BSC slice,True,1,12,0.08333333333333333,True
+7,5,2.6612673327971192,0.3,bsc_at_personal_snr,BSC stress diagnostic,False,0,12,0.0,True
+8,5,2.6612673327971192,0.0003,bsc_at_personal_snr,primary BSC slice,True,1,12,0.08333333333333333,True
+9,5,2.6612673327971192,0.2,bsc_at_personal_snr,BSC stress diagnostic,False,0,12,0.0,True
+10,5,2.6612673327971192,0.5,bsc_at_personal_snr,BSC stress diagnostic,False,0,12,0.0,True
+11,5,2.6612673327971192,0.00021099569319078592,bsc_at_personal_snr|gaussian_at_personal_p,personal overlap; one condition and one main weight,True,1,12,0.08333333333333333,True
+12,5,2.6612673327971192,0.002,bsc_at_personal_snr,transition refinement diagnostic,False,0,12,0.0,True
+13,5,2.6612673327971192,0.004,bsc_at_personal_snr,transition refinement diagnostic,False,0,12,0.0,True
+14,5,2.6612673327971192,0.005,bsc_at_personal_snr,transition refinement diagnostic,False,0,12,0.0,True
+15,0,-10.0,0.00021099569319078592,gaussian_at_personal_p,Gaussian severity/high-SNR diagnostic,False,0,12,0.0,True
+16,1,0.0,0.00021099569319078592,gaussian_at_personal_p,primary Gaussian slice,True,1,12,0.08333333333333333,True
+17,2,10.0,0.00021099569319078592,gaussian_at_personal_p,primary Gaussian slice,True,1,12,0.08333333333333333,True
+18,3,20.0,0.00021099569319078592,gaussian_at_personal_p,primary Gaussian slice,True,1,12,0.08333333333333333,True
+19,4,30.0,0.00021099569319078592,gaussian_at_personal_p,primary Gaussian slice,True,1,12,0.08333333333333333,True
+20,6,35.0,0.00021099569319078592,gaussian_at_personal_p,Gaussian severity/high-SNR diagnostic,False,0,12,0.0,True
+21,7,40.0,0.00021099569319078592,gaussian_at_personal_p,Gaussian severity/high-SNR diagnostic,False,0,12,0.0,True

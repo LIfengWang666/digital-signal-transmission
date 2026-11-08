@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-21",
+  "status": "passed",
+  "paired_gain_conditions_checked": 15,
+  "theory_conditions_checked": 30,
+  "independent_theory_decoder": "Nearest of all 16 valid codewords",
+  "maximum_paired_gain_statistic_difference": 3.552713678800501e-15,
+  "maximum_theory_error_including_log_probability": 2.9103830456733704e-11,
+  "all_complete_payload_probabilities_match": true
+}

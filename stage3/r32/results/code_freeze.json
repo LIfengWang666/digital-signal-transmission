@@ -1,0 +1,146 @@
+{
+  "date": "2026-10-21",
+  "status": "R3.2 code frozen from pilot design",
+  "selected_code": "hamming74",
+  "definition": {
+    "code": "hamming74",
+    "n": 7,
+    "k": 4,
+    "rate": 0.5714285714285714,
+    "d_min": 3,
+    "t": 1,
+    "G": [
+      [
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    ],
+    "H": [
+      [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1
+      ]
+    ],
+    "P": [
+      [
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        1
+      ]
+    ]
+  },
+  "selection": {
+    "code": "hamming74",
+    "n": 7,
+    "k": 4,
+    "d_min": 3,
+    "t": 1,
+    "score": 0.08343813599774882,
+    "score_sd": 0.0017016488099176432,
+    "score_ci95_low": 0.0813252599328878,
+    "score_ci95_high": 0.08555101206260984,
+    "payload_expansion": 1.75,
+    "transmitted_bits": 784000,
+    "transmitted_bits_per_second": 392000.0,
+    "effective_rate": 0.5714285714285714,
+    "eligible": 1
+  },
+  "payload_expansion_budget": 2.0,
+  "selection_probabilities": [
+    0.001,
+    0.003,
+    0.01,
+    0.03
+  ],
+  "quantiser_bits": 14,
+  "quantiser_half_range": 18.0,
+  "source_sha256": {
+    "stage3/r32/codes.py": "6b82a04a210816034b80ef449ad1ea638461cb56d481aec06b0b41d0759e0208",
+    "stage3/r32/code_checks.py": "de6cc5aef239326ae3d97b558b439df83ac3bf8ae36dd66ef5b09d18c0669d90",
+    "stage3/r32/pilot_comparison.py": "ad52a6a2d63bbfeb94dbfe2d16a5a193b2324b73808ee3ee8553849b152982c7",
+    "stage3/r32/design.json": "3683d0ebdc64b74923c63ddfe38259a65e57d34542f67cf83be2663a6c797ff9",
+    "stage3/r31/results/quantiser_freeze.json": "8fefa577802f4b458f82c919e874779e96b0008b9b5efbbefe343a2f78f49cec",
+    "stage3/r31/quantisation.py": "49cce25f461d0043a6f19de4baed638a6e90d501ddcf0a06a60f8b5c48c8c49f",
+    "stage3/bitstream.py": "8af75b175d1873f271f1dca36f7b6648d87d7a76794ca1cbd73bdb6fd166af83",
+    "degradation.py": "beb4a6abeba009fc5d04415e22bc666de34ac09bc6170e70218dd2629b3abdaa",
+    "stage1/r12/sampling_rate.py": "9f87beaf817a386d771e956162b6e1f1468e34e13658053aba74d898c41db11b",
+    "stage2/r21/filtering_approach.py": "90c7e544a95fecfc8e51f8d134f843aed3263702d923bccc61a99dbaea53e9db",
+    "reference_signal.npy": "2f62c84fb0e11586373b2dc0d92f180206d15d4a77098046c9c43de290657095",
+    "stage2/r22/results/selected_coefficients.npy": "aa155baf5455d627aa4df47373cad6c6d254fa1359020dc10895fcc28e89dec8",
+    "stage3/r31/results/seed_manifest.json": "5348b90cc0c876571093ea3ac689aafa1be57987736802fd27a0fca6e60a103b"
+  },
+  "p_range_and_mapping_finalised": false,
+  "personal_p_drawn": false,
+  "phase_1_used": false,
+  "limits": "Pilot code choice at personal Gaussian SNR; not an R3.4 success threshold or validation claim"
+}

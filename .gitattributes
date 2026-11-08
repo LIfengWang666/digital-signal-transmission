@@ -1,0 +1,8 @@
+* -text
+*.py diff=python
+*.md text eol=lf
+*.npy binary
+*.png binary
+*.pdf binary
+*.wav binary
+*.bin binary
